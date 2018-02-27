@@ -1,0 +1,236 @@
+/* Styling for små mobilenheter */
+@media screen and (min-width : 320px)
+{
+
+body {
+  background-color: rgb(245, 245, 245);
+  margin: 0;
+  width: 100%
+}
+
+header {
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  padding: 80px 10px 10px 10px;
+
+}
+
+nav {
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  width: 70%;
+  float: right;
+}
+
+ul {
+  list-style: none;
+  margin: 0px;
+}
+
+/*Hjem, Link 1, Om oss */
+li a {
+  display: block;
+  float: right;
+  margin: 4px;
+  padding: 15px;
+  color: #fff;
+  text-decoration: none;
+}
+
+li a:hover {
+  font-weight: bold;
+  color: #cacaca;
+}
+
+#logo {
+    width: 30%;
+    float: left;
+    color: #fff;
+}
+
+#logo a {
+  text-decoration: none;
+  color: #fff;
+}
+
+#forsidebilde {
+  background-image: url('../img/forside.jpg');
+  background-size: 100% 100%;
+  background-position: 50% 50%;
+  width: 100%;
+  height: 700px;
+  background-repeat: no-repeat;
+}
+
+#uib {
+  background: url(../img/uib.png) center;
+  background-size: 100% 100%;
+  width: 95px;
+  height: 95px;
+  float: left;
+}
+
+#mcb {
+  background: url(../img/mcb.png) center;
+  background-size: 100% 100%;
+  width: 250px;
+  height: 90px;
+  float: right;
+}
+
+#topBanner1 {
+  background: url(../img/forside.jpg);
+  background-size: 100%;
+  background-position: 100% 100%;
+  width: 100%;
+  height: 60px;
+  background-repeat: no-repeat;
+  position: fixed;
+  z-index: 1;
+}
+
+.centerBox {
+  padding: 200px 20px 0 20px;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  color:white;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.4)
+}
+
+.centerBox h1 {
+  font-size: 48px;
+}
+
+.centerBox p {
+  font-size: 20px;
+}
+
+.lineBox {
+  min-height: 200px;
+  width: 100%;
+  padding: 10px;
+  float: left;
+}
+.box {
+  background-color: rgba(255, 255, 255, 0.8);
+  min-height: 100px;
+  width: 100%;
+}
+
+.box img {
+  width: 100%;
+  height: auto;
+}
+
+.boxPicture {
+  padding: 10px;
+}
+
+.box:hover {
+  box-shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.3);
+}
+.centerLogoBox{
+  width: 400px;
+  align-content: center;
+  margin: auto;
+}
+
+#om{
+  text-align:center;
+  margin-top: 10%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+#map{
+  width: 100%;
+  height: 400px;
+  background-color: grey;
+}
+
+.twoThirds {
+  width: 60%;
+  float: left;
+  padding: 10px;
+}
+
+
+/* Fonter for mobilenheter */
+
+p {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  font-family: 'Crete Round', serif;
+  font-size: 32px;
+}
+
+h2 {
+  font-family: 'Crete Round', serif;
+  font-size: 25px;
+  margin: 10px;
+}
+
+h3 {
+  font-family: 'Crete Round', serif;
+  font-size: 20px;
+}
+
+h4 {
+  position: center;
+  float: left;
+  margin: 10px;
+}
+
+/* Styling for stående nettbrett */
+@media screen and (min-width : 768px)
+{
+
+.container {
+  align: center;
+  width: 95%;
+  margin: auto;
+}
+
+.lineBox {
+  width: 45%;
+}
+
+.centerBox h1 {
+  font-size: 52px;
+}
+
+}
+
+/* Styling for små laptopskjermer */
+@media screen and (min-width : 1024px)
+{
+
+.container {
+  align: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.lineBox {
+  width: 22%;
+}
+
+.logo img {
+  width: 180px;
+  height: 180px;
+  padding: 10px;
+}
+
+}
