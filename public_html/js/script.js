@@ -241,7 +241,7 @@ console.log(toilets.length);
 
 // posisjonene lagres i kart-API'en til Google, enkelt navngitt fra 0-13. Da høyde & breddegradene til posisjonene er lagret som String-objekter, bruker vi Number() funksjonen på longitude & latitude attributtene for å konvertere Strengene til tallverdier som kan brukes i API'en.
 function initMap() {
-  var bergen = {lat:60.391, lng:5.322}
+  var bergen = {lat:60.394106, lng:5.324017}
 
   var toilet0 = {lat:Number(toilets[0].latitude), lng:Number(toilets[0].longitude)}
   var toilet1 = {lat:Number(toilets[1].latitude), lng:Number(toilets[1].longitude)}
@@ -258,7 +258,7 @@ function initMap() {
   var toilet12 = {lat:Number(toilets[12].latitude), lng:Number(toilets[12].longitude)}
   var toilet13 = {lat:Number(toilets[13].latitude), lng:Number(toilets[13].longitude)}
       var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
+    zoom: 14,
     center : bergen,
     map: map
   });
