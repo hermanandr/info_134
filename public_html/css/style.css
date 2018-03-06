@@ -28,6 +28,9 @@ header {
   width: 100%;
   height: auto;
   padding: 80px 10px 10px 10px;
+=======
+  padding: 80px 10px 30px 10px;
+>>>>>>> eb29a5160b8e634ab7f1cc8ce314002a9a2572e0
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
@@ -231,7 +234,11 @@ h4 {
 }
 
 .lineBox {
+<<<<<<< HEAD
   width: 48%;
+=======
+  width: 50%;
+>>>>>>> eb29a5160b8e634ab7f1cc8ce314002a9a2572e0
 }
 
 .centerBox h1 {
@@ -262,7 +269,11 @@ h4 {
     text-decoration: none;
     color: #fff;
   }
+<<<<<<< HEAD
   /*Bergens 7 - størrelse*/
+=======
+  /*Bergens 7 - skrifttype*/
+>>>>>>> eb29a5160b8e634ab7f1cc8ce314002a9a2572e0
   #logo h2 {
       font-size: 25px;
       margin: 10px;
@@ -277,13 +288,20 @@ h4 {
   align: center;
   max-width: 1200px;
   margin: auto;
+<<<<<<< HEAD
   margin: 10px;
+=======
+>>>>>>> eb29a5160b8e634ab7f1cc8ce314002a9a2572e0
 
 }
 
 /* fordeling av fjell-boksene */
 .lineBox {
+<<<<<<< HEAD
   width: 23%;
+=======
+  width: 30%;
+>>>>>>> eb29a5160b8e634ab7f1cc8ce314002a9a2572e0
 }
 
 .logo img {
