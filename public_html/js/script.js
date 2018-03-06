@@ -1,7 +1,7 @@
 function startProgram () {
   console.log("tekst");
 }
-// Lagrer JSON-data som et javascript-objekt "doJSON".
+// Lagrer JSON-data som et javascript-objekt "doJSON". (Edvard)
 var doJSON = {
     "entries": [{
         "herre": "1",
@@ -233,13 +233,13 @@ var doJSON = {
     "posts": 14
 };
 // JSON-filen inneholder et Array som heter 'entries', som inneholder hvert do-objekt. Vi lagrer dette i den globale variabelen 'toilets'.
-// 'toilets' logges til konsollen for å kontrollere at vi har lagret et array med do-objekter.
+// 'toilets' logges til konsollen for å kontrollere at vi har lagret et array med do-objekter. (Edvard)
 
 var toilets = doJSON.entries;
 console.log(toilets);
 console.log(toilets.length);
 
-// posisjonene lagres i kart-API'en til Google, enkelt navngitt fra 0-13. Da høyde & breddegradene til posisjonene er lagret som String-objekter, bruker vi Number() funksjonen på longitude & latitude attributtene for å konvertere Strengene til tallverdier som kan brukes i API'en.
+// posisjonene lagres i kart-API'en til Google, enkelt navngitt fra 0-13. Da høyde & breddegradene til posisjonene er lagret som String-objekter, bruker vi Number() funksjonen på longitude & latitude attributtene for å konvertere Strengene til tallverdier som kan brukes i API'en.(Edvard)
 function initMap() {
   var bergen = {lat:60.394106, lng:5.324017}
 
