@@ -9,7 +9,7 @@ body {
   width: 100%
 }
 
-/* */
+/* Menyseksjon i topp */
 header {
   position: fixed;
   height: 60px;
@@ -17,7 +17,7 @@ header {
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
   z-index: 2;
 }
-/*  */
+/* Beholder for innhold */
 .container {
   width: 100%;
   height: auto;
@@ -36,7 +36,7 @@ nav {
   float: right;
 }
 
-/* */
+/* Liste for meny*/
 ul {
   list-style: none;
   margin: 0px;
@@ -133,6 +133,7 @@ li a:hover {
   font-size: 20px;
 }
 
+/* Kort for visning av turmål (Herman) */
 .lineBox {
   min-height: 200px;
   width: 100%;
@@ -177,6 +178,12 @@ li a:hover {
   width: 60%;
   float: left;
   padding: 10px;
+}
+
+/* Fullskjerm-bilde (Herman) */
+.coverPhoto {
+  width: auto;
+  height: 100vh;
 }
 
 
