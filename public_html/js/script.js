@@ -243,20 +243,20 @@ console.log(toilets.length);
 function initMap() {
   var bergen = {lat:60.394106, lng:5.324017}
 
-  var toilet0 = {lat:Number(toilets[0].latitude), lng:Number(toilets[0].longitude)}
-  var toilet1 = {lat:Number(toilets[1].latitude), lng:Number(toilets[1].longitude)}
-  var toilet2 = {lat:Number(toilets[2].latitude), lng:Number(toilets[2].longitude)}
-  var toilet3 = {lat:Number(toilets[3].latitude), lng:Number(toilets[3].longitude)}
-  var toilet4 = {lat:Number(toilets[4].latitude), lng:Number(toilets[4].longitude)}
-  var toilet5 = {lat:Number(toilets[5].latitude), lng:Number(toilets[5].longitude)}
-  var toilet6 = {lat:Number(toilets[6].latitude), lng:Number(toilets[6].longitude)}
-  var toilet7 = {lat:Number(toilets[7].latitude), lng:Number(toilets[7].longitude)}
-  var toilet8 = {lat:Number(toilets[8].latitude), lng:Number(toilets[8].longitude)}
-  var toilet9 = {lat:Number(toilets[9].latitude), lng:Number(toilets[9].longitude)}
-  var toilet10 = {lat:Number(toilets[10].latitude), lng:Number(toilets[10].longitude)}
-  var toilet11 = {lat:Number(toilets[11].latitude), lng:Number(toilets[11].longitude)}
-  var toilet12 = {lat:Number(toilets[12].latitude), lng:Number(toilets[12].longitude)}
-  var toilet13 = {lat:Number(toilets[13].latitude), lng:Number(toilets[13].longitude)}
+  var toilet1 = {lat:Number(toilets[0].latitude), lng:Number(toilets[0].longitude)}
+  var toilet2 = {lat:Number(toilets[1].latitude), lng:Number(toilets[1].longitude)}
+  var toilet3 = {lat:Number(toilets[2].latitude), lng:Number(toilets[2].longitude)}
+  var toilet4 = {lat:Number(toilets[3].latitude), lng:Number(toilets[3].longitude)}
+  var toilet5 = {lat:Number(toilets[4].latitude), lng:Number(toilets[4].longitude)}
+  var toilet6 = {lat:Number(toilets[5].latitude), lng:Number(toilets[5].longitude)}
+  var toilet7 = {lat:Number(toilets[6].latitude), lng:Number(toilets[6].longitude)}
+  var toilet8 = {lat:Number(toilets[7].latitude), lng:Number(toilets[7].longitude)}
+  var toilet9 = {lat:Number(toilets[8].latitude), lng:Number(toilets[8].longitude)}
+  var toilet10 = {lat:Number(toilets[9].latitude), lng:Number(toilets[9].longitude)}
+  var toilet11 = {lat:Number(toilets[10].latitude), lng:Number(toilets[10].longitude)}
+  var toilet12 = {lat:Number(toilets[11].latitude), lng:Number(toilets[11].longitude)}
+  var toilet13 = {lat:Number(toilets[12].latitude), lng:Number(toilets[12].longitude)}
+  var toilet14 = {lat:Number(toilets[13].latitude), lng:Number(toilets[13].longitude)}
       var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
     center : bergen,
