@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- Importering av font  -->
     <link href="https://fonts.googleapis.com/css?family=Crete+Round|Lato" rel="stylesheet">
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
   </head>
     <!--  -->
     <body onload="startProgram();">
@@ -22,7 +22,7 @@
           <ul>
             <!-- Lenker til undersidene -->
             <li><a href="Om-oss.html"> Om oss </a></li>
-            <li><a href="map.html"> Kart </a></li>
+            <li><a href="map.html"> Toaletter </a></li>
             <li><a href="index.html"> Hjem </a></li>
           </ul>
         </nav>
@@ -135,6 +135,27 @@
         </div>
       </div>
     </div>
+
+    <!-- DNT-logo -->
+    <div class="lineBox">
+      <div class="box">
+        <img src="img/dnt.jpg" alt="Logoen til Den Norske Turforening.">
+      </div>
+    </div>
+    <!-- Tekst om syvfjellsturen -->
+
+      <div class="twoThirds">
+        <h3>Finn frem i Bergensfjellene</h3>
+        <p>Bli kjent med Bergen og fjellene på en fantastisk og krevende måte. Den siste søndagen i mai hvert år arrangerer Bergen Turlag 7-fjellsturen. Første tur var i 1948, med 206 deltakere. Frem til 1980/1981 gikk turen også innom Askøy. Fra 1981/1982 har dette vært ruten: Lyderhorn, Damsgårdsfjellet, Løvstakken, Ulriken, Fløyen, Rundemanen, Sandviksfjellet. Samme dag går også 4-fjellsturen, for de som ønsker en kortere rute. Den består av de siste fire fjellene. Turen tar fra 8-12 timer alt etter form og føre. Raskeste har løpt på 3 timer og 21.min, andre har brukt opp mot 17-18 timer.</p>
+      </div>
+  
+
+    <!--Kart med fjellene -->
+    <div id="map"></div>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5QyVZg6FmI3ayYvcMs1tOfFBQWQoRio&callback=initMap">
+      </script>
+
+
   </div>
 </body>
 </html>
