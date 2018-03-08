@@ -18,10 +18,23 @@
         <div id="logo">
           <a href="index.html"> <h2> Bergens 7 </h2></a>
         </div>
-        <nav>
+        <nav id="HamburgerMeny">
+          <!-- Menyknapp -->
+          <div id="Knapp">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="Meny">
+              <a href="Om-oss.html"><li>Om oss</li></a>
+              <a href="map.html"><li>Toaletter</li></a>
+              <a href="index.html"><li>Hjem</li></a>
+            </ul>
+          </div>
+        </nav>
+        <nav id="StorMeny">
           <ul>
-            <!-- Lenker til undersidene -->
-            <li><a href="Om-oss.html"> Om oss </a></li>
+            <li><a href="Om-oss.html">Om oss</a></li>
             <li><a href="map.html"> Toaletter </a></li>
             <li><a href="index.html"> Hjem </a></li>
           </ul>
@@ -136,7 +149,7 @@
       </div>
     </div>
 
-    <!-- DNT-logo 
+    <!-- DNT-logo
     <div class="lineBox">
       <div class="box">
         <img src="img/dnt.jpg" alt="Logoen til Den Norske Turforening.">

@@ -37,6 +37,114 @@ nav {
   float: right;
 }
 
+/* Skjul stor meny på små skjermer (Herman) */
+#StorMeny {
+  display: none;
+}
+
+/* -- Hamburgermeny start -- (Herman) */
+
+/* Menyknapp */
+#Knapp
+{
+  display: block;
+  position: relative;
+  float: right;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+}
+
+#Knapp input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+#Knapp span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #cdcdcd;
+  border-radius: 3px;
+  z-index: 1;
+  /* Klikk-effekt */
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+/* Klikk-effekt */
+#Knapp span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#Knapp span:nth-last-child(2){
+  transform-origin: 0% 100%;
+}
+
+/* Klikk-effekt */
+#Knapp input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/* Skjul midterste strek */
+#Knapp input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#Knapp input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/* Meny-felt */
+#Meny
+{
+  position: absolute;
+  width: 70vw;
+  margin: -100px 0 0 -70vw;
+  padding: 50px;
+  padding-top: 125px;
+  background: #ededed;
+  list-style-type: none;
+/* Slide inn effekt */
+  transform-origin: 0% 0%;
+  transform: translate(+100vw, 0);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#Meny li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/* Slide inn når menypunktet er klikket */
+#Knapp input:checked ~ ul
+{
+  transform: none;
+}
+
+/* -- Hamburgermeny slutt -- */
+
+
 /* Liste for meny*/
 ul {
   list-style: none;
@@ -292,6 +400,14 @@ h4 {
 /* Styling for små laptopskjermer */
 @media screen and (min-width : 1024px)
 {
+
+#HamburgerMeny {
+  display: none;
+}
+
+#StorMeny {
+  display: block;
+}
 
 .container {
   align: center;
