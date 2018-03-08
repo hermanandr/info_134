@@ -81,10 +81,11 @@ li a:hover {
 /*Importering og plassering av forsidebildet */
 #forsidebilde {
   background-image: url('../img/forside.jpg');
-  background-size: auto 800px;
+  /*background-size: auto 800px;*/
   background-position: 50% top;
   width: auto;
   height: 80vh;
+  max-height: 1000px;
   background-repeat: no-repeat;
   background-attachment: fixed;
   /*background-position: sticky; */
