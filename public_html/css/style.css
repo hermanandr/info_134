@@ -193,6 +193,18 @@ li a:hover {
   height: 100vh;
 }
 
+/* Gir klassen en høy Z-index */
+.Z1 {
+    z-index: 100;
+    position: absolute;
+}
+
+.flex {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
 
 /* Fonter for mobilenheter */
 
