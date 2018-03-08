@@ -10,6 +10,7 @@ body {
 }
 
 /* Menyseksjon i topp */
+
 header {
   position: fixed;
   height: 60px;
@@ -85,6 +86,9 @@ li a:hover {
   width: auto;
   height: 80vh;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  /*background-position: sticky; */
+  top: 200px;
 }
 
 /* uib- og mbc-logoene på "Om oss"-undersiden (Liva) */
@@ -174,11 +178,14 @@ li a:hover {
   background-color: grey;
 }
 
+
 .twoThirds {
   width: 70%;
   float: center;
   padding: 10px;
 }
+
+
 
 /* Fullskjerm-bilde (Herman) */
 .coverPhoto {
@@ -221,7 +228,7 @@ h4 {
 }
 
 /* Styling for stående nettbrett */
-@media screen and (min-width : 768px)
+@media screen and (min-width : 530px) /*?? var 768ish*/
 {
 
 .container {
@@ -294,6 +301,14 @@ h4 {
 
 #forsidebilde {
   height: 100vh;
+
+}
+
+.twoThirds {
+  image: url(../img/dnt.jpg);
+  width: 70%;
+  float: center;
+  padding: 10px;
 }
 
 }

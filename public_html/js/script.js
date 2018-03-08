@@ -263,10 +263,6 @@ function initMap() {
     map: map
   });
   var marker = new google.maps.Marker({
-    position: toilet0,
-    map: map
-  })
-  var marker = new google.maps.Marker({
     position: toilet1,
     map: map
   })
@@ -316,6 +312,10 @@ function initMap() {
   })
   var marker = new google.maps.Marker({
     position: toilet13,
+    map: map
+  })
+  var marker = new google.maps.Marker({
+    position: toilet14,
     map: map
   })
 }
