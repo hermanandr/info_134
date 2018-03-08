@@ -50,6 +50,7 @@ li a {
   padding: 15px;
   color: #fff;
   text-decoration: none;
+  font-size: 20px;
 }
 
 /*Grå farge på linkingen til undersidene når musepeker er over*/
@@ -73,7 +74,7 @@ li a:hover {
 
 /*Bergens 7 - skrifttype*/
 #logo h2 {
-    font-size: 30px;
+    font-size: 25px;
     margin: 10px;
   }
 }
@@ -81,7 +82,7 @@ li a:hover {
 /*Importering og plassering av forsidebildet */
 #forsidebilde {
   background-image: url('../img/forside.jpg');
-  /*background-size: auto 800px;*/
+  background-size: auto 800px;
   background-position: 50% top;
   width: auto;
   height: 80vh;
@@ -285,12 +286,8 @@ h4 {
   color: #fff;
 }
 
-/*Bergens 7 - skrifttype*/
-#logo h2 {
-    font-size: 25px;
-    margin: 10px;
-  }
-}
+
+
 
 /* Styling for små laptopskjermer */
 @media screen and (min-width : 1024px)
@@ -316,8 +313,13 @@ h4 {
 
 #forsidebilde {
   height: 100vh;
-
 }
+
+/*Bergens 7 - skrifttype*/
+#logo h2 {
+    font-size: 30px;
+    margin: 10px;
+  }
 
 /*.twoThirds {
   image: url(../img/dnt.jpg);
