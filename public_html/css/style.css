@@ -178,9 +178,9 @@ li a:hover {
   background-color: grey;
 }
 
-
+/*Teksten om fjellene på forsiden*/
 .twoThirds {
-  width: 70%;
+  width: 100%;
   float: center;
   padding: 10px;
 }
@@ -218,6 +218,8 @@ p {
 h1 {
   font-family: 'Crete Round', serif;
   font-size: 32px;
+  display: flex;
+  justify-content: center;
 }
 
 /*Bergens 7 - skrifttype*/
@@ -316,11 +318,11 @@ h4 {
 
 }
 
-.twoThirds {
+/*.twoThirds {
   image: url(../img/dnt.jpg);
   width: 70%;
   float: center;
   padding: 10px;
-}
+}*/
 
 }
