@@ -284,8 +284,6 @@ li a:hover {
   padding: 10px;
 }
 
-
-
 /* Fullskjerm-bilde (Herman) */
 .coverPhoto {
   width: auto;
@@ -304,16 +302,15 @@ li a:hover {
   justify-content: center;
 }
 
+/* -- Fonter for mobilenheter -- */
 
-/* Fonter for mobilenheter */
-
-/*Meter over havet og antall timer*/
+/* Brødtekst */
 p {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
 }
 
-/*"Våt vandring" og undertekst over forsidebildet */
+/* Tittel 1 */
 h1 {
   font-family: 'Crete Round', serif;
   font-size: 32px;
@@ -321,19 +318,20 @@ h1 {
   justify-content: center;
 }
 
-/*Bergens 7 - skrifttype*/
+/* Tittel 2*/
 h2 {
   font-family: 'Crete Round', serif;
   font-size: 25px;
   margin: 10px;
 }
 
-/*Navn på fjellene  - skrifttype */
+/* Tittel 3 */
 h3 {
   font-family: 'Crete Round', serif;
   font-size: 20px;
 }
 
+/* Tittel 4 */
 h4 {
   position: center;
   float: left;
