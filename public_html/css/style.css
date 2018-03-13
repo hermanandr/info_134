@@ -226,7 +226,6 @@ li a:hover {
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.4)
 }
 
-
 .centerBox h1 {
   font-size: 48px;
 }
@@ -427,7 +426,7 @@ h4 {
 
 /*Bergens 7 - skrifttype*/
 #logo h2 {
-    font-size: 30px;
+    font-size: 25px;
     margin: 10px;
   }
 
