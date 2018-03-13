@@ -76,7 +76,7 @@ nav {
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-  background: #cdcdcd;
+  background: #fff;
   border-radius: 3px;
   z-index: 1;
   /* Klikk-effekt */
@@ -99,7 +99,7 @@ nav {
 #Knapp input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
+  background: #fff;
 }
 
 /* Skjul midterste strek */
@@ -156,6 +156,7 @@ li a {
   float: right;
   margin: 4px;
   padding: 15px;
+  /*color: #333942;*/
   color: #fff;
   text-decoration: none;
   font-size: 20px;
@@ -171,12 +172,13 @@ li a:hover {
 #logo {
     width: 40%;
     float: left;
-    color: #fff;
+
 }
 
-/* */
+/* Hva er dette???????? */
 #logo a {
   text-decoration: none;
+  /*color: #333942;*/
   color: #fff;
 }
 
@@ -184,12 +186,14 @@ li a:hover {
 #logo h2 {
     font-size: 25px;
     margin: 10px;
+    color: #fff;
+    /*color: #333942;*/
   }
 }
 
 /*Importering og plassering av forsidebildet */
 #forsidebilde {
-  background-image: url('../img/forside.jpg');
+  background-image: url('../img/forsidecopy.jpg');
   background-size: auto 800px;
   background-position: 50% top;
   width: auto;
