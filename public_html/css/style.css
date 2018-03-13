@@ -1,7 +1,3 @@
-/* Styling for små mobilenheter */
-@media screen and (min-width : 320px)
-{
-
 /*Bakgrunnsfarge: lys grå, hele skjermen */
 body {
   background-color: rgb(245, 245, 245);
@@ -18,16 +14,6 @@ header {
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
   z-index: 2;
 }
-/* Beholder for innhold */
-.container {
-  width: 100%;
-  height: auto;
-  padding: 80px 10px 10px 10px;
-  display: flex;
-  flex-flow: row wrap;
-  align-content: flex-start;
-  justify-content: space-between;
-}
 
 /*Font og plassering av "Hjem", "Kart", og "Om oss" i headeren */
 nav {
@@ -37,13 +23,7 @@ nav {
   float: right;
 }
 
-/* Skjul stor meny på små skjermer (Herman) */
-#StorMeny {
-  display: none;
-}
-
 /* -- Hamburgermeny start -- (Herman) */
-
 /* Menyknapp */
 #Knapp
 {
@@ -173,6 +153,123 @@ li a:hover {
   color: #cacaca;
 }
 
+/* uib- og mbc-logoene på "Om oss"-undersiden (Liva) */
+#uib {
+  background: url(../img/uib.png) center;
+  background-size: 100% 100%;
+  width: 95px;
+  height: 95px;
+  float: left;
+}
+#mcb {
+  background: url(../img/mcb.png) center;
+  background-size: 100% 100%;
+  width: 250px;
+  height: 90px;
+  float: right;
+}
+
+/* Header på undersidene (nederste del av forsidebildet) (Liva) */
+#topBanner1 {
+  background: url(../img/forside.jpg);
+  background-size: 100%;
+  background-position: 100% 100%;
+  width: 100%;
+  height: 60px;
+  background-repeat: no-repeat;
+  position: fixed;
+  z-index: 1;
+}
+
+img {
+ width: 100%;
+ height: auto;
+}
+
+#map{
+  width: 100%;
+  height: 400px;
+  background-color: grey;
+}
+
+/*Teksten om fjellene på forsiden*/
+.twoThirds {
+  width: 100%;
+  float: center;
+  padding: 10px;
+}
+
+/* Fullskjerm-bilde (Herman) */
+.coverPhoto {
+  width: auto;
+  height: 100vh;
+}
+
+/* Gir klassen en høy Z-index */
+.Z1 {
+    z-index: 100;
+    position: absolute;
+}
+
+.flex {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+/* Fonter */
+/*Meter over havet og antall timer*/
+p {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+}
+
+/*"Våt vandring" og undertekst over forsidebildet */
+h1 {
+  font-family: 'Crete Round', serif;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+/*Bergens 7 - skrifttype*/
+h2 {
+  font-family: 'Crete Round', serif;
+  font-size: 25px;
+  margin: 10px;
+}
+
+/*Navn på fjellene  - skrifttype */
+h3 {
+  font-family: 'Crete Round', serif;
+  font-size: 20px;
+}
+
+h4 {
+  position: center;
+  float: left;
+  margin: 10px;
+}
+
+/* Styling for små mobilenheter */
+@media screen and (min-width : 320px)
+{
+
+/* Beholder for innhold */
+.container {
+  height: auto;
+  padding: 80px 10px 10px 10px;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  justify-content: space-between;
+}
+
+/* Skjul stor meny på små skjermer (Herman) */
+#StorMeny {
+  display: none;
+}
+
 /* "Bergens 7 øverst i venstre hjørne i hvit  */
 #logo {
     width: 40%;
@@ -209,33 +306,6 @@ li a:hover {
   top: 200px;
 }
 
-/* uib- og mbc-logoene på "Om oss"-undersiden (Liva) */
-#uib {
-  background: url(../img/uib.png) center;
-  background-size: 100% 100%;
-  width: 95px;
-  height: 95px;
-  float: left;
-}
-#mcb {
-  background: url(../img/mcb.png) center;
-  background-size: 100% 100%;
-  width: 250px;
-  height: 90px;
-  float: right;
-}
-
-/* Header på undersidene (nederste del av forsidebildet) (Liva) */
-#topBanner1 {
-  background: url(../img/forside.jpg);
-  background-size: 100%;
-  background-position: 100% 100%;
-  width: 100%;
-  height: 60px;
-  background-repeat: no-repeat;
-  position: fixed;
-  z-index: 1;
-}
  /*Tekstboks over forsidebildet*/
 .centerBox {
   padding: 200px 20px 0 20px;
@@ -270,11 +340,6 @@ li a:hover {
   padding: 0 15px 0 15px;
 }
 
- img {
-  width: 100%;
-  height: auto;
-}
-
 .lineBox:hover {
   box-shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.3);
 }
@@ -286,75 +351,6 @@ li a:hover {
 
 #om{
   text-align: left;
-  margin: 10px;
-}
-
-#map{
-  width: 100%;
-  height: 400px;
-  background-color: grey;
-}
-
-/*Teksten om fjellene på forsiden*/
-.twoThirds {
-  width: 100%;
-  float: center;
-  padding: 10px;
-}
-
-
-
-/* Fullskjerm-bilde (Herman) */
-.coverPhoto {
-  width: auto;
-  height: 100vh;
-}
-
-/* Gir klassen en høy Z-index */
-.Z1 {
-    z-index: 100;
-    position: absolute;
-}
-
-.flex {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
-
-
-/* Fonter for mobilenheter */
-
-/*Meter over havet og antall timer*/
-p {
-  font-family: 'Lato', sans-serif;
-  font-size: 16px;
-}
-
-/*"Våt vandring" og undertekst over forsidebildet */
-h1 {
-  font-family: 'Crete Round', serif;
-  font-size: 32px;
-  display: flex;
-  justify-content: center;
-}
-
-/*Bergens 7 - skrifttype*/
-h2 {
-  font-family: 'Crete Round', serif;
-  font-size: 25px;
-  margin: 10px;
-}
-
-/*Navn på fjellene  - skrifttype */
-h3 {
-  font-family: 'Crete Round', serif;
-  font-size: 20px;
-}
-
-h4 {
-  position: center;
-  float: left;
   margin: 10px;
 }
 
@@ -406,9 +402,6 @@ h4 {
   color: #fff;
 }
 
-
-
-
 /* Styling for små laptopskjermer */
 @media screen and (min-width : 1024px)
 {
@@ -455,5 +448,3 @@ h4 {
   float: center;
   padding: 10px;
 }*/
-
-}
