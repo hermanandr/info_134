@@ -120,10 +120,15 @@ nav {
   position: absolute;
   width: 70vw;
   margin: -100px 0 0 -70vw;
+<<<<<<< HEAD
   padding: 50px;
   padding-top: 125px;
   background: #ededed;
   list-style-type: none;
+=======
+  padding: 125px 0 125px 50px;
+  background: rgba(0, 0, 0, 0.85);
+>>>>>>> e7ffe864b284b2d5b16830eb6b0fa9506f665735
 /* Slide inn effekt */
   transform-origin: 0% 0%;
   transform: translate(+100vw, 0);
@@ -379,8 +384,13 @@ h4 {
 }
 
 /*Bergens 7 - skrifttype*/
+<<<<<<< HEAD
 #logo h2 {
     font-size: 30px;
+=======
+#logo a {
+    font-size: 25px;
+>>>>>>> e7ffe864b284b2d5b16830eb6b0fa9506f665735
     margin: 10px;
   }
 
