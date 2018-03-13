@@ -58,11 +58,8 @@ header {
   position: absolute;
   top: -7px;
   left: -5px;
-
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
-
-  -webkit-touch-callout: none;
+  opacity: 0;
+  z-index: 2;
 }
 
 #Knapp span {
@@ -161,32 +158,21 @@ li a:hover {
 #logo {
     width: 40%;
     float: left;
-
 }
 
-<<<<<<< HEAD
 /* styling for link i logo */
-=======
-/* Hva er dette???????? */
->>>>>>> feb23e1b12add9950d88cf12b249bdf53a44a223
 #logo a {
   text-decoration: none;
-  /*color: #333942;*/
   color: #fff;
 }
 
 /*Bergens 7 - skrifttype*/
 #logo h2 {
-<<<<<<< HEAD
   font-size: 25px;
   margin: 10px;
-=======
-    font-size: 25px;
-    margin: 10px;
-    color: #fff;
-    /*color: #333942;*/
-  }
->>>>>>> feb23e1b12add9950d88cf12b249bdf53a44a223
+  font-size: 25px;
+  margin: 10px;
+  color: #fff;
 }
 
 /*Importering og plassering av forsidebildet */
