@@ -1,6 +1,3 @@
-function startProgram () {
-  console.log("tekst");
-}
 // Lagrer JSON-data som et javascript-objekt "doJSON". (Edvard)
 var doJSON = {
     "entries": [{
@@ -238,7 +235,7 @@ var toilets = doJSON.entries;
 console.log(toilets);
 console.log(toilets.length);
 
-// 'initMap()' itererer over 'toilets' og legger dem til på kartet. Da koordinatene er lagret som 'String'-verdier, konverteres de til tall ved hjelp av Number() (Edvard)
+// 'initMap()' itererer over 'toilets' og legger dem til på kartet. Da koordinatene er lagret som 'String'-verdier, konverteres de til tall ved hjelp av Number(). (Edvard)
 function initMap() {
   var bergen = {lat:60.394106, lng:5.324017}
 
