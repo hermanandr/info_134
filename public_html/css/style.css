@@ -402,6 +402,7 @@ h4 {
   text-decoration: none;
   color: #fff;
 }
+}
 
 /* Styling for små laptopskjermer */
 @media screen and (min-width : 1024px)
