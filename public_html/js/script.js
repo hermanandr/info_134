@@ -243,7 +243,7 @@ console.log(toilets.length);
 function initMap() {
   var bergen = {lat:60.394106, lng:5.324017}
 
-  var marker = new Array;
+  var markers = new Array;
   for(var i = 0; i < toilets.length; i++){
     markers[i] = {
       lat:Number(toilets[i].latitude),
