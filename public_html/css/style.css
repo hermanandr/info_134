@@ -304,14 +304,15 @@ h4 {
   background-attachment: fixed;
   /*background-position: sticky; */
   top: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
  /*Tekstboks over forsidebildet*/
 .centerBox {
-  padding: 200px 20px 0 20px;
   text-align: center;
   width: 50%;
-  margin: auto;
   color:white;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.4)
 }
