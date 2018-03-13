@@ -30,7 +30,12 @@ header {
 }
 
 /*Font og plassering av "Hjem", "Kart", og "Om oss" i headeren */
-
+nav {
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  width: 60%;
+  float: right;
+}
 
 /* Skjul stor meny på små skjermer (Herman) */
 #StorMeny {
@@ -58,8 +63,11 @@ header {
   position: absolute;
   top: -7px;
   left: -5px;
-  opacity: 0;
-  z-index: 2;
+
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
 }
 
 #Knapp span {
@@ -95,31 +103,42 @@ header {
 }
 
 /* Skjul midterste strek */
-#Knapp input:checked ~ span:nth-last-child(3) {
+#Knapp input:checked ~ span:nth-last-child(3)
+{
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-#Knapp input:checked ~ span:nth-last-child(2) {
+#Knapp input:checked ~ span:nth-last-child(2)
+{
   transform: rotate(-45deg) translate(0, -1px);
 }
 
 /* Meny-felt */
-#Meny {
+#Meny
+{
   position: absolute;
   width: 70vw;
   margin: -100px 0 0 -70vw;
   padding: 50px;
   padding-top: 125px;
-  background: rgba(0, 0, 0, 0.85);
+  background: #ededed;
+  list-style-type: none;
 /* Slide inn effekt */
   transform-origin: 0% 0%;
   transform: translate(+100vw, 0);
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
+#Meny li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
 /* Slide inn når menypunktet er klikket */
-#Knapp input:checked ~ ul {
+#Knapp input:checked ~ ul
+{
   transform: none;
 }
 
@@ -131,21 +150,16 @@ ul {
   list-style: none;
   margin: 0px;
 }
-/* Menypunkter */
+/* "Hjem", "Link 1", "Om oss" i hvit */
 li a {
   display: block;
+  float: right;
   margin: 4px;
   padding: 15px;
   /*color: #333942;*/
   color: #fff;
-  font-family: 'Lato', sans-serif;
   text-decoration: none;
   font-size: 20px;
-}
-
-/* Eksluder effekt for menypunkter på mobil*/
-#Meny li a {
-  text-shadow: none;
 }
 
 /*Grå farge på linkingen til undersidene når musepeker er over*/
@@ -160,19 +174,20 @@ li a:hover {
     float: left;
 }
 
-/* styling for link i logo */
+/* Hva er dette???????? */
 #logo a {
   text-decoration: none;
+  /*color: #333942;*/
   color: #fff;
 }
 
 /*Bergens 7 - skrifttype*/
 #logo h2 {
-  font-size: 25px;
-  margin: 10px;
-  font-size: 25px;
-  margin: 10px;
-  color: #fff;
+    font-size: 25px;
+    margin: 10px;
+    color: #fff;
+    /*color: #333942;*/
+  }
 }
 
 /*Importering og plassering av forsidebildet */
@@ -197,7 +212,6 @@ li a:hover {
   height: 95px;
   float: left;
 }
-
 #mcb {
   background: url(../img/mcb.png) center;
   background-size: 100% 100%;
@@ -283,6 +297,8 @@ li a:hover {
   padding: 10px;
 }
 
+
+
 /* Fullskjerm-bilde (Herman) */
 .coverPhoto {
   width: auto;
@@ -301,15 +317,16 @@ li a:hover {
   justify-content: center;
 }
 
-/* -- Fonter for mobilenheter -- */
 
-/* Brødtekst */
+/* Fonter for mobilenheter */
+
+/*Meter over havet og antall timer*/
 p {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
 }
 
-/* Tittel 1 */
+/*"Våt vandring" og undertekst over forsidebildet */
 h1 {
   font-family: 'Crete Round', serif;
   font-size: 32px;
@@ -317,27 +334,25 @@ h1 {
   justify-content: center;
 }
 
-/* Tittel 2*/
+/*Bergens 7 - skrifttype*/
 h2 {
   font-family: 'Crete Round', serif;
   font-size: 25px;
   margin: 10px;
 }
 
-/* Tittel 3 */
+/*Navn på fjellene  - skrifttype */
 h3 {
   font-family: 'Crete Round', serif;
   font-size: 20px;
 }
 
-/* Tittel 4 */
 h4 {
   position: center;
   float: left;
   margin: 10px;
 }
 
-}
 /* Styling for stående nettbrett */
 @media screen and (min-width : 530px) /*?? var 768ish*/
 {
@@ -365,7 +380,7 @@ h4 {
 
 /*Bergens 7 - skrifttype*/
 #logo h2 {
-    font-size: 25px;
+    font-size: 30px;
     margin: 10px;
   }
 
@@ -392,15 +407,8 @@ h4 {
   display: none;
 }
 
-/*Vis stor meny*/
 #StorMeny {
   display: block;
-  width: 60%;
-  float: right;
-}
-
-#StorMeny li {
-  float: right;
 }
 
 .container {
@@ -427,7 +435,7 @@ h4 {
 
 /*Bergens 7 - skrifttype*/
 #logo h2 {
-    font-size: 25px;
+    font-size: 30px;
     margin: 10px;
   }
 
