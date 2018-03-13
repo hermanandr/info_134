@@ -109,8 +109,7 @@ header {
   position: absolute;
   width: 70vw;
   margin: -100px 0 0 -70vw;
-  padding: 50px;
-  padding-top: 125px;
+  padding: 125px 0 125px 50px;
   background: rgba(0, 0, 0, 0.85);
 /* Slide inn effekt */
   transform-origin: 0% 0%;
@@ -365,7 +364,7 @@ h4 {
 }
 
 /*Bergens 7 - skrifttype*/
-#logo h2 {
+#logo a {
     font-size: 25px;
     margin: 10px;
   }
