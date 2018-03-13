@@ -71,7 +71,7 @@ header {
   height: 3px;
   margin-bottom: 5px;
   position: relative;
-  background: #cdcdcd;
+  background: #fff;
   border-radius: 3px;
   z-index: 1;
   /* Klikk-effekt */
@@ -94,7 +94,7 @@ header {
 #Knapp input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
+  background: #fff;
 }
 
 /* Skjul midterste strek */
@@ -139,6 +139,7 @@ li a {
   display: block;
   margin: 4px;
   padding: 15px;
+  /*color: #333942;*/
   color: #fff;
   font-family: 'Lato', sans-serif;
   text-decoration: none;
@@ -160,24 +161,37 @@ li a:hover {
 #logo {
     width: 40%;
     float: left;
-    color: #fff;
+
 }
 
+<<<<<<< HEAD
 /* styling for link i logo */
+=======
+/* Hva er dette???????? */
+>>>>>>> feb23e1b12add9950d88cf12b249bdf53a44a223
 #logo a {
   text-decoration: none;
+  /*color: #333942;*/
   color: #fff;
 }
 
 /*Bergens 7 - skrifttype*/
 #logo h2 {
+<<<<<<< HEAD
   font-size: 25px;
   margin: 10px;
+=======
+    font-size: 25px;
+    margin: 10px;
+    color: #fff;
+    /*color: #333942;*/
+  }
+>>>>>>> feb23e1b12add9950d88cf12b249bdf53a44a223
 }
 
 /*Importering og plassering av forsidebildet */
 #forsidebilde {
-  background-image: url('../img/forside.jpg');
+  background-image: url('../img/forsidecopy.jpg');
   background-size: auto 800px;
   background-position: 50% top;
   width: auto;
