@@ -219,7 +219,7 @@ img {
 
 .flex {
   display: flex;
-  align-content: center;
+  align-items: center;
   justify-content: center;
 }
 
@@ -326,10 +326,8 @@ h4 {
 
  /*Tekstboks over forsidebildet*/
 .centerBox {
-  padding: 200px 20px 0 20px;
   text-align: center;
   width: 50%;
-  margin: auto;
   color:white;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.4)
 }
@@ -356,6 +354,11 @@ h4 {
 
 .lineBox p, .lineBox h3 {
   padding: 0 15px 0 15px;
+}
+
+.lineBox a {
+  text-decoration: none;
+  color: #000
 }
 
 .lineBox:hover {
