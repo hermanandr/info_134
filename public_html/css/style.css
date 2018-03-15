@@ -225,6 +225,12 @@ img {
 }
 
 /* Fonter */
+ /* Alle linker */
+a {
+  text-decoration: none;
+  color: #000
+}
+
 /*Meter over havet og antall timer*/
 p {
   font-family: 'Lato', sans-serif;
