@@ -47,6 +47,7 @@ nav {
   opacity: 0; /* hide this */
   z-index: 2; /* and place it over the hamburger */
 
+  /*denne blir ikke brukt*/
   -webkit-touch-callout: none;
 }
 
@@ -197,6 +198,11 @@ img {
   width: 100%;
   float: center;
   padding: 10px;
+  display: flex;
+  flex-direction: row;
+
+
+
 }
 
 /* Fullskjerm-bilde (Herman) */
@@ -224,6 +230,14 @@ p {
   font-size: 16px;
 }
 
+p2 {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+
+
+
+}
+
 /*"Våt vandring" og undertekst over forsidebildet */
 h1 {
   font-family: 'Crete Round', serif;
@@ -246,9 +260,13 @@ h3 {
 }
 
 h4 {
+  font-family: 'Crete Round', serif;
+  font-size: 20px;
   position: center;
   float: left;
   margin: 10px;
+
+
 }
 
 /* Styling for små mobilenheter */
