@@ -14,26 +14,37 @@
   <body>
     <!-- Meny -->
     <header>
-      <div id="logo">
-        <a href="index.html"> <h2> Bergens 7 </h2></a>
-      </div>
-      <nav>
+      <!--  -->
+      <a href="index.html"><div id="logo">
+        <h2> Bergens 7 </h2>
+      </div></a>
+      <nav id="HamburgerMeny">
+        <!-- Menyknapp -->
+        <div id="Knapp">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="Meny">
+            <li><a href="Om-oss.html">Om oss</a></li>
+            <li><a href="map.html">Toaletter</a></li>
+            <li><a href="index.html">Hjem</a></li>
+          </ul>
+        </div>
+      </nav>
+      <nav id="StorMeny">
         <ul>
-          <!-- Lenker til undersidene -->
-          <li><a href="Om-oss.html"> Om oss </a></li>
+          <li><a href="Om-oss.html">Om oss</a></li>
           <li><a href="map.html"> Toaletter </a></li>
           <li><a href="index.html"> Hjem </a></li>
         </ul>
       </nav>
-    </header>
+      </header>
     <!-- Innhold -->
-    <div class="flex">
-      <div class="centerBox Z1">
+    <div id="photo404" class="flex">
+      <div class="centerBox">
         <h1>Uflaks!</h1>
         <p> Dette førte ingen steder. Snu i tide og gå tilbake til forsiden.</p>
-      </div>
-      <div class="coverPhoto">
-        <img src="img/404.jpg" alt="Tett tåke på fjellet">
       </div>
     </div>
   </body>
