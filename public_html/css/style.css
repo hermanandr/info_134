@@ -101,15 +101,12 @@ nav {
   position: absolute;
   width: 70vw;
   margin: -100px 0 0 -70vw;
-<<<<<<< HEAD
   padding: 50px;
   padding-top: 125px;
   background: #ededed;
   list-style-type: none;
-=======
   padding: 125px 0 125px 50px;
   background: rgba(0, 0, 0, 0.85);
->>>>>>> e7ffe864b284b2d5b16830eb6b0fa9506f665735
 /* Slide inn effekt */
   transform-origin: 0% 0%;
   transform: translate(+100vw, 0);
@@ -206,12 +203,6 @@ img {
 
 }
 
-/* Fullskjerm-bilde (Herman) */
-.coverPhoto {
-  width: auto;
-  height: 100vh;
-}
-
 /* Gir klassen en høy Z-index */
 .Z1 {
     z-index: 100;
@@ -222,6 +213,14 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#photo404 {
+  background-image: url('../img/404.jpg');
+  height: 100vh;
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Fonter */
@@ -301,10 +300,9 @@ h4 {
     float: left;
 }
 
-/* Hva er dette???????? */
+/* Link i logo */
 #logo a {
   text-decoration: none;
-  /*color: #333942;*/
   color: #fff;
 }
 
@@ -313,7 +311,6 @@ h4 {
     font-size: 25px;
     margin: 10px;
     color: #fff;
-    /*color: #333942;*/
   }
 }
 
