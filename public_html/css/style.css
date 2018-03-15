@@ -218,6 +218,12 @@ img {
 }
 
 /* Fonter */
+ /* Alle linker */
+a {
+  text-decoration: none;
+  color: #000
+}
+
 /*Meter over havet og antall timer*/
 p {
   font-family: 'Lato', sans-serif;
@@ -336,11 +342,6 @@ h4 {
 
 .lineBox p, .lineBox h3 {
   padding: 0 15px 0 15px;
-}
-
-.lineBox a {
-  text-decoration: none;
-  color: #000
 }
 
 .lineBox:hover {
