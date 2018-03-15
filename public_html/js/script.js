@@ -254,3 +254,15 @@ function initMap() {
       map: map
     })
   }}
+
+function addAdr(){
+  for(var x in toilets){
+    var adr = toilets[x].adresse;
+    console.log(adr);
+    var text = document.createTextNode(adr);
+    var toilet = document.createElement("li");
+    toilet.appendChild(text);
+    console.log(toilet);
+    document.getElementById("doFilter").appendChild(toilet);
+  }
+}
