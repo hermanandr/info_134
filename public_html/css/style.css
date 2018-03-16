@@ -84,22 +84,20 @@ nav {
 }
 
 /* Skjul midterste strek */
-#Knapp input:checked ~ span:nth-last-child(3)
-{
+#Knapp input:checked ~ span:nth-last-child(3) {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-#Knapp input:checked ~ span:nth-last-child(2)
-{
+#Knapp input:checked ~ span:nth-last-child(2) {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
 /* Meny-felt */
-#Meny
-{
+#Meny {
   position: absolute;
   width: 70vw;
+  height: 100vh;
   margin: -100px 0 0 -70vw;
   padding: 50px;
   padding-top: 125px;
@@ -113,8 +111,7 @@ nav {
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
-#Meny li
-{
+#Meny li {
   padding: 10px 0;
   font-size: 22px;
 }
@@ -136,10 +133,8 @@ ul {
 /* "Hjem", "Link 1", "Om oss" i hvit */
 li a {
   display: block;
-  float: right;
   margin: 4px;
-  padding: 15px;
-  /*color: #333942;*/
+  padding: 10px;
   color: #fff;
   text-decoration: none;
   font-size: 20px;
@@ -371,6 +366,10 @@ h4 {
 @media screen and (min-width : 530px) /*?? var 768ish*/
 {
 
+#Meny {
+  margin: -100px 0 0 -40vw;
+}
+
 .container {
   align: center;
   width: 95%;
@@ -393,14 +392,15 @@ h4 {
 }
 
 /*Bergens 7 - skrifttype*/
-<<<<<<< HEAD
 #logo h2 {
     font-size: 30px;
-=======
+}
+
 #logo a {
     font-size: 25px;
->>>>>>> e7ffe864b284b2d5b16830eb6b0fa9506f665735
     margin: 10px;
+    text-decoration: none;
+    color: #fff;
   }
 
 /* "Bergens 7 øverst i venstre hjørne i hvit  */
@@ -410,10 +410,6 @@ h4 {
     color: #fff;
 }
 
-#logo a {
-  text-decoration: none;
-  color: #fff;
-}
 }
 
 /* Styling for små laptopskjermer */
@@ -428,6 +424,9 @@ h4 {
   display: block;
 }
 
+#StorMeny li a{
+  float: right;
+}
 .container {
   align: center;
   max-width: 1200px;
