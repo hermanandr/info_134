@@ -1,12 +1,11 @@
-/*Bakgrunnsfarge: lys grå, hele skjermen */
+/*Bakgrunnsfarge for hele skjermen */
 body {
   background-color: rgb(245, 245, 245);
   margin: 0;
   width: 100%
 }
 
-/* Menyseksjon i topp */
-
+/* Topp-seksjonen, inneholder meny og logo */
 header {
   position: fixed;
   height: 60px;
@@ -15,7 +14,7 @@ header {
   z-index: 2;
 }
 
-/*Font og plassering av "Hjem", "Kart", og "Om oss" i headeren */
+/* Menyskesjon */
 nav {
   font-size: 16px;
   font-family: 'Lato', sans-serif;
@@ -25,8 +24,7 @@ nav {
 
 /* -- Hamburgermeny start -- (Herman) */
 /* Menyknapp */
-#Knapp
-{
+#Knapp {
   display: block;
   position: relative;
   float: right;
@@ -35,22 +33,19 @@ nav {
   z-index: 1;
 }
 
-#Knapp input
-{
+/* Checkbox for å åpne lukke meny */
+#Knapp input {
   display: block;
   width: 30px;
   height: 30px;
   position: absolute;
   top: -7px;
   left: -5px;
-
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
-
-  /*denne blir ikke brukt*/
-  -webkit-touch-callout: none;
+  opacity: 0;
+  z-index: 2;
 }
 
+/* Hamburgerstreker */
 #Knapp span {
   display: block;
   width: 28px;
@@ -72,6 +67,7 @@ nav {
   transform-origin: 0% 0%;
 }
 
+/* Klikk-effekt */
 #Knapp span:nth-last-child(2){
   transform-origin: 0% 100%;
 }
@@ -125,12 +121,12 @@ nav {
 /* -- Hamburgermeny slutt -- */
 
 
-/* Liste for meny*/
+/* Liste for meny (Herman)*/
 ul {
   list-style: none;
   margin: 0px;
 }
-/* "Hjem", "Link 1", "Om oss" i hvit */
+/* Listepunkter i meny (Herman)*/
 li a {
   display: block;
   margin: 4px;
@@ -174,7 +170,7 @@ li a:hover {
   z-index: 1;
 }
 
-/* Alle bilder er i full størrelse, så lenge ikke annet er spesifisert */
+/* Bilder skal skaleres og plasseres proporsjonalt */
 img {
  width: 100%;
  height: auto;
