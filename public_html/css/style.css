@@ -252,20 +252,6 @@ h3 {
   font-size: 20px;
 }
 
-<<<<<<< HEAD
-=======
-h4 {
-  font-family: 'Crete Round', serif;
-  font-size: 20px;
-  float: left;
-}
-
-#om_oss h1 {
-  font-size: 70px;
-  float: center;
-}
->>>>>>> 94aefacd1a3d860299fff447e226f05de4baddbc
-
 /* Styling for små mobilenheter */
 @media screen and (min-width : 320px) {
 
