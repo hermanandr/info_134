@@ -258,9 +258,11 @@ h4 {
   font-family: 'Crete Round', serif;
   font-size: 20px;
   float: left;
+}
 
-
-
+#om_oss h1 {
+  font-size: 70px;
+  float: center;
 }
 
 /* Styling for små mobilenheter */
