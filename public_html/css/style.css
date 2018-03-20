@@ -176,6 +176,7 @@ img {
  height: auto;
 }
 
+/* Kart */
 #map{
   width: 100%;
   height: 400px;
@@ -194,12 +195,14 @@ img {
     position: absolute;
 }
 
+/* Midtstiller child-elementene av denne klassen med flex (Herman)*/
 .flex {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Bakgrunnsbilde på 404-side (Herman)*/
 #photo404 {
   background-image: url('../img/404.jpg');
   height: 100vh;
@@ -208,14 +211,16 @@ img {
   background-repeat: no-repeat;
 }
 
-/* Fonter */
- /* Alle linker */
+
+/* --- Fonter --- */
+
+/* Alle linker */
 a {
   text-decoration: none;
   color: #000
 }
 
-/*Meter over havet og antall timer*/
+/* Brødtekst */
 p {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
@@ -223,13 +228,10 @@ p {
 
 p2 {
   font-family: 'Lato', sans-serif;
-  font-size: 16px;
-
-
-
+  font-size: 22px;
 }
 
-/*"Våt vandring" og undertekst over forsidebildet */
+/* Tittel 1 */
 h1 {
   font-family: 'Crete Round', serif;
   font-size: 32px;
@@ -237,31 +239,22 @@ h1 {
   justify-content: center;
 }
 
-/*Bergens 7 - skrifttype*/
+/* Tittel 2 */
 h2 {
   font-family: 'Crete Round', serif;
   font-size: 25px;
   margin: 10px;
 }
 
-/*Navn på fjellene  - skrifttype */
+/* Tittel 3 */
 h3 {
   font-family: 'Crete Round', serif;
   font-size: 20px;
 }
 
-h4 {
-  font-family: 'Crete Round', serif;
-  font-size: 20px;
-  float: left;
-
-
-
-}
 
 /* Styling for små mobilenheter */
-@media screen and (min-width : 320px)
-{
+@media screen and (min-width : 320px) {
 
 /* Beholder for innhold */
 .container {
@@ -296,7 +289,6 @@ h4 {
     margin: 10px;
     color: #fff;
   }
-}
 
 /*Importering og plassering av forsidebildet */
 #forsidebilde {
@@ -305,7 +297,7 @@ h4 {
   background-position: 50% top;
   width: auto;
   height: 80vh;
-  max-height: 1000px;
+  max-height: 800px;
   background-repeat: no-repeat;
   background-attachment: fixed;
   top: 200px;
@@ -320,12 +312,9 @@ h4 {
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.4)
 }
 
+/* Tittel på forsidebilde */
 .centerBox h1 {
   font-size: 48px;
-}
-
-.centerBox p {
-  font-size: 20px;
 }
 
 /* Kort for visning av turmål (Herman) */
@@ -358,10 +347,11 @@ h4 {
   margin: 10px;
 }
 
+}
 /* Styling for stående nettbrett */
-@media screen and (min-width : 530px) /*?? var 768ish*/
-{
+@media screen and (min-width : 530px) {
 
+/* Juster bredde på hamburgermeny */
 #Meny {
   margin: -100px 0 0 -40vw;
 }
@@ -402,20 +392,18 @@ h4 {
 /* "Bergens 7 øverst i venstre hjørne i hvit  */
 #logo {
     width: 30%;
-    float: left;
-    color: #fff;
 }
 
 }
-
 /* Styling for små laptopskjermer */
-@media screen and (min-width : 1024px)
-{
+@media screen and (min-width : 1024px) {
 
+/* Skjul hamburgermeny */
 #HamburgerMeny {
   display: none;
 }
 
+/* Vis dekstop-meny */
 #StorMeny {
   display: block;
 }
@@ -423,11 +411,12 @@ h4 {
 #StorMeny li a{
   float: right;
 }
+
+/*Maksbredde på innhold */
 .container {
   align: center;
   max-width: 1200px;
   margin: auto;
-
 }
 
 /* fordeling av fjell-boksene */
@@ -441,19 +430,30 @@ h4 {
   padding: 10px;
 }
 
-#forsidebilde {
-  height: 100vh;
-}
 
 /*Bergens 7 - skrifttype*/
 #logo h2 {
     font-size: 30px;
     margin: 10px;
-  }
+}
 
-  .halfWidth {
-    display: flex;
-    flex-direction: row;
-    align-items: space-between;
+.halfWidth {
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+}
 
-  }
+}
+/* Styling for store skjermer */
+@media screen and (min-width : 1600px) {
+
+#forsidebilde {
+  background-size: auto 100%;
+  background-position: auto;
+}
+
+#map {
+  height: 800px;
+}
+
+}
