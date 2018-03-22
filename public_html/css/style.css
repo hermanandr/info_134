@@ -399,6 +399,10 @@ h3 {
   float: right;
 }
 
+#forsidebilde {
+  height: 100vh;
+}
+
 /*Maksbredde på innhold */
 .container {
   align: center;
@@ -425,6 +429,7 @@ h3 {
     padding: 0px 0px 40px 0px;
 }
 
+}
 /* Styling for store skjermer */
 @media screen and (min-width : 1600px) {
 
