@@ -215,7 +215,7 @@ p2 {
   font-size: 22px;
 }
 
-/* Tittel 1 */
+/* Tittel 1 (Liva)*/
 h1 {
   font-family: 'Crete Round', serif;
   font-size: 32px;
@@ -223,14 +223,14 @@ h1 {
   justify-content: center;
 }
 
-/* Tittel 2 */
+/* Tittel 2  (Liva)*/
 h2 {
   font-family: 'Crete Round', serif;
   font-size: 25px;
   margin: 10px;
 }
 
-/* Tittel 3 */
+/* Tittel 3  (Liva)*/
 h3 {
   font-family: 'Crete Round', serif;
   font-size: 20px;
@@ -266,14 +266,14 @@ h3 {
   color: #fff;
 }
 
-/*Bergens 7 - skrifttype*/
+/*Bergens 7 - skrifttype (Liva)*/
 #logo h2 {
     font-size: 25px;
     margin: 10px;
     color: #fff;
   }
 
-/*Importering og plassering av forsidebildet */
+/*Importering og plassering av forsidebildet (Liva og Herman)*/
 #forsidebilde {
   background-image: url('../img/forsidecopy.jpg');
   background-size: auto 800px;
@@ -376,7 +376,7 @@ h3 {
     color: #fff;
   }
 
-/* "Bergens 7 øverst i venstre hjørne i hvit  */
+/* "Bergens 7 øverst i venstre hjørne i hvit (Liva)  */
 #logo {
     width: 30%;
 }
@@ -411,7 +411,7 @@ h3 {
   width: 23%;
 }
 
-/*Bergens 7 - skrifttype*/
+/*Bergens 7 - skrifttype (Liva)*/
 #logo h2 {
     font-size: 30px;
     margin: 10px;
