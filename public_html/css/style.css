@@ -142,22 +142,6 @@ li a:hover {
   color: #cacaca;
 }
 
-/* uib- og mbc-logoene på "Om oss"-undersiden (Liva) */
-#uib {
-  background: url(../img/uib.png) center;
-  background-size: 100% 100%;
-  width: 95px;
-  height: 95px;
-  float: left;
-}
-#mcb {
-  background: url(../img/mcb.png) center;
-  background-size: 100% 100%;
-  width: 250px;
-  height: 90px;
-  float: right;
-}
-
 /* Header på undersidene (nederste del av forsidebildet) (Liva) */
 #topBanner1 {
   background: url(../img/forside.jpg);
@@ -418,17 +402,10 @@ h3 {
   margin: auto;
 }
 
-/* fordeling av fjell-boksene */
+/* Fordeling av fjell-boksene. Gir plass til fire bokser i bredden */
 .lineBox {
   width: 23%;
 }
-
-.logo img {
-  width: 180px;
-  height: 180px;
-  padding: 10px;
-}
-
 
 /*Bergens 7 - skrifttype*/
 #logo h2 {
@@ -436,6 +413,7 @@ h3 {
     margin: 10px;
 }
 
+/* Deler opp teksten på forsiden i to kolonner (Liva) */
   .halfWidth {
     display: flex;
     flex-direction: row;
@@ -443,7 +421,6 @@ h3 {
     padding: 0px 0px 40px 0px;
 }
 
-}
 /* Styling for store skjermer */
 @media screen and (min-width : 1600px) {
 
