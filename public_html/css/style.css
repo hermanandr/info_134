@@ -1,12 +1,11 @@
-/*Bakgrunnsfarge: lys grå, hele skjermen */
+/*Bakgrunnsfarge for hele skjermen */
 body {
   background-color: rgb(245, 245, 245);
   margin: 0;
   width: 100%
 }
 
-/* Menyseksjon i topp */
-
+/* Topp-seksjonen, inneholder meny og logo */
 header {
   position: fixed;
   height: 60px;
@@ -15,7 +14,7 @@ header {
   z-index: 2;
 }
 
-/*Font og plassering av "Hjem", "Kart", og "Om oss" i headeren */
+/* Menyskesjon */
 nav {
   font-size: 16px;
   font-family: 'Lato', sans-serif;
@@ -25,8 +24,7 @@ nav {
 
 /* -- Hamburgermeny start -- (Herman) */
 /* Menyknapp */
-#Knapp
-{
+#Knapp {
   display: block;
   position: relative;
   float: right;
@@ -35,22 +33,19 @@ nav {
   z-index: 1;
 }
 
-#Knapp input
-{
+/* Checkbox for å åpne lukke meny */
+#Knapp input {
   display: block;
   width: 30px;
   height: 30px;
   position: absolute;
   top: -7px;
   left: -5px;
-
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
-
-  /*denne blir ikke brukt*/
-  -webkit-touch-callout: none;
+  opacity: 0;
+  z-index: 2;
 }
 
+/* Hamburgerstreker */
 #Knapp span {
   display: block;
   width: 28px;
@@ -72,6 +67,7 @@ nav {
   transform-origin: 0% 0%;
 }
 
+/* Klikk-effekt */
 #Knapp span:nth-last-child(2){
   transform-origin: 0% 100%;
 }
@@ -84,22 +80,20 @@ nav {
 }
 
 /* Skjul midterste strek */
-#Knapp input:checked ~ span:nth-last-child(3)
-{
+#Knapp input:checked ~ span:nth-last-child(3) {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-#Knapp input:checked ~ span:nth-last-child(2)
-{
+#Knapp input:checked ~ span:nth-last-child(2) {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
 /* Meny-felt */
-#Meny
-{
+#Meny {
   position: absolute;
   width: 70vw;
+  height: 100vh;
   margin: -100px 0 0 -70vw;
   padding: 50px;
   padding-top: 125px;
@@ -113,8 +107,7 @@ nav {
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
-#Meny li
-{
+#Meny li {
   padding: 10px 0;
   font-size: 22px;
 }
@@ -128,18 +121,16 @@ nav {
 /* -- Hamburgermeny slutt -- */
 
 
-/* Liste for meny*/
+/* Liste for meny (Herman)*/
 ul {
   list-style: none;
   margin: 0px;
 }
-/* "Hjem", "Link 1", "Om oss" i hvit */
+/* Listepunkter i meny (Herman)*/
 li a {
   display: block;
-  float: right;
   margin: 4px;
-  padding: 15px;
-  /*color: #333942;*/
+  padding: 10px;
   color: #fff;
   text-decoration: none;
   font-size: 20px;
@@ -179,12 +170,13 @@ li a:hover {
   z-index: 1;
 }
 
-/* Alle bilder er i full størrelse, så lenge ikke annet er spesifisert */
+/* Bilder skal skaleres og plasseres proporsjonalt */
 img {
  width: 100%;
  height: auto;
 }
 
+/* Kart */
 #map{
   width: 100%;
   height: 400px;
@@ -203,12 +195,14 @@ img {
     position: absolute;
 }
 
+/* Midtstiller child-elementene av denne klassen med flex (Herman)*/
 .flex {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Bakgrunnsbilde på 404-side (Herman)*/
 #photo404 {
   background-image: url('../img/404.jpg');
   height: 100vh;
@@ -217,14 +211,16 @@ img {
   background-repeat: no-repeat;
 }
 
-/* Fonter */
- /* Alle linker */
+
+/* --- Fonter --- */
+
+/* Alle linker */
 a {
   text-decoration: none;
   color: #000
 }
 
-/*Meter over havet og antall timer*/
+/* Brødtekst */
 p {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
@@ -232,13 +228,10 @@ p {
 
 p2 {
   font-family: 'Lato', sans-serif;
-  font-size: 16px;
-
-
-
+  font-size: 22px;
 }
 
-/*"Våt vandring" og undertekst over forsidebildet */
+/* Tittel 1 */
 h1 {
   font-family: 'Crete Round', serif;
   font-size: 32px;
@@ -246,31 +239,21 @@ h1 {
   justify-content: center;
 }
 
-/*Bergens 7 - skrifttype*/
+/* Tittel 2 */
 h2 {
   font-family: 'Crete Round', serif;
   font-size: 25px;
   margin: 10px;
 }
 
-/*Navn på fjellene  - skrifttype */
+/* Tittel 3 */
 h3 {
   font-family: 'Crete Round', serif;
   font-size: 20px;
 }
 
-h4 {
-  font-family: 'Crete Round', serif;
-  font-size: 20px;
-  float: left;
-
-
-
-}
-
 /* Styling for små mobilenheter */
-@media screen and (min-width : 320px)
-{
+@media screen and (min-width : 320px) {
 
 /* Beholder for innhold */
 .container {
@@ -305,7 +288,6 @@ h4 {
     margin: 10px;
     color: #fff;
   }
-}
 
 /*Importering og plassering av forsidebildet */
 #forsidebilde {
@@ -314,7 +296,7 @@ h4 {
   background-position: 50% top;
   width: auto;
   height: 80vh;
-  max-height: 1000px;
+  max-height: 800px;
   background-repeat: no-repeat;
   background-attachment: fixed;
   top: 200px;
@@ -329,12 +311,9 @@ h4 {
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.4)
 }
 
+/* Tittel på forsidebilde */
 .centerBox h1 {
   font-size: 48px;
-}
-
-.centerBox p {
-  font-size: 20px;
 }
 
 /* Kort for visning av turmål (Herman) */
@@ -367,9 +346,14 @@ h4 {
   margin: 10px;
 }
 
+}
 /* Styling for stående nettbrett */
-@media screen and (min-width : 530px) /*?? var 768ish*/
-{
+@media screen and (min-width : 530px) {
+
+/* Juster bredde på hamburgermeny */
+#Meny {
+  margin: -100px 0 0 -40vw;
+}
 
 .container {
   align: center;
@@ -393,46 +377,45 @@ h4 {
 }
 
 /*Bergens 7 - skrifttype*/
-<<<<<<< HEAD
 #logo h2 {
     font-size: 30px;
-=======
+}
+
 #logo a {
     font-size: 25px;
->>>>>>> e7ffe864b284b2d5b16830eb6b0fa9506f665735
     margin: 10px;
+    text-decoration: none;
+    color: #fff;
   }
 
 /* "Bergens 7 øverst i venstre hjørne i hvit  */
 #logo {
     width: 30%;
-    float: left;
-    color: #fff;
 }
 
-#logo a {
-  text-decoration: none;
-  color: #fff;
 }
-}
-
 /* Styling for små laptopskjermer */
-@media screen and (min-width : 1024px)
-{
+@media screen and (min-width : 1024px) {
 
+/* Skjul hamburgermeny */
 #HamburgerMeny {
   display: none;
 }
 
+/* Vis dekstop-meny */
 #StorMeny {
   display: block;
 }
 
+#StorMeny li a{
+  float: right;
+}
+
+/*Maksbredde på innhold */
 .container {
   align: center;
   max-width: 1200px;
   margin: auto;
-
 }
 
 /* fordeling av fjell-boksene */
@@ -446,20 +429,38 @@ h4 {
   padding: 10px;
 }
 
-#forsidebilde {
-  height: 100vh;
-}
 
 /*Bergens 7 - skrifttype*/
 #logo h2 {
     font-size: 30px;
     margin: 10px;
-  }
+}
 
+<<<<<<< HEAD
   .halfWidth {
     display: flex;
     flex-direction: row;
     align-items: space-between;
     padding: 0px 0px 40px 0px;
+=======
+.halfWidth {
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+}
+>>>>>>> 572e454d9383a2dae8a733b4a748fa45cb5024dc
 
-  }
+}
+/* Styling for store skjermer */
+@media screen and (min-width : 1600px) {
+
+#forsidebilde {
+  background-size: auto 100%;
+  background-position: auto;
+}
+
+#map {
+  height: 800px;
+}
+
+}
