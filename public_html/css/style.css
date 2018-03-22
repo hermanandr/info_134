@@ -436,19 +436,12 @@ h3 {
     margin: 10px;
 }
 
-<<<<<<< HEAD
   .halfWidth {
     display: flex;
     flex-direction: row;
     align-items: space-between;
     padding: 0px 0px 40px 0px;
-=======
-.halfWidth {
-  display: flex;
-  flex-direction: row;
-  align-items: space-between;
 }
->>>>>>> 572e454d9383a2dae8a733b4a748fa45cb5024dc
 
 }
 /* Styling for store skjermer */
