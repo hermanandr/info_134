@@ -399,6 +399,10 @@ h3 {
   float: right;
 }
 
+#forsidebildet {
+  height: 100vh;
+}
+
 /*Maksbredde på innhold */
 .container {
   align: center;
