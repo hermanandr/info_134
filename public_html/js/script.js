@@ -235,6 +235,16 @@ var toilets = doJSON.entries;
 console.log(toilets);
 console.log(toilets.length);
 
+var addInfo = function(marker){
+  var contentString = "<h1>test</h1>";
+  marker.addListener('click', function() {
+  infowindow.open(map, marker);
+  });
+  var infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+}
+
 // 'initMap()' itererer over 'toilets' og legger dem til på kartet. Da koordinatene er lagret som 'String'-verdier, konverteres de til tall ved hjelp av Number(). (Edvard)
 function initMap() {
   var bergen = {lat:60.394106, lng:5.324017}
@@ -253,16 +263,17 @@ function initMap() {
       },
       map: map
     })
-  }}
+    addInfo(marker);
+  }
+}
 
-function addAdr(){
-  for(var x in toilets){
-    var adr = toilets[x].adresse;
+var addList = function(){
+  for(var x = 0; x < toilets.length; x++){
+    var adr = toilets[x].plassering;
     console.log(adr);
     var text = document.createTextNode(adr);
     var toilet = document.createElement("li");
     toilet.appendChild(text);
-    console.log(toilet);
     document.getElementById("doFilter").appendChild(toilet);
   }
 }
