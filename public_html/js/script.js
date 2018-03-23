@@ -238,7 +238,6 @@ var toilets = doJSON.entries;
 console.log(toilets);
 console.log(toilets.length);
 
-<<<<<<< HEAD
 var addInfo = function(marker){
   var contentString = "<h1>test</h1>";
   marker.addListener('click', function() {
