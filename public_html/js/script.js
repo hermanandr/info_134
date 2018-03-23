@@ -238,13 +238,15 @@ var toilets = doJSON.entries;
 console.log(toilets);
 console.log(toilets.length);
 
-var addInfo = function(marker){
-  var contentString = "<h1>test</h1>";
+
+// legger til info om
+var addInfo = function(marker, i){
+  var text = "<h3>" + toilets[i].plassering + "</h3>";
   marker.addListener('click', function() {
   infowindow.open(map, marker);
   });
   var infowindow = new google.maps.InfoWindow({
-    content: contentString
+    content: text
   });
 }
 
@@ -266,14 +268,14 @@ function initMap() {
       },
       map: map
     })
-    addInfo(marker);
+    addInfo(marker, i);
   }
 }
 
+// legger til en liste over alle de forskjellige markørene, navngitt etter plassering. (Edvard)
 var addList = function(){
   for(var x = 0; x < toilets.length; x++){
     var adr = toilets[x].plassering;
-    console.log(adr);
     var text = document.createTextNode(adr);
     var toilet = document.createElement("li");
     toilet.appendChild(text);
