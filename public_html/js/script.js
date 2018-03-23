@@ -249,10 +249,7 @@ var addInfo = function(marker){
   });
 }
 
-// 'initMap()' itererer over 'toilets' og legger dem til på kartet. Da koordinatene er lagret som 'String'-verdier, konverteres de til tall ved hjelp av Number(). (Edvard)
-=======
 // 'initMap()' itererer over 'toilets' og legger dem til på kartet. Da koordinatene er lagret som 'String'-verdier, konverteres de til tall ved hjelp av Number() (Edvard)
->>>>>>> 04e8bc2405a5065e9d7561a55ab377061ca3a1c6
 function initMap() {
   var bergen = {lat:60.394106, lng:5.324017}
 
