@@ -1,0 +1,18 @@
+
+// === Avasnert søk ===
+function search(obj) {
+  var searchResults = [];
+  var searchParams = Object.keys(obj);
+
+  for(i=0; i < persons.length; i++) {
+    var truthChecker = [] //Vil inneholde booleans "true" for hvert param sjekket
+    for(y=0; y < searchParams.lenght; y++){
+      if(persons[i][searchParams[y]] == obj[searchParams[y]]) {
+        truthChecker.push(true);
+      }
+      if(truthChecker.length == searchParams.lenght) { //hvis alle params er "true" blir personen pushet
+        searchResults.push(persons[i]);
+      }
+    }
+  }
+}
