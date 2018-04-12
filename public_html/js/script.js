@@ -1,6 +1,25 @@
-function startProgram () {
-  console.log("tekst");
+var url= "http://hotell.difi.no/api/json/bergen/dokart";
+var data = [];
+var toilets = [];
+
+function request(){
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", url);
+  xhr.onreadystatechange = function(){
+    if(xhr.readyState === 4 && xhr.status === 200){
+      console.log("Type", xhr.getResponseHeader("Content-Type"));
+      var ent = JSON.parse(xhr.responseText);
+      data = ent.entries;
+      console.log(data);
+      toilets = data.entries;
+    }
+    else{
+      return null;
+    }
+  }
+    xhr.send();
 }
+
 // Lagrer JSON-data som et javascript-objekt "doJSON". (Edvard)
 var doJSON = {
     "entries": [{
@@ -234,10 +253,34 @@ var doJSON = {
 };
 
 // arrayet 'entries' med do-objektene fra JSON-dataen lagres i 'toilets', og logges for kontroll. (Edvard)
-var toilets = doJSON.entries;
-console.log(toilets);
-console.log(toilets[0]);
+//
+// var toilets = data.entries;
+// console.log(toilets);
+// console.log(toilets[0]);
 
+
+// 'initMap()' itererer over 'toilets' og legger dem til på kartet. Da koordinatene er lagret som 'String'-verdier, konverteres de til tall ved hjelp av Number() (Edvard)
+function initMap(){
+  console.log('init');
+  var bergen = {lat:60.394106, lng:5.324017}
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14,
+    center : bergen,
+    map: map
+  });
+
+  for(var i = 0; i < toilets.length; i++){
+    var marker = new google.maps.Marker({
+      position: {
+        lat:Number(toilets[i].latitude),
+        lng:Number(toilets[i].longitude)
+      },
+      map: map
+    })
+    addInfo(marker, i);
+  }
+}
 
 // legger til info om markøren til infovinduet.
 var addInfo = function(marker, i){
@@ -272,28 +315,6 @@ var addInfo = function(marker, i){
   var infowindow = new google.maps.InfoWindow({
     content: text
   });
-}
-
-// 'initMap()' itererer over 'toilets' og legger dem til på kartet. Da koordinatene er lagret som 'String'-verdier, konverteres de til tall ved hjelp av Number() (Edvard)
-function initMap() {
-  var bergen = {lat:60.394106, lng:5.324017}
-
-      var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 14,
-    center : bergen,
-    map: map
-  });
-
-  for(var i = 0; i < toilets.length; i++){
-    var marker = new google.maps.Marker({
-      position: {
-        lat:Number(toilets[i].latitude),
-        lng:Number(toilets[i].longitude)
-      },
-      map: map
-    })
-    addInfo(marker, i);
-  }
 }
 
 // legger til en liste over alle de forskjellige markørene, navngitt etter plassering. (Edvard)
