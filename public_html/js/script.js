@@ -253,10 +253,10 @@ var doJSON = {
 };
 
 // arrayet 'entries' med do-objektene fra JSON-dataen lagres i 'toilets', og logges for kontroll. (Edvard)
-//
-// var toilets = data.entries;
-// console.log(toilets);
-// console.log(toilets[0]);
+
+var toilets = doJSON.entries;
+console.log(toilets);
+console.log(toilets[0]);
 
 
 // 'initMap()' itererer over 'toilets' og legger dem til på kartet. Da koordinatene er lagret som 'String'-verdier, konverteres de til tall ved hjelp av Number() (Edvard)
