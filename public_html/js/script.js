@@ -233,18 +233,42 @@ var doJSON = {
     "posts": 14
 };
 
-// Arrayet 'entries' med do-objektene fra JSON-dataen lagres i 'toilets', og logges for kontroll. (Edvard)
+// arrayet 'entries' med do-objektene fra JSON-dataen lagres i 'toilets', og logges for kontroll. (Edvard)
 var toilets = doJSON.entries;
 console.log(toilets);
-console.log(toilets.length);
+console.log(toilets[0]);
 
 
-// legger til info om
+// legger til info om markøren til infovinduet.
 var addInfo = function(marker, i){
-  var text = "<h3>" + toilets[i].plassering + "</h3>";
+  // stringen 'text' inneholder HTML-kode som vil vises i infovinduet
+  var text = "<div id='info'><h3>" + toilets[i].plassering + "</h3>"
+  + "<ul id='egenskaper'></ul></div>";
+
+  function infoList(){
+    var listIt = Object.keys(toilets[i]);
+    for(var x = 0; x < listIt.length; x++){
+      var txt = listIt[x] + ': ' + toilets[i][listIt[x]];
+      var node = document.createTextNode(txt);
+      var listObj = document.createElement('li');
+      listObj.appendChild(node);
+      document.getElementById('egenskaper').appendChild(listObj);
+    }
+  }
+
   marker.addListener('click', function() {
-  infowindow.open(map, marker);
+    if(marker.open != true){
+    infowindow.open(map, marker);
+    marker.open = true;
+    infoList();
+    console.log(marker);
+    } else {
+    infowindow.close(map, marker);
+    marker.open = false;
+    console.log(marker);
+    }
   });
+
   var infowindow = new google.maps.InfoWindow({
     content: text
   });

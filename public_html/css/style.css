@@ -186,14 +186,16 @@ img {
   justify-content: center;
 }
 
-/* Bakgrunnsbilde på 404-side (Herman)*/
-#photo404 {
+/* Bakgrunnsbilde på 404-side (Herman og Liva)*/
+#coverPhoto {
   background-image: url('../img/404.jpg');
   height: 100vh;
   background-size: auto;
   background-position: center;
   background-repeat: no-repeat;
 }
+
+
 
 
 /* --- Fonter --- */
@@ -333,7 +335,6 @@ h3 {
   margin: 10px;
 }
 
-}
 /* Styling for stående nettbrett */
 @media screen and (min-width : 530px) {
 
@@ -343,7 +344,6 @@ h3 {
 }
 
 .container {
-  align: center;
   width: 95%;
   margin: auto;
 }
@@ -405,7 +405,6 @@ h3 {
 
 /*Maksbredde på innhold */
 .container {
-  align: center;
   max-width: 1200px;
   margin: auto;
 }
@@ -429,19 +428,13 @@ h3 {
     padding: 0px 0px 40px 0px;
 }
 
-<<<<<<< HEAD
+
 /*Bergens 7 - skrifttype*/
 #logo h2 {
     font-size: 30px;
     margin: 10px;
   }
-/*.twoThirds {
-  image: url(../img/dnt.jpg);
-  width: 70%;
-  float: center;
-  padding: 10px;
-}*/
-=======
+
 }
 /* Styling for store skjermer */
 @media screen and (min-width : 1600px) {
@@ -454,4 +447,5 @@ h3 {
 #map {
   height: 800px;
 }
->>>>>>> 04e8bc2405a5065e9d7561a55ab377061ca3a1c6
+
+}
