@@ -2,7 +2,7 @@
 var url= "http://hotell.difi.no/api/json/bergen/dokart";
 
 // 'initMap()' itererer over 'toilets[]' og legger dem til på kartet. Da koordinatene er lagret som 'String'-verdier, konverteres de til tall ved hjelp av Number() (Edvard)
-function initMap(){
+function initMap(list){
   console.log('init');
   var bergen = {lat:60.394106, lng:5.324017}
 
@@ -12,40 +12,29 @@ function initMap(){
     map: map
   });
 
-  for(var i = 0; i < toilets.length; i++){
+  for(var i = 0; i < list.length; i++){
     var marker = new google.maps.Marker({
       position: {
-        lat:Number(toilets[i].latitude),
-        lng:Number(toilets[i].longitude)
+        lat:Number(list[i].latitude),
+        lng:Number(list[i].longitude)
       },
       map: map
     })
     addInfo(marker, i);
   }
+  addList();
 }
 
 // legger til info om markøren til infovinduet. (Edvard)
 var addInfo = function(marker, i){
   // stringen 'text' inneholder HTML-kode som vil vises i infovinduet (Edvard)
   var text = "<div id='info'><h3>" + toilets[i].plassering + "</h3>"
-  + "<ul id='egenskaper'></ul></div>";
-
-  function infoList(){
-    var listIt = Object.keys(toilets[i]);
-    for(var x = 0; x < listIt.length; x++){
-      var txt = listIt[x] + ': ' + toilets[i][listIt[x]];
-      var node = document.createTextNode(txt);
-      var listObj = document.createElement('li');
-      listObj.appendChild(node);
-      document.getElementById('egenskaper').appendChild(listObj);
-    }
-  }
+  + "<h4>" + toilets[i].adresse + "</h4> ";
 
   marker.addListener('click', function() {
     if(marker.open != true){
     infowindow.open(map, marker);
     marker.open = true;
-    infoList();
     console.log(marker);
     } else {
     infowindow.close(map, marker);
@@ -60,7 +49,7 @@ var addInfo = function(marker, i){
 }
 
 // legger til en liste over alle de forskjellige markørene, navngitt etter plassering. (Edvard)
-var addList = function(){
+function addList(){
   for(var x = 0; x < toilets.length; x++){
     var adr = toilets[x].plassering;
     var text = document.createTextNode(adr);
@@ -68,6 +57,24 @@ var addList = function(){
     toilet.appendChild(text);
     document.getElementById("doFilter").appendChild(toilet);
   }
+}
+
+function search(searchObject) {
+	var searchResults  = [];
+	var searchParams = Object.keys(searchObject);
+	for(i=0; i < toilets.length; i++) {
+		var truthChecker = [] // will contain boolean values "true" for each param checked.
+		for(y=0; y < searchParams.length; y++) {
+			if(toilets[i][searchParams[y]] == searchObject[searchParams[y]]) {
+				truthChecker.push(true);
+			}
+			if(truthChecker.length == searchParams.length) { //if all params are true, person is pushed.
+				searchResults.push(toilets[i]);
+			}
+		}
+	}
+	initMap(searchResults);
+  console.log(searchResults);
 }
 
 // Oppretter og sender en XML-request etter en URL, og returnerer dataen mottatt. (Edvard)
@@ -87,7 +94,8 @@ function request(){
   }
     xhr.send();
     // I tilfelle initMap() blir kjørt før 'toilets' er blitt gitt verdiene fra forespørselen, kalles den på ny etter den er blitt sendt. (Edvard)
-    initMap();
+    console.log('now');
+    initMap(toilets);
 }
 
 // Oppretter den globale variabelen 'toilets' som et Array med data fra XML-requestet. (Edvard)
