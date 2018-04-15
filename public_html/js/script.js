@@ -52,7 +52,7 @@ var addInfo = function(marker, i){
 function addList(){
   for(var x = 0; x < toilets.length; x++){
     var adr = toilets[x].plassering;
-    var text = document.createTextNode(adr);
+    var text = document.createTextNode('-  ' + adr);
     var toilet = document.createElement("li");
     toilet.appendChild(text);
     document.getElementById("doFilter").appendChild(toilet);
