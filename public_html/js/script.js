@@ -94,7 +94,6 @@ function request(){
   }
     xhr.send();
     // I tilfelle initMap() blir kjørt før 'toilets' er blitt gitt verdiene fra forespørselen, kalles den på ny etter den er blitt sendt. (Edvard)
-    console.log('now');
     initMap(toilets);
 }
 
