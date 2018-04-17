@@ -20,12 +20,7 @@ function request(){
     xhr.send();
 }
 
-<<<<<<< HEAD
-
-// Lagrer JSON-data som et javascript-objekt "doJSON". (xic008)
-=======
 // Lagrer JSON-data som et javascript-objekt "doJSON". (Edvard)
->>>>>>> parent of a82ce1a... t
 var doJSON = {
     "entries": [{
         "herre": "1",
@@ -257,20 +252,12 @@ var doJSON = {
     "posts": 14
 };
 
-<<<<<<< HEAD
 // arrayet 'entries' med do-objektene fra JSON-dataen lagres i 'toilets', og logges for kontroll. (xic008)
 function makeArray(array){
   toilets = array;
   console.log(toilets);
   console.log(toilets[0]);
 }
-=======
-// arrayet 'entries' med do-objektene fra JSON-dataen lagres i 'toilets', og logges for kontroll. (Edvard)
-
-var toilets = doJSON.entries;
-console.log(toilets);
-console.log(toilets[0]);
->>>>>>> parent of a82ce1a... t
 
 
 // 'initMap()' itererer over 'toilets' og legger dem til på kartet. Da koordinatene er lagret som 'String'-verdier, konverteres de til tall ved hjelp av Number() (xic008)
