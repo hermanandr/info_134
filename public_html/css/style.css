@@ -238,6 +238,13 @@ h3 {
   font-size: 20px;
 }
 
+/* Skjul stor meny på små skjermer (Herman) */
+#StorMeny {
+  display: none;
+}
+
+
+
 /* Styling for små mobilenheter */
 @media screen and (min-width : 320px) {
 
@@ -249,11 +256,6 @@ h3 {
   flex-flow: row wrap;
   align-content: flex-start;
   justify-content: space-between;
-}
-
-/* Skjul stor meny på små skjermer (Herman) */
-#StorMeny {
-  display: none;
 }
 
 /* "Bergens 7 øverst i venstre hjørne (Liva)  */
@@ -446,6 +448,4 @@ h3 {
 
 #map {
   height: 800px;
-}
-
 }
