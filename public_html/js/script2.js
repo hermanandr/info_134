@@ -1,6 +1,6 @@
-function startProgram () {
+function startProgram() {
   console.log("tekst");
-  var url= "http://hotell.difi.no/api/json/bergen/dokart?";
+  var url= "https://hotell.difi.no/api/json/bergen/dokart?";
   request(url);
 }
 
@@ -9,19 +9,26 @@ var xhr = new XMLHttpRequest();
 xhr.open("GET", url);
 xhr.onreadystatechange = function() {
 if (xhr.readyState === 4 && xhr.status === 200) {
-console.log("Type", xhr.getResponseHeader("Content-Type"));
-var data = JSON.parse(xhr.responseText);
-resten(data);
-return data;
-}
-  else {
+  console.log("Type", xhr.getResponseHeader("Content-Type"));
+  var data = JSON.parse(xhr.responseText);
+  return data;
+} else {
   return null;
 };
 xhr.send();
-
+}
 }
 
-function resten (data){
+//Søkeobjektet kan bli laget av den samme funksjonen om man parser tektsen på forhånd
+var searchObj = {"kjønn":"herre"};
+
+//Oppgave 8, DOM-element
+
+var el = document.getElementById("element");
+var h2_element = document.createElement("h2");
+var h2_text = document.createTextNode(plassering);
+h2_element.appendChild(h2_text);
+
 
 // arrayet 'entries' med do-objektene fra JSON-dataen lagres i 'toilets', og logges for kontroll. (Edvard)
 var toilets = data;
@@ -95,5 +102,4 @@ var addList = function(){
     toilet.appendChild(text);
     document.getElementById("doFilter").appendChild(toilet);
   }
-}
 }
