@@ -22,7 +22,7 @@ function request(){
 }
 
 
-// Lagrer JSON-data som et javascript-objekt "doJSON". (Edvard)
+// Lagrer JSON-data som et javascript-objekt "doJSON". (xic008)
 var doJSON = {
     "entries": [{
         "herre": "1",
@@ -254,7 +254,7 @@ var doJSON = {
     "posts": 14
 };
 
-// arrayet 'entries' med do-objektene fra JSON-dataen lagres i 'toilets', og logges for kontroll. (Edvard)
+// arrayet 'entries' med do-objektene fra JSON-dataen lagres i 'toilets', og logges for kontroll. (xic008)
 function makeArray(array){
   toilets = array;
   console.log(toilets);
@@ -262,7 +262,7 @@ function makeArray(array){
 }
 
 
-// 'initMap()' itererer over 'toilets' og legger dem til på kartet. Da koordinatene er lagret som 'String'-verdier, konverteres de til tall ved hjelp av Number() (Edvard)
+// 'initMap()' itererer over 'toilets' og legger dem til på kartet. Da koordinatene er lagret som 'String'-verdier, konverteres de til tall ved hjelp av Number() (xic008)
 function initMap(){
   console.log('init');
   var bergen = {lat:60.394106, lng:5.324017}
@@ -320,7 +320,7 @@ var addInfo = function(marker, i){
   });
 }
 
-// legger til en liste over alle de forskjellige markørene, navngitt etter plassering. (Edvard)
+// legger til en liste over alle de forskjellige markørene, navngitt etter plassering. (xic008)
 var addList = function(){
   for(var x = 0; x < toilets.length; x++){
     var adr = toilets[x].plassering;
