@@ -12,13 +12,15 @@ if (xhr.readyState === 4 && xhr.status === 200) {
   console.log("Type", xhr.getResponseHeader("Content-Type"));
   var data = JSON.parse(xhr.responseText);
   return data;
+  makeArray(data);
 } else {
   return null;
 };
 xhr.send();
-}
-}
 
+}
+}
+/*
 //Søkeobjektet kan bli laget av den samme funksjonen om man parser tektsen på forhånd
 var searchObj = {"kjønn":"herre"};
 
@@ -28,13 +30,14 @@ var el = document.getElementById("element");
 var h2_element = document.createElement("h2");
 var h2_text = document.createTextNode(plassering);
 h2_element.appendChild(h2_text);
-
+*/
 
 // arrayet 'entries' med do-objektene fra JSON-dataen lagres i 'toilets', og logges for kontroll. (Edvard)
-var toilets = data;
-console.log(toilets);
-console.log(toilets[0]);
-
+function makeArray(data) {
+  var toilets = data;
+  console.log(toilets);
+  console.log(toilets[0]);
+};
 
 // legger til info om markøren til infovinduet.
 var addInfo = function(marker, i){

@@ -195,7 +195,10 @@ img {
   background-repeat: no-repeat;
 }
 
-
+/* Skjul stor meny på små skjermer (Herman) */
+#StorMeny {
+  display: none;
+}
 
 
 /* --- Fonter --- */
@@ -251,10 +254,7 @@ h3 {
   justify-content: space-between;
 }
 
-/* Skjul stor meny på små skjermer (Herman) */
-#StorMeny {
-  display: none;
-}
+
 
 /* "Bergens 7 øverst i venstre hjørne (Liva)  */
 #logo {
