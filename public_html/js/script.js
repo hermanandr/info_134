@@ -11,14 +11,16 @@ function request(){
       var ent = JSON.parse(xhr.responseText);
       data = ent.entries;
       console.log(data);
-      toilets = data.entries;
+      makeArray(data);
+      return data;
     }
     else{
       return null;
     }
   }
-    xhr.send();
+  xhr.send();
 }
+
 
 // Lagrer JSON-data som et javascript-objekt "doJSON". (Edvard)
 var doJSON = {
@@ -253,10 +255,11 @@ var doJSON = {
 };
 
 // arrayet 'entries' med do-objektene fra JSON-dataen lagres i 'toilets', og logges for kontroll. (Edvard)
-
-var toilets = doJSON.entries;
-console.log(toilets);
-console.log(toilets[0]);
+function makeArray(array){
+  toilets = array;
+  console.log(toilets);
+  console.log(toilets[0]);
+}
 
 
 // 'initMap()' itererer over 'toilets' og legger dem til på kartet. Da koordinatene er lagret som 'String'-verdier, konverteres de til tall ved hjelp av Number() (Edvard)
