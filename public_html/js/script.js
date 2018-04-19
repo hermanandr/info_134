@@ -33,13 +33,13 @@ var addInfo = function(marker, i){
 
   marker.addListener('click', function() {
     if(marker.open != true){
-    infowindow.open(map, marker);
-    marker.open = true;
-    console.log(marker);
+      infowindow.open(map, marker);
+      marker.open = true;
+      console.log(marker);
     } else {
-    infowindow.close(map, marker);
-    marker.open = false;
-    console.log(marker);
+      infowindow.close(map, marker);
+      marker.open = false;
+      console.log(marker);
     }
   });
 
@@ -52,7 +52,7 @@ var addInfo = function(marker, i){
 function addList(){
   for(var x = 0; x < toilets.length; x++){
     var adr = toilets[x].plassering;
-    var text = document.createTextNode('-  ' + adr);
+    var text = document.createTextNode(adr);
     var toilet = document.createElement("li");
     toilet.appendChild(text);
     document.getElementById("doFilter").appendChild(toilet);
@@ -76,6 +76,7 @@ function search(searchObject) {
 	initMap(searchResults);
   console.log(searchResults);
 }
+
 
 function resetMap() {
   initMap(toilets);
