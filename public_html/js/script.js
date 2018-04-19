@@ -77,6 +77,10 @@ function search(searchObject) {
   console.log(searchResults);
 }
 
+function resetMap() {
+  initMap(toilets);
+}
+
 // Oppretter og sender en XML-request etter en URL, og returnerer dataen mottatt. (Edvard)
 function request(){
   var xhr = new XMLHttpRequest();
