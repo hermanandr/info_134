@@ -200,14 +200,14 @@ img {
   width: 100%;
 }
 
-/* Legger til litt padding */
+/* Legger til  padding */
 .p1 {
-  padding: 12px;
+  padding: 24px;
 }
 
-/* Legger til dobbel padding */
-.p2 {
-  padding: 24px;
+/* Legger til padding i topp */
+.pt {
+  padding-top: 24px;
 }
 
 .white {
