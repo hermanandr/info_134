@@ -1,6 +1,7 @@
 // Lenke til JSON-data.
 var toaletter = "https://hotell.difi.no/api/json/bergen/dokart";
 var lekeplasser = "https://hotell.difi.no/api/json/bergen/lekeplasser?";
+
 var data = [];
 
 // legger til info om markøren til infovinduet. (Edvard)
@@ -109,5 +110,3 @@ function loadMap(url) {
   request(url);
   initMap(data);
 }
-
-loadMap(toaletter);
