@@ -195,18 +195,19 @@ img {
   background-repeat: no-repeat;
 }
 
+/* Alle kolonneklasser er full bredde på små skjermer */
 .col_enTre, .col_toTre {
   width: 100%;
 }
 
-/* Legger til padding*/
-.p {
-  padding: 24px;
+/* Legger til litt padding */
+.p1 {
+  padding: 12px;
 }
 
-/* Legger til padding i topp */
-.pt {
-  padding-top: 24px;
+/* Legger til dobbel padding */
+.p2 {
+  padding: 24px;
 }
 
 .white {
@@ -462,7 +463,7 @@ h3 {
 }
 
 .col_toTre {
-  width: 63%;
+  width: 64%;
   float: left;
 }
 
