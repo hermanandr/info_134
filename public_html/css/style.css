@@ -195,11 +195,15 @@ img {
   background-repeat: no-repeat;
 }
 
+<<<<<<< HEAD
 /* Alle kolonneklasser er full bredde på små skjermer */
+=======
+>>>>>>> f172795948c2e927f172ae1ed4aaa915c708c2fb
 .col_enTre, .col_toTre {
   width: 100%;
 }
 
+<<<<<<< HEAD
 /* Legger til litt padding */
 .p1 {
   padding: 12px;
@@ -208,6 +212,16 @@ img {
 /* Legger til dobbel padding */
 .p2 {
   padding: 24px;
+=======
+/* Legger til padding*/
+.p {
+  padding: 24px;
+}
+
+/* Legger til padding i topp */
+.pt {
+  padding-top: 24px;
+>>>>>>> f172795948c2e927f172ae1ed4aaa915c708c2fb
 }
 
 .white {
@@ -217,7 +231,11 @@ img {
 ol {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
+<<<<<<< HEAD
   line-height: 24px;
+=======
+  line-height: 28px;
+>>>>>>> f172795948c2e927f172ae1ed4aaa915c708c2fb
 }
 
 /* --- Fonter --- */
@@ -458,12 +476,20 @@ h3 {
   }
 
 .col_enTre {
+<<<<<<< HEAD
   width: 30%;
+=======
+  width: 32%;
+>>>>>>> f172795948c2e927f172ae1ed4aaa915c708c2fb
   float: left;
 }
 
 .col_toTre {
+<<<<<<< HEAD
   width: 60%;
+=======
+  width: 64%;
+>>>>>>> f172795948c2e927f172ae1ed4aaa915c708c2fb
   float: left;
 }
 
