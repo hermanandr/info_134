@@ -195,31 +195,6 @@ img {
   background-repeat: no-repeat;
 }
 
-/* Alle kolonneklasser er full bredde på små skjermer */
-.col_enTre, .col_toTre {
-  width: 100%;
-}
-
-/* Legger til litt padding */
-.p1 {
-  padding: 12px;
-}
-
-/* Legger til dobbel padding */
-.p2 {
-  padding: 24px;
-}
-
-.white {
-  background-color: #fff;
-}
-
-ol {
-  font-family: 'Lato', sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-}
-
 /* --- Fonter --- */
 
 /* Alle linker */
@@ -456,16 +431,6 @@ h3 {
     font-size: 30px;
     margin: 10px;
   }
-
-.col_enTre {
-  width: 30%;
-  float: left;
-}
-
-.col_toTre {
-  width: 60%;
-  float: left;
-}
 
 }
 /* Styling for store skjermer */
