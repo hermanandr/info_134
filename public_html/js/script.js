@@ -18,6 +18,7 @@ function initMap(list){
         lat:Number(list[i].latitude),
         lng:Number(list[i].longitude)
       },
+      label: (i + 1).toString(),
       map: map
     })
     addInfo(marker, i);
