@@ -81,6 +81,7 @@ function initMap() {
         lng:Number(toilets[i].longitude)
       },
       map: map
+      label: (i+1).toString(),
     })
     addInfo(marker, i);
   }
@@ -96,4 +97,11 @@ var addList = function(){
     document.getElementById("doFilter").appendChild(toilet);
   }
 }
+
+//finner avstanden mellom to markører i km (Vegard)
+var finnAvstand = function (marker1, marker2){
+  var lat = ((marker1.latitude) - (marker2.latitude));
+  var lng = ((marker1.longitude) - (marker2.longitude));
+  var avstand = Math.sqrt((lat*lat)+(lng*lng);
+  }
 }
