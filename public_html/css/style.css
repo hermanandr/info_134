@@ -260,9 +260,30 @@ h3 {
   font-size: 20px;
 }
 
-.searchBar {
+/* .searchBar {
   background-color: #fff;
   border: 1px solid #000;
+} */
+
+/* #input {
+  float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+} */
+
+button {
+  /* float: left;
+
+  margin-top: 8px;
+  margin-right: 16px; */
+    padding: 6px 10px;
+  background: #000;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
 }
 
 /* Styling for små mobilenheter */
