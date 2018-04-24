@@ -2,7 +2,9 @@
 body {
   background-color: rgb(245, 245, 245);
   margin: 0;
-  width: 100%
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
 }
 
 /* Topp-seksjonen, inneholder meny og logo */
@@ -218,6 +220,29 @@ ol {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   line-height: 28px;
+}
+
+form {
+  width: 100%;
+  max-width: 200px;
+}
+
+/*Stilsetter søkefeltene i avansert søk */
+.inputGroup {
+  margin: 5px 0 20px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.inputGroup p3{
+  margin: 15px;
+}
+
+.inputGroup input {
+  padding: 5px;
+  border: none;
+  border-bottom: #000 solid 1px;
 }
 
 /* --- Fonter --- */
