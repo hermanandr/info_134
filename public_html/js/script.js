@@ -1,26 +1,43 @@
 // Lenke til JSON-data.
 var toaletter = "https://hotell.difi.no/api/json/bergen/dokart";
 var lekeplasser = "https://hotell.difi.no/api/json/bergen/lekeplasser?";
+var fjell = [
+  {navn: 'ulriken',          lat:60.378, lng:5.387},
+  {navn: 'fløyfjellet',      lat:60.399, lng:5.345},
+  {navn: 'rundemanen',       lat:60.414, lng:5.364},
+  {navn: 'sandviksfjellet',  lat:60.410, lng:5.340},
+  {navn: 'løvstakken',       lat:60.374, lng:5.323},
+  {navn: 'damsgårdsfjellet', lat:60.375, lng:5.291},
+  {navn: 'lyderhorn',        lat:60.374, lng:5.241}
+];
+console.log(fjell);
 
 var data = [];
+var erNavn;
 
 // legger til info om markøren til infovinduet. (Edvard)
 function addInfo(list, marker, i){
   // stringen 'text' inneholder HTML-kode som vil vises i infovinduet (Edvard)
-  var text = "<div id='info'><h3>" + list[i].plassering + "</h3>"
-  + "<h4>" + list[i].adresse + "</h4> ";
+  if(list[0].navn != undefined){
+    erNavn = true;
+  } else {
+    erNavn = false;
+  }
 
-  marker.addListener('click', function() {
-    if(marker.open != true){
-      infowindow.open(map, marker);
-      marker.open = true;
-      console.log(marker);
-    } else {
-      infowindow.close(map, marker);
-      marker.open = false;
-      console.log(marker);
-    }
-  });
+  var text;
+
+  if(erNavn) {
+    text = "<div id='info'><h3>" + list[i].navn + "</h3>"
+  }else{
+    text = "<div id='info'><h3>" + list[i].plassering + "</h3>"
+    + "<h4>" + list[i].adresse + "</h4> ";
+  }
+
+console.log(list[i].navn);
+
+  marker.addListener('click', function() { if(marker.open != true){
+  infowindow.open(map, marker); marker.open = true; } else {
+  infowindow.close(map, marker); marker.open = false; } });
 
   var infowindow = new google.maps.InfoWindow({
     content: text
@@ -29,16 +46,33 @@ function addInfo(list, marker, i){
 
 // legger til en liste over alle de forskjellige markørene, navngitt etter plassering. (Edvard)
 function addList(list){
-  for(var x = 0; x < list.length; x++){
-    var adr = list[x].plassering;
-    var text = document.createTextNode(adr);
-    var toilet = document.createElement("li");
-    toilet.appendChild(text);
-    document.getElementById("doFilter").appendChild(toilet);
+  if(erNavn) {
+    for(var x = 0; x < list.length; x++){
+      var navn = list[x].navn;
+      var text = document.createTextNode(navn);
+      var obj = document.createElement("li");
+      obj.appendChild(text);
+      document.getElementById("objList").appendChild(obj);
+    }
+  } else {
+    for(var x = 0; x < list.length; x++){
+      var adr = list[x].plassering;
+      var text = document.createTextNode(adr);
+      var obj = document.createElement("li");
+      obj.appendChild(text);
+      document.getElementById("objList").appendChild(obj);
+    }
   }
 }
+  // for(var x = 0; x < list.length; x++){
+  //   var adr = list[x].plassering;
+  //   var text = document.createTextNode(adr);
+  //   var obj = document.createElement("li");
+  //   obj.appendChild(text);
+  //   document.getElementById("objList").appendChild(obj);
+  // }
 
-function search(searchObject) {
+function search(list, searchObject) {
 	var searchResults  = [];
 	var searchParams = Object.keys(searchObject);
 	for(i=0; i < list.length; i++) {
@@ -95,7 +129,6 @@ function request(url){
       return entries;
     }
     else{
-      console.log("couldn't load dataset: " + url);
       return null;
     }
   }
