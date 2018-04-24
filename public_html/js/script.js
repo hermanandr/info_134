@@ -84,6 +84,13 @@ function search(list, searchObject) {
 	initMap(searchResults);
   console.log(searchResults);
 }
+//finner avstanden mellom to markører i km (Vegard)
+var findDistance = function (marker1, marker2){
+  var lat = ((marker1.latitude) - (marker2.latitude));
+  var lng = ((marker1.longitude) - (marker2.longitude));
+  var distance = Math.sqrt((lat*lat)+(lng*lng);
+  return distance;
+}
 
 // 'initMap()' itererer over en gitt liste og plasserer markører på kartet for hvert element.
 function initMap(list){
