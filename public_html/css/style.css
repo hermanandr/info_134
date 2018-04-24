@@ -245,6 +245,19 @@ form {
   border-bottom: #000 solid 1px;
 }
 
+.button{
+  border: none;
+  border-radius: 20px;
+  background-color: #996E52;
+  padding: 8px 18px;
+  color: #fff;
+  box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+  background-color: rgb(116, 82, 60)
+}
+
 /* --- Fonter --- */
 
 /* Alle linker */
@@ -299,17 +312,6 @@ h3 {
     font-size: 17px;
 } */
 
-button {
-  /* float: left;
-
-  margin-top: 8px;
-  margin-right: 16px; */
-    padding: 6px 10px;
-  background: #000;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-}
 
 /* Styling for små mobilenheter */
 @media screen and (min-width : 320px) {

@@ -64,6 +64,14 @@ function addList(list){
     }
   }
 }
+
+//User-input fra skjemaet i avansert søk
+var userInput = [];
+function newSearch(){
+  userInput.push(document.getElementById("avansertSok").value)
+  console.log(userInput);
+}
+
 // Hentet og manipulert fra utdelte 'search.js'.
 // Itererer over en gitt liste og ser etter et objekt som matcher søkeobjektet.
 function search(list, searchObject) {
