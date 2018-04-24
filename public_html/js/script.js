@@ -74,6 +74,15 @@ function search(searchObject) {
 			}
 		}
 	}
+
+  //finner avstanden mellom to markører i km (Vegard)
+  var findDistance = function (marker1, marker2){
+    var lat = ((marker1.latitude) - (marker2.latitude));
+    var lng = ((marker1.longitude) - (marker2.longitude));
+    var distance = Math.sqrt((lat*lat)+(lng*lng);
+  }
+
+
 	initMap(searchResults);
   console.log(searchResults);
 }
