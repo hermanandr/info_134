@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   </head>
-    <body onload="request();">
+    <body onload="loadMap()">
       <header>
         <!--  -->
         <a href="index.html"><div id="logo">
@@ -46,11 +46,21 @@
   <!-- toalettkart -->
     <div class="container">
       <div id="map"></div>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5QyVZg6FmI3ayYvcMs1tOfFBQWQoRio&callback=initMap">
-        </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5QyVZg6FmI3ayYvcMs1tOfFBQWQoRio&callback=initMap"
+      async defer></script>
     </div>
-    <div>
-      <ol id="doFilter"></ol>
+    <div class="col_enTre pt">
+      <div class="white p1">
+        <p>Her kan man søke</p>
+        <input type="text" placeholder="Search..">
     </div>
+  </div>
+  <div class="col_toTre pt">
+    <div class="white p1">
+    <h3>Søkeresultater</h3>
+    <ol id="objList"></ol>
+  </div>
+</div>
+<script>loadMap(lekeplasser);</script>
 </body>
 </html>
