@@ -59,17 +59,31 @@
       </div>
       <div class="fullWidth pt">
         <div class="white p1">
-          <p>Avansert søk</p>
+          <h3>Avansert søk</h3>
           <form action="" method="get">
             <strong>Kjønn</strong><br>
-            <input type="checkbox" name="Kjønn" value="herre"> Herre 
-            <input type="checkbox" name="Kjønn" value="dame"> Dame
-            <br><br>
+            <div class="inputGroup">
+              <input type="checkbox" name="Kjønn" value="herre"> Herre 
+              <input type="checkbox" name="Kjønn" value="dame"> Dame
+            </div>
             <strong>Fasiliteter</strong><br>
-            <input type="checkbox" name="Fasiliteter" value="rullestol"> Rullestolilpasset
-            <input type="checkbox" name="Fasiliteter" value="stellerom"> Stellerom
-            <br>
-            <input type="submit" value="Submit">
+            <div class="inputGroup">
+              <input type="checkbox" name="Fasiliteter" value="rullestol"> Rullestolilpasset
+              <input type="checkbox" name="Fasiliteter" value="stellerom"> Stellerom
+            </div>
+            <strong>Åpningstider</strong><br>
+            <div class="inputGroup">
+              <input type="number" name="Åpent" value="timeStart" placeholder="Åpner kl">
+              <input type="number" name="Åpent" value="timeEnd" placeholder="Stenger kl">
+              <input type="checkbox" name="Åpent" value="openNow"> Åpent nå
+            </div>
+            <strong>Pris</strong><br>
+            <div class="inputGroup">
+              <input type="number" name="Pris" value="maksPris"> Makspris
+              <br> 
+              <input type="checkbox" name="Pris" value="gratis"> Gratis 
+            </div>
+            <input type="submit" value="Søk">
           </form>
           
           <button type="submit"><i class="fa fa-search"></i></button>
