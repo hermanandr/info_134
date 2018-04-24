@@ -49,10 +49,31 @@
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5QyVZg6FmI3ayYvcMs1tOfFBQWQoRio&callback=initMap">
         </script>
 
-    <div class="col_enTre pt">
-      <div class="white p1">
-        <p>Her kan man søke</p>
-        <input type="text" placeholder="Search..">
+    <div class="col_enTre">
+      <div class="fullWidth pt">
+        <div class="white p1">
+          <p>Hurtigsøk</p>
+          <input type="text" placeholder="Søk her..">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+      <div class="fullWidth pt">
+        <div class="white p1">
+          <p>Avansert søk</p>
+          <form action="" method="get">
+            <strong>Kjønn</strong><br>
+            <input type="checkbox" name="Kjønn" value="herre"> Herre 
+            <input type="checkbox" name="Kjønn" value="dame"> Dame
+            <br><br>
+            <strong>Fasiliteter</strong><br>
+            <input type="checkbox" name="Fasiliteter" value="rullestol"> Rullestolilpasset
+            <input type="checkbox" name="Fasiliteter" value="stellerom"> Stellerom
+            <br>
+            <input type="submit" value="Submit">
+          </form>
+          
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
       </div>
     </div>
     <div class="col_toTre pt">
@@ -63,11 +84,7 @@
     </div>
     <script>loadMap(toaletter);</script>
   </div>
-  <div class="searchBar">
-    <!-- <a class="active" href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a> -->
-
-  </div>
+  
+  
 </body>
 </html>

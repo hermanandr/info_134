@@ -2,7 +2,9 @@
 body {
   background-color: rgb(245, 245, 245);
   margin: 0;
-  width: 100%
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
 }
 
 /* Topp-seksjonen, inneholder meny og logo */
