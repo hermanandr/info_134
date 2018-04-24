@@ -1,4 +1,4 @@
-// Lenke til JSON-data.
+// Lenker til JSON-data.
 var toaletter = "https://hotell.difi.no/api/json/bergen/dokart";
 var lekeplasser = "https://hotell.difi.no/api/json/bergen/lekeplasser?";
 var fjell = [
@@ -17,15 +17,14 @@ var erNavn;
 
 // legger til info om markøren til infovinduet. (Edvard)
 function addInfo(list, marker, i){
-  // stringen 'text' inneholder HTML-kode som vil vises i infovinduet (Edvard)
+  // om en liste har en attributt som heter 'navn', vil 'erNavn' returnere true.
   if(list[0].navn != undefined){
     erNavn = true;
   } else {
     erNavn = false;
   }
-
+  // 'erNavn' brukes til å bestemme format til infovinduet markøren vil vise.(Edvard)
   var text;
-
   if(erNavn) {
     text = "<div id='info'><h3>" + list[i].navn + "</h3>"
   }else{
@@ -33,18 +32,19 @@ function addInfo(list, marker, i){
     + "<h4>" + list[i].adresse + "</h4> ";
   }
 
-console.log(list[i].navn);
-
   marker.addListener('click', function() { if(marker.open != true){
-  infowindow.open(map, marker); marker.open = true; } else {
-  infowindow.close(map, marker); marker.open = false; } });
+      infowindow.open(map, marker); marker.open = true;
+    } else {
+      infowindow.close(map, marker); marker.open = false;
+    }
+  });
 
   var infowindow = new google.maps.InfoWindow({
     content: text
   });
 }
 
-// legger til en liste over alle de forskjellige markørene, navngitt etter plassering. (Edvard)
+// legger til en liste over alle de forskjellige markørene. 'erNavn' bestemmer hvilke attributter objektene navngis fra. (Edvard)
 function addList(list){
   if(erNavn) {
     for(var x = 0; x < list.length; x++){
@@ -64,14 +64,8 @@ function addList(list){
     }
   }
 }
-  // for(var x = 0; x < list.length; x++){
-  //   var adr = list[x].plassering;
-  //   var text = document.createTextNode(adr);
-  //   var obj = document.createElement("li");
-  //   obj.appendChild(text);
-  //   document.getElementById("objList").appendChild(obj);
-  // }
-
+// Hentet og manipulert fra utdelte 'search.js'.
+// Itererer over en gitt liste og ser etter et objekt som matcher søkeobjektet.
 function search(list, searchObject) {
 	var searchResults  = [];
 	var searchParams = Object.keys(searchObject);
@@ -86,11 +80,12 @@ function search(list, searchObject) {
 			}
 		}
 	}
+  // kartet blir reinitialisert med bare søkeresultatene.
 	initMap(searchResults);
   console.log(searchResults);
 }
 
-// 'initMap()' itererer over 'list[]' og legger dem til på kartet. Da koordinatene er lagret som 'String'-verdier, konverteres de til tall ved hjelp av Number() (Edvard)
+// 'initMap()' itererer over en gitt liste og plasserer markører på kartet for hvert element.
 function initMap(list){
   var bergen = {lat:60.394106, lng:5.324017}
 
@@ -109,8 +104,9 @@ function initMap(list){
       label: (i + 1).toString(),
       map: map
     })
-    addInfo(list, marker, i);
+    addInfo(list, marker, i); // Informasjon som adresse o.l. blir lagt til i infovinduet til markøren.
   }
+  // Legger alle elementene som viser på kartet til i en liste.
   addList(list);
 }
 
@@ -134,11 +130,11 @@ function request(url){
   }
     xhr.send();
 }
-
+// Oppdaterer den globale variabelen 'data' med gitt array. (Edvard)
 function updateArray(array){
   data = array;
 }
-
+// 'loadMap' tar imot en URL, kjører 'request()' med den gitte URL'en, og reinitialiserer kartet med den oppdaterte lista. (Edvard)
 function loadMap(url) {
   request(url);
   initMap(data);
