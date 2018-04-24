@@ -63,25 +63,33 @@
           <form action="" method="get">
             <strong>Kjønn</strong><br>
             <div class="inputGroup">
-              <input type="checkbox" name="Kjønn" value="herre"> Herre 
-              <input type="checkbox" name="Kjønn" value="dame"> Dame
+              <label for="herre">
+              <input type="checkbox" name="Kjønn" value="herre">Herre</label>
+              <label for="dame">
+              <input type="checkbox" name="Kjønn" value="dame">Dame</label> 
             </div>
             <strong>Fasiliteter</strong><br>
             <div class="inputGroup">
-              <input type="checkbox" name="Fasiliteter" value="rullestol"> Rullestolilpasset
-              <input type="checkbox" name="Fasiliteter" value="stellerom"> Stellerom
+              <label for="rullestol">
+              <input type="checkbox" name="Fasiliteter" value="rullestol"> Rullestolilpasset</label>
+              <label for="stellerom">
+              <input type="checkbox" name="Fasiliteter" value="stellerom"> Stellerom</label>
             </div>
             <strong>Åpningstider</strong><br>
             <div class="inputGroup">
+              <label for="">
               <input type="number" name="Åpent" value="timeStart" placeholder="Åpner kl">
-              <input type="number" name="Åpent" value="timeEnd" placeholder="Stenger kl">
-              <input type="checkbox" name="Åpent" value="openNow"> Åpent nå
+              <input type="number" name="Åpent" value="timeEnd" placeholder="Stenger kl"></label>
+              <label for="openNow">
+              <input type="checkbox" name="Åpent" value="openNow"> Åpent nå</label>
             </div>
             <strong>Pris</strong><br>
             <div class="inputGroup">
-              <input type="number" name="Pris" value="maksPris"> Makspris
+              <label for="maksPris">
+              <input type="number" name="Pris" value="maksPris"> Makspris</label>
               <br> 
-              <input type="checkbox" name="Pris" value="gratis"> Gratis 
+              <label for="gratis">
+              <input type="checkbox" name="Pris" value="gratis"> Gratis </label>
             </div>
             <input type="submit" value="Søk">
           </form>
