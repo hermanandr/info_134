@@ -66,10 +66,30 @@ function addList(list){
 }
 
 //User-input fra skjemaet i avansert søk
-var userInput = [];
+
+/* var userInput = [];
 function newSearch(){
   userInput.push(document.getElementById("avansertSok").value)
   console.log(userInput);
+} */
+
+function newSearch(form) {
+  var parameters = "";
+  for (var x=0, y=form.elements.length; x < y; x++) {
+  var field = form.elements[x];
+  if (field.name && field.type !== "submit") {
+    parameters += "&" + encodeURIComponent(field.name) + "=" + (field.type == "radio" || field.type == "checkbox" ? (field.checked == "checked") : encodeURIComponent(field.value));
+  }
+  return parameters;
+}
+}
+
+function advancedSearch() {
+  var searchObject = [];
+  var form = document.getElementById("formAdvanced").value;
+  console.log(form.input.name)
+
+  //for (i=0; i<)
 }
 
 // Hentet og manipulert fra utdelte 'search.js'.
@@ -154,3 +174,11 @@ function loadMap(url) {
   request(url);
   initMap(data);
 }
+
+
+
+/*
+
+.value er verdien brukeren skriver inn.
+.checked er verdien til checkbokser
+lag et nytt objekt
