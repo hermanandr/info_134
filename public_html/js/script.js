@@ -85,11 +85,34 @@ function newSearch(form) {
 }
 
 function advancedSearch() {
-  var searchObject = [];
-  var form = document.getElementById("formAdvanced").value;
-  console.log(form.input.name)
+  console.log(document.getElementById("1").name);
 
-  //for (i=0; i<)
+  var searchObject = {};
+
+  for(i=0; i<9; i++) {
+    var input = document.getElementById("i");
+
+    if(input.type == "checkbox") {
+      if(input.name != "Åpent" || input.name != "gratis") {
+        if(input.checked) {
+          searchObject[input.name] = "1";
+        } else {
+          searchObject[input.name] = "NULL";
+        };
+      } else if(input.type == "openNow"){
+        // Sjekk tiden nå opp mot tiden det er åpent
+      
+      } else if (input.type == "gratis"){
+        if(input.checked) {
+          searchObject[input.name] = "0";
+        };
+      };
+    }
+
+    if(input.type == "number"){
+
+    };  
+  };
 }
 
 // Hentet og manipulert fra utdelte 'search.js'.
@@ -163,6 +186,7 @@ function request(url){
   }
     xhr.send();
     return entries;
+    console.log(entries);
 }
 // Oppdaterer den globale variabelen 'data' med gitt array. (Edvard)
 function updateArray(array){
