@@ -91,15 +91,21 @@
               <label for="gratis">
               <input type="checkbox" name="Pris" value="gratis"> Gratis </label>
             </div>
-            <input class="button" type="button" onclick="newSearch()" value="Søk">
+            <input class="button" type="button" onclick="newSearch(avansertSok)" value="Søk">
           </form>
           
           <script>
-            var userInput = [];
-            function newSearch(){
-              userInput.push(document.getElementById("avansertSok").value)
-              console.log(document.getElementById("avansertSok"));
-            }
+            function newSearch(form) {
+  var parameters = [];
+  for (var x=0, y=form.elements.length; x < y; x++) {
+  var field = form.elements[x];
+  if (field.name && field.type !== "submit") {
+    parameters.push(encodeURIComponent(field.name) + ":" + (field.type == "radio" || field.type == "checkbox" ? (field.checked == "checked") : encodeURIComponent(field.value)));
+  }
+  return parameters;
+  console.log(parameters);
+}
+}
           </script>
           
         </div>
