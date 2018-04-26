@@ -96,29 +96,8 @@
             </div>
 
             <input class="button" type="button" onclick="advancedSearch()" value="Søk">
-          </form>
-          
-          <script>
-            function newSearch(form) {
-  var parameters = [];
-  for (var x=0, y=form.elements.length; x < y; x++) {
-  var field = form.elements[x];
-  if (field.name && field.type !== "submit") {
-    parameters.push(encodeURIComponent(field.name) + ":" + (field.type == "radio" || field.type == "checkbox" ? (field.checked == "checked") : encodeURIComponent(field.value)));
-  }
-  return parameters;
-  console.log(parameters);
-}
-}
-          </script>
-          
         </div>
-    <div class="col_enTre pt">
-      <div class="white p1">
-        <p>Her kan man søke</p>
-        <input type="text" placeholder="Søk her..">
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </div>
+    </div>
     </div>
     <div class="col_toTre pt">
         <div class="white p1">

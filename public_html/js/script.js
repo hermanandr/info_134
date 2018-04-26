@@ -116,7 +116,7 @@ function search(list, searchObject) {
 var findDistance = function (marker1, marker2){
   var lat = ((marker1.latitude) - (marker2.latitude));
   var lng = ((marker1.longitude) - (marker2.longitude));
-  var distance = Math.sqrt((lat*lat)+(lng*lng);
+  var distance = Math.sqrt((lat*lat)+(lng*lng));
   return distance;
 }
 
@@ -153,17 +153,16 @@ function request(url){
   xhr.onreadystatechange = function(){
     if(xhr.readyState === 4 && xhr.status === 200){
       console.log("Type", xhr.getResponseHeader("Content-Type"));
-      var ent = JSON.parse(xhr.responseText);
-      entries = ent.entries;
+      entries = JSON.parse(xhr.responseText).entries;
       console.log(entries);
       updateArray(entries);
-      return entries;
     }
     else{
       return null;
     }
   }
     xhr.send();
+    return entries;
 }
 // Oppdaterer den globale variabelen 'data' med gitt array. (Edvard)
 function updateArray(array){
@@ -174,11 +173,3 @@ function loadMap(url) {
   request(url);
   initMap(data);
 }
-
-
-
-/*
-
-.value er verdien brukeren skriver inn.
-.checked er verdien til checkbokser
-lag et nytt objekt
