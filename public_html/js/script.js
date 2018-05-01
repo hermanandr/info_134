@@ -99,17 +99,15 @@ function advancedSearch() {
         } else {
           searchObject[input.name] = "NULL";
         };
-      } else if(input.type == "openNow"){
+      } else if(input.name == "openNow"){
         // Sjekk tiden nå opp mot tiden det er åpent
       
-      } else if (input.type == "gratis"){
+      } else if (input.name == "gratis"){
         if(input.checked) {
           searchObject[input.name] = "0";
         };
       };
-    }
-
-    if(input.type == "number"){
+    } else if(input.type == "number"){
 
     };  
   };
