@@ -117,7 +117,7 @@ function advancedSearch() {
       if(input.name == "maksPris"){
         searchObject["pris"] = input.value;
       } else if(input.name == "openTime"){
-        searchObject[input.name] = input.value;
+        searchObject["tid_aapent"] = input.value;
       };
     };
   };
@@ -135,11 +135,17 @@ function search(list, searchObject) {
   
 	for(i=0; i < list.length; i++) {
 		var truthChecker = [] // will contain boolean values "true" for each param checked.
-    
+
     for(y=0; y < searchParams.length; y++) {
-			if(list[i][searchParams[y]] == searchObject[searchParams[y]]) {
+      if(searchParams[y].includes("tid")){
+        console.log("Wohoo");
+
+        // split by "-" list[i][searchParams[y]]
+
+      } else if(list[i][searchParams[y]] == searchObject[searchParams[y]]) {
 				truthChecker.push(true);
-			}
+      }
+      
 			if(truthChecker.length == searchParams.length) { //if all params are true, person is pushed.
 				searchResults.push(list[i]);
 			}
