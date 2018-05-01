@@ -1,7 +1,7 @@
 // Lenker til JSON-data.
 var toaletter = "https://hotell.difi.no/api/json/bergen/dokart";
 var lekeplasser = "https://hotell.difi.no/api/json/bergen/lekeplasser?";
-var utsiktspunkt = "https://hotell.difi.no/api/json/brreg/enhetsregisteret?page=8?";
+var utsiktspunkt = "https://hotell.difi.no/api/json/stavanger/utsiktspunkt??";
 
 var fjell = [
   {navn: 'ulriken',          lat:60.378, lng:5.387},
