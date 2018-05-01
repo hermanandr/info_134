@@ -52,19 +52,20 @@
         </script>
 
   <!-- Tittel under kartet -->
-    <div class = "p1">
+    <div class="fullWidth pt">
       <b>Offentlige toalett i Bergen</b>
     </div>
 
     <div class="col_enTre">
-      <div class="fullWidth pt">
-        <div class="white p1">
-          <h3>Hurtigsøk</h3>
-          <div class="inputGroup">
-            <input type="text" placeholder="Søk her..">
+        <div class="fullWidth pt">
+            <div class="white p1">
+              <h3>Hurtigsøk</h3>
+              <div class="inputGroup">
+                <input type="text" placeholder="Søk her..">
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+      
       <div class="fullWidth pt">
         <div class="white p1" id="formAdvanced">
           <h3>Avansert søk</h3>
@@ -78,9 +79,7 @@
               <label for="herre">
               <input id="1" type="checkbox" name="herre">Herre</label>
               <label for="dame">
-              <input id="2" type="checkbox" name="dame">Dame</label> 
-              <input type="checkbox" name="Kjønn" value="herre"> Herre
-              <input type="checkbox" name="Kjønn" value="dame"> Dame
+              <input id="2" type="checkbox" name="dame">Dame</label>
             </div>
 
             <strong>Fasiliteter</strong><br>
@@ -108,17 +107,10 @@
             </div>
 
             <input class="button" type="button" onclick="advancedSearch()" value="Søk">
-              <input type="number" name="Pris" value="maksPris"> Makspris
-              <br>
-              <input type="checkbox" name="Pris" value="gratis"> Gratis
-            </div>
-            <input type="submit" value="Søk">
-          </form>
-
-          <button type="submit"><i class="fa fa-search"></i></button>
         </div>
+      </div>
     </div>
-    </div>
+
     <div class="col_toTre pt">
         <div class="white p1">
           <h3>Søkeresultater</h3>
