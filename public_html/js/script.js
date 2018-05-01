@@ -14,6 +14,7 @@ console.log(fjell);
 
 var data = [];
 var erNavn;
+var favourite = {};
 
 // legger til info om markøren til infovinduet. (Edvard)
 function addInfo(list, marker, i){
@@ -48,10 +49,13 @@ function addInfo(list, marker, i){
 function addList(list){
   if(erNavn) {
     for(var x = 0; x < list.length; x++){
+      var liste = document.getElementById('objList');
       var navn = list[x].navn;
-      var text = document.createTextNode(navn);
       var obj = document.createElement("li");
-      obj.appendChild(text);
+      var a = document.createElement("a");
+      a.textContent = navn;
+      a.setAttribute('href', 'index.html')
+      obj.appendChild(a);
       document.getElementById("objList").appendChild(obj);
     }
   } else {
@@ -60,7 +64,7 @@ function addList(list){
       var text = document.createTextNode(adr);
       var obj = document.createElement("li");
       obj.appendChild(text);
-      document.getElementById("objList").appendChild(obj);
+      liste.appendChild(obj);
     }
   }
 }
@@ -87,10 +91,10 @@ function newSearch(form) {
 function advancedSearch() {
 
   var searchObject = {};
-  
+
   for(var i=0; i<9; i++) {
     var input = document.getElementById(i);
-    
+
     if(input.type == "checkbox") {
       if(input.name != "openNow" && input.name != "gratis") {
         if(input.checked) {
@@ -100,7 +104,7 @@ function advancedSearch() {
         };
       } else if(input.name == "openNow"){
         // Sjekk tiden nå opp mot tiden det er åpent
-      
+
       } else if (input.name == "gratis"){
         if(input.checked) {
           searchObject["pris"] = "0";
@@ -191,14 +195,19 @@ function request(url){
     }
   }
     xhr.send();
-    return entries;
     console.log(entries);
+    return entries;
 }
 // Oppdaterer den globale variabelen 'data' med gitt array. (Edvard)
 function updateArray(array){
   data = array;
 }
 // 'loadMap' tar imot en URL, kjører 'request()' med den gitte URL'en, og reinitialiserer kartet med den oppdaterte lista. (Edvard)
+
+function chooseFavourite(list){
+
+}
+
 function loadMap(url) {
   request(url);
   initMap(data);
