@@ -431,6 +431,12 @@ small {
   color: black;
 }
 
+#reload{
+  display: flex;
+  justify-content: left;
+  margin-left: 1%;
+}
+
 .centerBox h1 {
   font-size: 52px;
 }
