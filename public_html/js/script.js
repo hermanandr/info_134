@@ -85,8 +85,6 @@ function newSearch(form) {
 }
 
 function advancedSearch() {
-  var i = 0;
-  console.log(document.getElementById(i).type);
 
   var searchObject = {};
   
@@ -94,7 +92,7 @@ function advancedSearch() {
     var input = document.getElementById(i);
     
     if(input.type == "checkbox") {
-      if(input.name != "Åpent" || input.name != "gratis") {
+      if(input.name != "openNow" && input.name != "gratis") {
         if(input.checked) {
           searchObject[input.name] = "1";
         } else {
@@ -105,16 +103,22 @@ function advancedSearch() {
       
       } else if (input.name == "gratis"){
         if(input.checked) {
-          searchObject[input.name] = "0";
+          searchObject["pris"] = "0";
         };
       };
+
     } else if(input.type == "number"){
+      if(input.name == "maksPris"){
+        searchObject["pris"] = input.value;
+      } else if(input.name == "opens" || input.name == "closes"){
+        
+      };
 
-    };  
 
-    console.log(searchObject);
+    };
 
   };
+  console.log(searchObject);
 }
 
 // Hentet og manipulert fra utdelte 'search.js'.
