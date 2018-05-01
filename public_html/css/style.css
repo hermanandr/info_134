@@ -146,7 +146,7 @@ li a:hover {
 
 /* Header på undersidene (nederste del av forsidebildet) (Liva) */
 #topBanner1 {
-  background: url(../img/forside.jpg);
+  background: url(../media/forside.jpg);
   background-size: 100%;
   background-position: 100% 100%;
   width: 100%;
@@ -190,7 +190,7 @@ img {
 
 /* Bakgrunnsbilde på 404-side (Herman og Liva)*/
 #coverPhoto {
-  background-image: url('../img/404.jpg');
+  background-image: url('../media/404.jpg');
   height: 100vh;
   background-size: auto;
   background-position: center;
@@ -342,7 +342,7 @@ b {
 
 /*Importering og plassering av forsidebildet (Herman og Liva)*/
 #forsidebilde {
-  background-image: url('../img/forsidecopy.jpg');
+  background-image: url('../media/forsidecopy.jpg');
   background-size: auto 800px;
   background-position: 50% top;
   width: auto;

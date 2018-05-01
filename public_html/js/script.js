@@ -17,7 +17,7 @@ console.log(fjell);
 var data = [];
 var erNavn;
 
-// legger til info om markøren til infovinduet. (Edvard)
+// legger til info om markøren til infovinduet.
 function addInfo(list, marker, i){
   // om en liste har en attributt som heter 'navn', vil 'erNavn' returnere true.
   if(list[0].navn != undefined){
@@ -25,7 +25,7 @@ function addInfo(list, marker, i){
   } else {
     erNavn = false;
   }
-  // 'erNavn' brukes til å bestemme format til infovinduet markøren vil vise.(Edvard)
+  // 'erNavn' brukes til å bestemme format til infovinduet markøren vil vise.
   var text;
   if(erNavn) {
     text = "<div id='info'><h3>" + list[i].navn + "</h3>"
@@ -46,7 +46,7 @@ function addInfo(list, marker, i){
   });
 }
 
-// legger til en liste over alle de forskjellige markørene. 'erNavn' bestemmer hvilke attributter objektene navngis fra. (Edvard)
+// legger til en liste over alle de forskjellige markørene. 'erNavn' bestemmer hvilke attributter objektene navngis fra.
 function addList(list){
   if(erNavn) {
     for(var x = 0; x < list.length; x++){
@@ -56,7 +56,7 @@ function addList(list){
       obj.appendChild(text);
       document.getElementById("objList").appendChild(obj);
     }
-  } else {
+  } else if(list[0].plassering != undefined) {
     for(var x = 0; x < list.length; x++){
       var adr = list[x].plassering;
       var text = document.createTextNode(adr);
@@ -64,7 +64,15 @@ function addList(list){
       obj.appendChild(text);
       document.getElementById("objList").appendChild(obj);
     }
+  } else {
+    for(var x = 0; x < list.length; x++){
+      var adr = list[x].name;
+      var text = document.createTextNode(adr);
+      var obj = document.createElement("li");
+      obj.appendChild(text);
+      document.getElementById("objList").appendChild(obj);
   }
+}
 }
 // Hentet og manipulert fra utdelte 'search.js'.
 // Itererer over en gitt liste og ser etter et objekt som matcher søkeobjektet.
@@ -86,7 +94,7 @@ function search(list, searchObject) {
 	initMap(searchResults);
   console.log(searchResults);
 }
-//finner avstanden mellom to markører i km (Vegard)
+//finner avstanden mellom to markører i km
 var findDistance = function (marker1, marker2){
   var lat = ((marker1.latitude) - (marker2.latitude));
   var lng = ((marker1.longitude) - (marker2.longitude));
@@ -131,7 +139,7 @@ function initMap(list){
   addList(list);
 }
 
-// Oppretter og sender en XML-request etter en URL, og returnerer dataen mottatt. (Edvard)
+// Oppretter og sender en XML-request etter en URL, og returnerer dataen mottatt.
 function request(url){
   var xhr = new XMLHttpRequest();
   var entries =[];
@@ -151,11 +159,11 @@ function request(url){
     xhr.send();
     return entries;
 }
-// Oppdaterer den globale variabelen 'data' med gitt array. (Edvard)
+// Oppdaterer den globale variabelen 'data' med gitt array.
 function updateArray(array){
   data = array;
 }
-// 'loadMap' tar imot en URL, kjører 'request()' med den gitte URL'en, og reinitialiserer kartet med den oppdaterte lista. (Edvard)
+// 'loadMap' tar imot en URL, kjører 'request()' med den gitte URL'en, og reinitialiserer kartet med den oppdaterte lista.
 function loadMap(url) {
   request(url);
 }
