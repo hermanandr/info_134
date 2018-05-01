@@ -24,7 +24,7 @@
             <span></span>
             <ul id="Meny">
                 <li><a href="index.html">Hjem</a></li>
-                <li><a href="map.html">Toaletter</a></li>
+                <li><a href="toalett.html">Toaletter</a></li>
                 <li><a href="lekeplass.html">Lekeplass</a></li>
                 <li><a href="utsiktspunkt.html">Utsiktspunkt</a></li>
                 <li><a href="Om-oss.html">Om oss</a></li>
@@ -36,7 +36,7 @@
               <li><a href="Om-oss.html">Om oss</a></li>
               <li><a href="utsiktspunkt.html">Utsiktspunkt</a></li>
               <li><a href="lekeplass.html">Lekeplass</a></li>
-              <li><a href="map.html"> Toaletter </a></li>
+              <li><a href="toalett.html"> Toaletter </a></li>
               <li><a href="index.html"> Hjem </a></li>
             </ul>
         </nav>
@@ -57,18 +57,53 @@
       <b>Utsiktspunkt i Stavanger</b>
     </div>
 
+    <div class="fullWidth pt">
+      <div class="white p1">
+        <h3>Filtersøk <br>
+        <small>(Finn ut hvilket berg eller tårn som har best utsikt over sentrum)</small> </h3>
+        <form action="" method="get">
+          <strong>Beliggenhet</strong><br>
+          <div class="inputGroup">
+            <input type="checkbox" name="Beliggenhet" value="Nærmest sentrum"> Nærmest sentrum
+          </div>
+          <strong>Velg mellom tårn eller berg (velg én)</strong><br>
+          <div class="inputGroup">
+            <input type="checkbox" name="Tårn eller berg" value="Tårn"> Tårn
+            <input type="checkbox" name="Tårn eller berg" value="Berg"> Berg
+          </div>
+        </div>
+      </div>
+
+    <!-- <div class="fullWidth pt">
     <div class="col_enTre pt">
       <div class="white p1">
+        <p>Velg mellom tårn eller berg</p>
+        <input type="text" placeholder="Søk tårn eller berg her..">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </div>
+    </div> -->
+
+    <!-- <div class="col_enTre pt">
+      <div class="white p1">
         <p>Her kan man søke</p>
-        <input type="text" placeholder="Search..">
+        <input type="text" placeholder="Søk her..">
     </div>
-  </div>
+  </div> -->
+
+
+
+
+
   <div class="col_toTre pt">
     <div class="white p1">
     <h3>Søkeresultater</h3>
     <ol id="objList"></ol>
   </div>
 </div>
+
+
+
+58.970008, 5.733369
 
 <script>loadMap(utsiktspunkt);</script>
 </body>

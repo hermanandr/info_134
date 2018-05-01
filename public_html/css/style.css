@@ -309,6 +309,10 @@ b {
   font-family: 'Lato';
 }
 
+small {
+  font-family: 'Lato';
+}
+
 /* Styling for små mobilenheter */
 @media screen and (min-width : 320px) {
 
