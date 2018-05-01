@@ -91,6 +91,7 @@ function newSearch(form) {
 function advancedSearch() {
 
   var searchObject = {};
+  var time = new Date();
 
   for(var i=0; i<9; i++) {
     var input = document.getElementById(i);
@@ -103,7 +104,15 @@ function advancedSearch() {
           searchObject[input.name] = "NULL";
         };
       } else if(input.name == "openNow"){
-        // Sjekk tiden nå opp mot tiden det er åpent
+        if(input.checked) {
+          if(time.getDay == 0){
+            searchObject["tid_sondag"] = toString(time.getHours()).length + "." + time.getMinutes();
+          } else if(time.getDay == 6) {
+            searchObject["tid_lordag"] = time.getHours() + "." + time.getMinutes();
+          } else {
+            searchObject["tid_hverdag"] = toString(time.getHours()).length + "." + time.getMinutes();
+          };
+        } else{};
 
       } else if (input.name == "gratis"){
         if(input.checked) {
@@ -114,14 +123,14 @@ function advancedSearch() {
     } else if(input.type == "number"){
       if(input.name == "maksPris"){
         searchObject["pris"] = input.value;
-      } else if(input.name == "open"){
-        searchObject["tid_hverdag"] = input.value;
+      } else if(input.name == "openTime"){
+        searchObject[input.name] = input.value;
       };
 
-
     };
-
   };
+
+  //searchObject["tid_hverdag"] = tidHverdag;
   console.log(searchObject);
 }
 
