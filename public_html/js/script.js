@@ -110,8 +110,8 @@ function advancedSearch() {
     } else if(input.type == "number"){
       if(input.name == "maksPris"){
         searchObject["pris"] = input.value;
-      } else if(input.name == "opens" || input.name == "closes"){
-        
+      } else if(input.name == "open"){
+        searchObject["tid_hverdag"] = input.value;
       };
 
 

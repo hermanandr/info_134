@@ -222,27 +222,28 @@ ol {
   line-height: 28px;
 }
 
-form {
-  width: 100%;
-  max-width: 600px;
+/*Stilsetter søkefeltene i avansert søk */
+input[type=number], input[type=text]{
+  width: 90px;
+  padding: 12px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 12px;
 }
 
-/*Stilsetter søkefeltene i avansert søk */
+input[type=text] {
+  width: 100%;
+}
+
 .inputGroup {
-  margin: 5px 0 20px 0;
+  margin: 5px 0 30px 0;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
 }
 
 .inputGroup label{
-  margin: 5px 30px 0 0;
-}
-
-.inputGroup input {
-  padding: 5px;
-  border: none;
-  border-bottom: #000 solid 1px;
+  margin: 4px 30px 0 0;
 }
 
 .button{
@@ -297,20 +298,6 @@ h3 {
   font-family: 'Crete Round', serif;
   font-size: 20px;
 }
-
-/* .searchBar {
-  background-color: #fff;
-  border: 1px solid #000;
-} */
-
-/* #input {
-  float: right;
-    padding: 6px;
-    border: none;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
-} */
 
 
 /* Styling for små mobilenheter */
