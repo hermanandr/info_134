@@ -23,19 +23,21 @@
             <span></span>
             <span></span>
             <ul id="Meny">
-                <li><a href="index.html"> Hjem </a></li>
-                <li><a href="map.html"> Toaletter </a></li>
+                <li><a href="index.html">Hjem</a></li>
+                <li><a href="map.html">Toaletter</a></li>
                 <li><a href="lekeplass.html">Lekeplass</a></li>
+                <li><a href="utsiktspunkt.html">Utsiktspunkt</a></li>
                 <li><a href="Om-oss.html">Om oss</a></li>
               </ul>
             </div>
           </nav>
           <nav id="StorMeny">
             <ul>
+              <li><a href="Om-oss.html">Om oss</a></li>
+              <li><a href="utsiktspunkt.html">Utsiktspunkt</a></li>
               <li><a href="lekeplass.html">Lekeplass</a></li>
-                <li><a href="Om-oss.html">Om oss</a></li>
-                <li><a href="map.html">Toaletter</a></li>
-                <li><a href="index.html">Hjem</a></li>
+              <li><a href="map.html"> Toaletter </a></li>
+              <li><a href="index.html"> Hjem </a></li>
             </ul>
         </nav>
         </header>
@@ -48,6 +50,11 @@
       <div id="map"></div>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5QyVZg6FmI3ayYvcMs1tOfFBQWQoRio&callback=initMap">
         </script>
+
+  <!-- Tittel under kartet -->
+    <div class = "p1">
+      <b>Offentlige toalett i Bergen</b>
+    </div>
 
     <div class="col_enTre">
       <div class="fullWidth pt">
@@ -72,6 +79,8 @@
               <input id="1" type="checkbox" name="herre">Herre</label>
               <label for="dame">
               <input id="2" type="checkbox" name="dame">Dame</label> 
+              <input type="checkbox" name="Kjønn" value="herre"> Herre
+              <input type="checkbox" name="Kjønn" value="dame"> Dame
             </div>
 
             <strong>Fasiliteter</strong><br>
@@ -99,6 +108,14 @@
             </div>
 
             <input class="button" type="button" onclick="advancedSearch()" value="Søk">
+              <input type="number" name="Pris" value="maksPris"> Makspris
+              <br>
+              <input type="checkbox" name="Pris" value="gratis"> Gratis
+            </div>
+            <input type="submit" value="Søk">
+          </form>
+
+          <button type="submit"><i class="fa fa-search"></i></button>
         </div>
     </div>
     </div>

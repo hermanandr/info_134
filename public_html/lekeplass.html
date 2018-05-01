@@ -23,19 +23,21 @@
             <span></span>
             <span></span>
             <ul id="Meny">
-                <li><a href="index.html"> Hjem </a></li>
-                <li><a href="map.html"> Toaletter </a></li>
+                <li><a href="index.html">Hjem</a></li>
+                <li><a href="map.html">Toaletter</a></li>
                 <li><a href="lekeplass.html">Lekeplass</a></li>
+                <li><a href="utsiktspunkt.html">Utsiktspunkt</a></li>
                 <li><a href="Om-oss.html">Om oss</a></li>
               </ul>
             </div>
           </nav>
           <nav id="StorMeny">
             <ul>
+              <li><a href="Om-oss.html">Om oss</a></li>
+              <li><a href="utsiktspunkt.html">Utsiktspunkt</a></li>
               <li><a href="lekeplass.html">Lekeplass</a></li>
-               <li><a href="Om-oss.html">Om oss</a></li>
-               <li><a href="map.html">Toaletter</a></li>
-               <li><a href="index.html">Hjem</a></li>
+              <li><a href="map.html"> Toaletter </a></li>
+              <li><a href="index.html"> Hjem </a></li>
             </ul>
         </nav>
         </header>
@@ -49,10 +51,10 @@
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5QyVZg6FmI3ayYvcMs1tOfFBQWQoRio&callback=initMap"
       async defer></script>
     </div>
-    <div class="col_enTre pt">
-      <div class="white p1">
-        <p>Her kan man søke</p>
-        <input type="text" placeholder="Search..">
+
+  <!-- Tittel under kartet -->
+    <div class = "p1">
+      <b>Lekeplasser i Bergen</b>
     </div>
   </div>
   <div class="col_toTre pt">
@@ -62,6 +64,7 @@
     <ol id="objList"></ol>
   </div>
 </div>
+
 <script>loadMap(lekeplasser);</script>
 </body>
 </html>

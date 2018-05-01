@@ -146,7 +146,7 @@ li a:hover {
 
 /* Header på undersidene (nederste del av forsidebildet) (Liva) */
 #topBanner1 {
-  background: url(../img/forside.jpg);
+  background: url(../media/forside.jpg);
   background-size: 100%;
   background-position: 100% 100%;
   width: 100%;
@@ -169,7 +169,7 @@ img {
   background-color: grey;
 }
 
-/*Teksten om fjellene på forsiden (Liva)*/
+/*Boks for teksten om fjellene på forsiden (Liva)*/
 .fullWidth {
   width: 100%;
   float: center;
@@ -190,7 +190,7 @@ img {
 
 /* Bakgrunnsbilde på 404-side (Herman og Liva)*/
 #coverPhoto {
-  background-image: url('../img/404.jpg');
+  background-image: url('../media/404.jpg');
   height: 100vh;
   background-size: auto;
   background-position: center;
@@ -265,7 +265,13 @@ input[type=text] {
 /* Alle linker */
 a {
   text-decoration: none;
-  color: #000
+  color: #000;
+}
+
+/* Link på 404-sidene */
+#forsidelink {
+  text-decoration: none;
+  color: #ADD8E6;
 }
 
 /* Brødtekst */
@@ -300,6 +306,23 @@ h3 {
   font-size: 20px;
 }
 
+/* Søkeknapp for toalettene */
+button {
+  /* float: left;
+
+  margin-top: 8px;
+  margin-right: 16px; */
+  padding: 6px 10px;
+  background: #000;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+b {
+  font-size: 40px;
+  font-family: 'Lato';
+}
 
 /* Styling for små mobilenheter */
 @media screen and (min-width : 320px) {
@@ -340,7 +363,7 @@ h3 {
 
 /*Importering og plassering av forsidebildet (Herman og Liva)*/
 #forsidebilde {
-  background-image: url('../img/forsidecopy.jpg');
+  background-image: url('../media/forsidecopy.jpg');
   background-size: auto 800px;
   background-position: 50% top;
   width: auto;
@@ -427,7 +450,7 @@ h3 {
   font-size: 52px;
 }
 
-/* (Vegard) */
+/* Teksten på "om oss"-siden (Vegard) */
 #om{
   text-align: center;
   margin-top: 10%;

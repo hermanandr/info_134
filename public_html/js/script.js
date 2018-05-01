@@ -1,6 +1,8 @@
 // Lenker til JSON-data.
 var toaletter = "https://hotell.difi.no/api/json/bergen/dokart";
 var lekeplasser = "https://hotell.difi.no/api/json/bergen/lekeplasser?";
+var utsiktspunkt = "https://hotell.difi.no/api/json/stavanger/utsiktspunkt?";
+
 var fjell = [
   {navn: 'ulriken',          latitude:60.378, longitude:5.387},
   {navn: 'fløyfjellet',      latitude:60.399, longitude:5.345},
@@ -15,7 +17,7 @@ console.log(fjell);
 var data = [];
 var favourite = {};
 
-// legger til info om markøren til infovinduet. (Edvard)
+// legger til info om markøren til infovinduet.
 function addInfo(list, marker, i){
   // om en liste har en attributt som heter 'navn', vil 'erNavn' returnere true.
   if(list[0].navn != undefined){
@@ -23,7 +25,7 @@ function addInfo(list, marker, i){
   } else {
     list.erNavn = false;
   }
-  // 'erNavn' brukes til å bestemme format til infovinduet markøren vil vise.(Edvard)
+  // 'erNavn' brukes til å bestemme format til infovinduet markøren vil vise.
   var text;
   if(list.erNavn) {
     text = "<div id='info'><h3>" + list[i].navn + "</h3>"
@@ -44,7 +46,7 @@ function addInfo(list, marker, i){
   });
 }
 
-// legger til en liste over alle de forskjellige markørene. 'erNavn' bestemmer hvilke attributter objektene navngis fra. (Edvard)
+// legger til en liste over alle de forskjellige markørene. 'erNavn' bestemmer hvilke attributter objektene navngis fra.
 function addList(list){
   if(list.erNavn) {
     for(var x = 0; x < list.length; x++){
@@ -57,7 +59,7 @@ function addList(list){
       obj.appendChild(a);
       document.getElementById("objList").appendChild(obj);
     }
-  } else {
+  } else if(list[0].plassering != undefined) {
     for(var x = 0; x < list.length; x++){
       var liste = document.getElementById('objList');
       var adr = list[x].plassering;
@@ -66,9 +68,15 @@ function addList(list){
       obj.appendChild(text);
       liste.appendChild(obj);
     }
+  } else {
+    for(var x = 0; x < list.length; x++){
+      var adr = list[x].name;
+      var text = document.createTextNode(adr);
+      var obj = document.createElement("li");
+      obj.appendChild(text);
+      document.getElementById("objList").appendChild(obj);
   }
 }
-
 //User-input fra skjemaet i avansert søk
 
 /* var userInput = [];
@@ -129,11 +137,11 @@ function advancedSearch() {
 
     };
   };
-
+}
   //searchObject["tid_hverdag"] = tidHverdag;
   console.log(searchObject);
 }
-
+ 
 // Hentet og manipulert fra utdelte 'search.js'.
 // Itererer over en gitt liste og ser etter et objekt som matcher søkeobjektet.
 function search(list, searchObject) {
@@ -154,7 +162,7 @@ function search(list, searchObject) {
 	initMap(searchResults);
   console.log(searchResults);
 }
-//finner avstanden mellom to markører i km (Vegard)
+//finner avstanden mellom to markører i km
 var findDistance = function (marker1, marker2){
   var lat = ((marker1.latitude) - (marker2.latitude));
   var lng = ((marker1.longitude) - (marker2.longitude));
@@ -164,11 +172,23 @@ var findDistance = function (marker1, marker2){
 
 // 'initMap()' itererer over en gitt liste og plasserer markører på kartet for hvert element.
 function initMap(list){
-  var bergen = {lat:60.394106, lng:5.324017}
+  var bergen = {lat:60.394106, lng:5.324017};
+  var stavanger = {lat:58.971, lng:5.732};
 
-      var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 14,
-    center : bergen,
+  var city = {};
+  var _zoom;
+
+  if(list[0].name != undefined){
+    city = stavanger;
+    _zoom = 10;
+  }else{
+    city = bergen;
+    _zoom = 13;
+  }
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: _zoom,
+    center : city,
     map: map
   });
 
@@ -187,7 +207,7 @@ function initMap(list){
   addList(list);
 }
 
-// Oppretter og sender en XML-request etter en URL, og returnerer dataen mottatt. (Edvard)
+// Oppretter og sender en XML-request etter en URL, og returnerer dataen mottatt.
 function request(url){
   var xhr = new XMLHttpRequest();
   var entries =[];
@@ -198,6 +218,7 @@ function request(url){
       entries = JSON.parse(xhr.responseText).entries;
       console.log(entries);
       updateArray(entries);
+      initMap(entries);
     }
     else{
       return null;
@@ -207,17 +228,16 @@ function request(url){
     console.log(entries);
     return entries;
 }
-// Oppdaterer den globale variabelen 'data' med gitt array. (Edvard)
+// Oppdaterer den globale variabelen 'data' med gitt array.
 function updateArray(array){
   data = array;
 }
-// 'loadMap' tar imot en URL, kjører 'request()' med den gitte URL'en, og reinitialiserer kartet med den oppdaterte lista. (Edvard)
 
 function chooseFavourite(list){
 
 }
 
+// 'loadMap' tar imot en URL, kjører 'request()' med den gitte URL'en, og reinitialiserer kartet med den oppdaterte lista.
 function loadMap(url) {
   request(url);
-  initMap(data);
 }
