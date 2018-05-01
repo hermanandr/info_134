@@ -12,10 +12,11 @@ var fjell = [
   {navn: 'damsgårdsfjellet', latitude:60.375, longitude:5.291},
   {navn: 'lyderhorn',        latitude:60.374, longitude:5.241}
 ];
-console.log(fjell);
 
 var data = [];
 var erNavn;
+var favourite = {};
+var closest = {};
 
 // legger til info om markøren til infovinduet.
 function addInfo(list, marker, i){
@@ -55,7 +56,7 @@ function addList(list){
       var obj = document.createElement("li");
       var a = document.createElement("a");
       a.textContent = navn;
-      a.setAttribute('href', 'index.html')
+      a.setAttribute('onclick', 'chooseFavourite(data, data[' + x + '])' )
       obj.appendChild(a);
       document.getElementById("objList").appendChild(obj);
     }
@@ -98,11 +99,37 @@ function search(list, searchObject) {
   console.log(searchResults);
 }
 //finner avstanden mellom to markører i km
-var findDistance = function (marker1, marker2){
+function findDistance(marker1, marker2){
   var lat = ((marker1.latitude) - (marker2.latitude));
   var lng = ((marker1.longitude) - (marker2.longitude));
   var distance = Math.sqrt((lat*lat)+(lng*lng));
   return distance;
+}
+
+function findNeighbour(lekeplass, list){
+  var closest;
+  var shortest;
+  for(var i = 0; i < list.length; i++){
+    if(shortest == undefined && list[i] != lekeplass){
+      shortest = findDistance(lekeplass, list[i]);
+      console.log(shortest);
+      closest = list[i];
+    }else if(list[i] != lekeplass && findDistance(lekeplass, list[i]) < shortest){
+      shortest = findDistance(lekeplass, list[i]);
+      closest = list[i];
+    }
+  }
+  return closest;
+}
+
+function chooseFavourite(list, lekeplass){
+  var chosen = [];
+  favourite = lekeplass;
+  var neighbour = findNeighbour(favourite, list);
+  console.log(neighbour);
+  chosen.push(favourite, neighbour);
+  console.log(chosen);
+  initMap(chosen);
 }
 
 // 'initMap()' itererer over en gitt liste og plasserer markører på kartet for hvert element.
