@@ -423,6 +423,10 @@ b {
   width: 48%;
 }
 
+#objList a {
+  color: black;
+}
+
 .centerBox h1 {
   font-size: 52px;
 }

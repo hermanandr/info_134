@@ -50,10 +50,13 @@ function addInfo(list, marker, i){
 function addList(list){
   if(erNavn) {
     for(var x = 0; x < list.length; x++){
+      var liste = document.getElementById('objList');
       var navn = list[x].navn;
-      var text = document.createTextNode(navn);
       var obj = document.createElement("li");
-      obj.appendChild(text);
+      var a = document.createElement("a");
+      a.textContent = navn;
+      a.setAttribute('href', 'index.html')
+      obj.appendChild(a);
       document.getElementById("objList").appendChild(obj);
     }
   } else if(list[0].plassering != undefined) {
