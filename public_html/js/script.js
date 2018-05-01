@@ -85,13 +85,14 @@ function newSearch(form) {
 }
 
 function advancedSearch() {
-  console.log(document.getElementById("1").name);
+  var i = 0;
+  console.log(document.getElementById(i).type);
 
   var searchObject = {};
-
-  for(i=0; i<9; i++) {
-    var input = document.getElementById("i");
-
+  
+  for(var i=0; i<9; i++) {
+    var input = document.getElementById(i);
+    
     if(input.type == "checkbox") {
       if(input.name != "Åpent" || input.name != "gratis") {
         if(input.checked) {
@@ -110,6 +111,9 @@ function advancedSearch() {
     } else if(input.type == "number"){
 
     };  
+
+    console.log(searchObject);
+
   };
 }
 
