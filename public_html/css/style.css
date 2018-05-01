@@ -232,7 +232,7 @@ input[type=number], input[type=text]{
 }
 
 input[type=text] {
-  width: 100%;
+  width: 70%;
 }
 
 .inputGroup {

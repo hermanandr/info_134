@@ -78,30 +78,14 @@ function addList(list){
     }
   }
 }
-//User-input fra skjemaet i avansert søk
 
-/* var userInput = [];
-function newSearch(){
-  userInput.push(document.getElementById("avansertSok").value)
-  console.log(userInput);
-} */
-
-function newSearch(form) {
-  var parameters = "";
-  for (var x=0, y=form.elements.length; x < y; x++) {
-  var field = form.elements[x];
-  if (field.name && field.type !== "submit") {
-    parameters += "&" + encodeURIComponent(field.name) + "=" + (field.type == "radio" || field.type == "checkbox" ? (field.checked == "checked") : encodeURIComponent(field.value));
-  }
-  return parameters;
-}
-}
-
+// Oppretter et søkeobjekt som inneholder alle kritieriene brukeren fyller ut i skjemaet "Avansert søk"
 function advancedSearch() {
 
-  var searchObject = {};
-  var time = new Date();
+  var searchObject = {}; //Oppretter et tomt søkeobjekt
+  var time = new Date(); //Finner dato og tid for nå
 
+  //Henter input fra brukeren og legger det til i søkeobjektet
   for(var i=0; i<9; i++) {
     var input = document.getElementById(i);
 
@@ -135,22 +119,24 @@ function advancedSearch() {
       } else if(input.name == "openTime"){
         searchObject[input.name] = input.value;
       };
-
     };
   };
 
-  //searchObject["tid_hverdag"] = tidHverdag;
-  console.log(searchObject);
+  console.log(searchObject); // <-----------|
+
+  search(data, searchObject);
 }
  
 // Hentet og manipulert fra utdelte 'search.js'.
 // Itererer over en gitt liste og ser etter et objekt som matcher søkeobjektet.
 function search(list, searchObject) {
 	var searchResults  = [];
-	var searchParams = Object.keys(searchObject);
+  var searchParams = Object.keys(searchObject);
+  
 	for(i=0; i < list.length; i++) {
 		var truthChecker = [] // will contain boolean values "true" for each param checked.
-		for(y=0; y < searchParams.length; y++) {
+    
+    for(y=0; y < searchParams.length; y++) {
 			if(list[i][searchParams[y]] == searchObject[searchParams[y]]) {
 				truthChecker.push(true);
 			}
