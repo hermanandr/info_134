@@ -1,7 +1,7 @@
 // Lenker til JSON-data.
 var toaletter = "https://hotell.difi.no/api/json/bergen/dokart";
 var lekeplasser = "https://hotell.difi.no/api/json/bergen/lekeplasser?";
-var utsiktspunkt = "https://hotell.difi.no/api/json/stavanger/utsiktspunkt??";
+var utsiktspunkt = "https://hotell.difi.no/api/json/stavanger/utsiktspunkt?";
 
 var fjell = [
   {navn: 'ulriken',          lat:60.378, lng:5.387},
@@ -96,11 +96,23 @@ var findDistance = function (marker1, marker2){
 
 // 'initMap()' itererer over en gitt liste og plasserer markører på kartet for hvert element.
 function initMap(list){
-  var bergen = {lat:60.394106, lng:5.324017}
+  var bergen = {lat:60.394106, lng:5.324017};
+  var stavanger = {lat:58.971, lng:5.732};
 
-      var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 14,
-    center : bergen,
+  var city = {};
+  var _zoom;
+
+  if(list[0].name != undefined){
+    city = stavanger;
+    _zoom = 10;
+  }else{
+    city = bergen;
+    _zoom = 13;
+  }
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: _zoom,
+    center : city,
     map: map
   });
 
@@ -129,7 +141,8 @@ function request(url){
       console.log("Type", xhr.getResponseHeader("Content-Type"));
       entries = JSON.parse(xhr.responseText).entries;
       console.log(entries);
-      updateArray(entries);
+      data = entries;
+      initMap(entries);
     }
     else{
       return null;
@@ -145,5 +158,4 @@ function updateArray(array){
 // 'loadMap' tar imot en URL, kjører 'request()' med den gitte URL'en, og reinitialiserer kartet med den oppdaterte lista. (Edvard)
 function loadMap(url) {
   request(url);
-  initMap(data);
 }
