@@ -75,6 +75,7 @@ function addList(list){
       var obj = document.createElement("li");
       obj.appendChild(text);
       document.getElementById("objList").appendChild(obj);
+    }
   }
 }
 //User-input fra skjemaet i avansert søk
@@ -137,7 +138,7 @@ function advancedSearch() {
 
     };
   };
-}
+
   //searchObject["tid_hverdag"] = tidHverdag;
   console.log(searchObject);
 }
@@ -241,3 +242,4 @@ function chooseFavourite(list){
 function loadMap(url) {
   request(url);
 }
+
