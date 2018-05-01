@@ -398,6 +398,14 @@ h3 {
   margin: 10px;
 }
 
+#objList a {
+  color: black;
+}
+
+#objList a:hover{
+  
+}
+
 /* Styling for stående nettbrett */
 @media screen and (min-width : 530px) {
 

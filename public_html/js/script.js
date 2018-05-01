@@ -13,19 +13,19 @@ var fjell = [
 console.log(fjell);
 
 var data = [];
-var erNavn;
+var favourite = {};
 
 // legger til info om markøren til infovinduet. (Edvard)
 function addInfo(list, marker, i){
   // om en liste har en attributt som heter 'navn', vil 'erNavn' returnere true.
   if(list[0].navn != undefined){
-    erNavn = true;
+    list.erNavn = true;
   } else {
-    erNavn = false;
+    list.erNavn = false;
   }
   // 'erNavn' brukes til å bestemme format til infovinduet markøren vil vise.(Edvard)
   var text;
-  if(erNavn) {
+  if(list.erNavn) {
     text = "<div id='info'><h3>" + list[i].navn + "</h3>"
   }else{
     text = "<div id='info'><h3>" + list[i].plassering + "</h3>"
@@ -46,21 +46,25 @@ function addInfo(list, marker, i){
 
 // legger til en liste over alle de forskjellige markørene. 'erNavn' bestemmer hvilke attributter objektene navngis fra. (Edvard)
 function addList(list){
-  if(erNavn) {
+  if(list.erNavn) {
     for(var x = 0; x < list.length; x++){
+      var liste = document.getElementById('objList');
       var navn = list[x].navn;
-      var text = document.createTextNode(navn);
       var obj = document.createElement("li");
-      obj.appendChild(text);
+      var a = document.createElement("a");
+      a.textContent = navn;
+      a.setAttribute('href', 'index.html')
+      obj.appendChild(a);
       document.getElementById("objList").appendChild(obj);
     }
   } else {
     for(var x = 0; x < list.length; x++){
+      var liste = document.getElementById('objList');
       var adr = list[x].plassering;
       var text = document.createTextNode(adr);
       var obj = document.createElement("li");
       obj.appendChild(text);
-      document.getElementById("objList").appendChild(obj);
+      liste.appendChild(obj);
     }
   }
 }
@@ -91,7 +95,7 @@ function advancedSearch() {
 
   for(var i=0; i<9; i++) {
     var input = document.getElementById(i);
-    
+
     if(input.type == "checkbox") {
       if(input.name != "openNow" && input.name != "gratis") {
         if(input.checked) {
@@ -200,14 +204,19 @@ function request(url){
     }
   }
     xhr.send();
-    return entries;
     console.log(entries);
+    return entries;
 }
 // Oppdaterer den globale variabelen 'data' med gitt array. (Edvard)
 function updateArray(array){
   data = array;
 }
 // 'loadMap' tar imot en URL, kjører 'request()' med den gitte URL'en, og reinitialiserer kartet med den oppdaterte lista. (Edvard)
+
+function chooseFavourite(list){
+
+}
+
 function loadMap(url) {
   request(url);
   initMap(data);
