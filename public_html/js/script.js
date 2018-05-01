@@ -2,13 +2,13 @@
 var toaletter = "https://hotell.difi.no/api/json/bergen/dokart";
 var lekeplasser = "https://hotell.difi.no/api/json/bergen/lekeplasser?";
 var fjell = [
-  {navn: 'ulriken',          lat:60.378, lng:5.387},
-  {navn: 'fløyfjellet',      lat:60.399, lng:5.345},
-  {navn: 'rundemanen',       lat:60.414, lng:5.364},
-  {navn: 'sandviksfjellet',  lat:60.410, lng:5.340},
-  {navn: 'løvstakken',       lat:60.374, lng:5.323},
-  {navn: 'damsgårdsfjellet', lat:60.375, lng:5.291},
-  {navn: 'lyderhorn',        lat:60.374, lng:5.241}
+  {navn: 'ulriken',          latitude:60.378, longitude:5.387},
+  {navn: 'fløyfjellet',      latitude:60.399, longitude:5.345},
+  {navn: 'rundemanen',       latitude:60.414, longitude:5.364},
+  {navn: 'sandviksfjellet',  latitude:60.410, longitude:5.340},
+  {navn: 'løvstakken',       latitude:60.374, longitude:5.323},
+  {navn: 'damsgårdsfjellet', latitude:60.375, longitude:5.291},
+  {navn: 'lyderhorn',        latitude:60.374, longitude:5.241}
 ];
 console.log(fjell);
 
