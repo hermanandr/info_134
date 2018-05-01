@@ -10,10 +10,10 @@
     <!-- Importering av font  -->
     <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
   </head>
     <!--  -->
-    <body>
+    <body onload="initMap(fjell)">
       <header>
         <!--  -->
         <a href="index.html"><div id="logo">
@@ -188,6 +188,5 @@
     <!--Kart med fjellene -->
     <div id="map"></div>
 <script async defer   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5QyVZg6FmI3ayYvcMs1tOfFBQWQoRio&callback=initMap"></script>
-<script>loadMap(fjell);</script>
 </body>
 </html>
