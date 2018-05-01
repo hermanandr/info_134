@@ -298,6 +298,11 @@ button {
   cursor: pointer;
 }
 
+b {
+  font-size: 40px;
+  font-family: 'Lato';
+}
+
 /* Styling for små mobilenheter */
 @media screen and (min-width : 320px) {
 
