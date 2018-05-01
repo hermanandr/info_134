@@ -13,20 +13,19 @@ var fjell = [
 console.log(fjell);
 
 var data = [];
-var erNavn;
 var favourite = {};
 
 // legger til info om markøren til infovinduet. (Edvard)
 function addInfo(list, marker, i){
   // om en liste har en attributt som heter 'navn', vil 'erNavn' returnere true.
   if(list[0].navn != undefined){
-    erNavn = true;
+    list.erNavn = true;
   } else {
-    erNavn = false;
+    list.erNavn = false;
   }
   // 'erNavn' brukes til å bestemme format til infovinduet markøren vil vise.(Edvard)
   var text;
-  if(erNavn) {
+  if(list.erNavn) {
     text = "<div id='info'><h3>" + list[i].navn + "</h3>"
   }else{
     text = "<div id='info'><h3>" + list[i].plassering + "</h3>"
@@ -47,7 +46,7 @@ function addInfo(list, marker, i){
 
 // legger til en liste over alle de forskjellige markørene. 'erNavn' bestemmer hvilke attributter objektene navngis fra. (Edvard)
 function addList(list){
-  if(erNavn) {
+  if(list.erNavn) {
     for(var x = 0; x < list.length; x++){
       var liste = document.getElementById('objList');
       var navn = list[x].navn;
@@ -60,6 +59,7 @@ function addList(list){
     }
   } else {
     for(var x = 0; x < list.length; x++){
+      var liste = document.getElementById('objList');
       var adr = list[x].plassering;
       var text = document.createTextNode(adr);
       var obj = document.createElement("li");
