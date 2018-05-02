@@ -42,32 +42,52 @@
         </nav>
         </header>
 <!-- Hovedinnhold -->
-  <!-- Forsidebilde -->
-  <div id=topBanner1> </div>
+<!-- Forsidebilde -->
+<div id=topBanner1> </div>
 
-  <!-- utsiktspunkt_kart -->
-    <div class="container">
-      <div id="map"></div>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5QyVZg6FmI3ayYvcMs1tOfFBQWQoRio&callback=initMap"
-      async defer></script>
-    </div>
+<!-- utsiktspunkt_kart -->
+<div class="container">
+  <div id="map"></div>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5QyVZg6FmI3ayYvcMs1tOfFBQWQoRio&callback=initMap"
+  async defer></script>
 
-  <!-- Tittel under kartet -->
-    <div class = "p1">
-      <b>Utsiktspunkt i Stavanger</b>
-    </div>
 
-    <div class="col_enTre pt">
-      <div class="white p1">
-        <p>Her kan man søke</p>
-        <input type="text" placeholder="Search..">
+<!-- Tittel under kartet -->
+<div class="fullWidth pt">
+  <b>Utkikspunkt i Stavanger</b>
+</div>
+
+<div class="col_enTre">
+  <div class="fullWidth pt">
+    <div class="white p1" id="formAdvanced">
+      <h3>Søk</h3>
+      <p>Fyll ut ett eller flere felt</p>  
+        <div class="inputGroup">
+          <label>
+          <input id="0" type="checkbox" name="tower">Utkikspunkt med tårn</label>
+          <label>
+          <input id="1" type="checkbox" name="berg">Utkikspunkt på fjell</label>
+        </div>
+
+        <div class="inputGroup">
+          <label>
+          <input id="2" type="checkbox" name="sentrum">Utkikspunkt nærmest sentrum</label>
+        </div>
+
+        <input class="button" type="button" onclick="smallSearch()" value="Søk">
+
+        <!-- Legg til "clear search" button -->
+
     </div>
   </div>
-  <div class="col_toTre pt">
+</div>
+
+<div class="col_toTre pt">
     <div class="white p1">
-    <h3>Søkeresultater</h3>
-    <ol id="objList"></ol>
-  </div>
+      <h3>Søkeresultater</h3>
+      <ol id="objList"></ol>
+    </div>
+</div>
 </div>
 
 <script>loadMap(utsiktspunkt);</script>

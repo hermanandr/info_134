@@ -61,8 +61,8 @@
             <div class="white p1">
               <h3>Hurtigsøk</h3>
               <div class="inputGroup">
-                <input type="text" placeholder="Søk her..">
-                <input class="button" type="button" onclick="" value="Søk">
+                <input id="fullSearch" type="text" name="søk" placeholder="Søk her..">
+                <input class="button" type="button" onclick="searchAll()" value="Søk">
               </div>
               
             </div>
@@ -71,16 +71,10 @@
       <div class="fullWidth pt">
         <div class="white p1" id="formAdvanced">
           <h3>Avansert søk</h3>
-          
+          <p>Fyll ut ett eller flere felt</p>  
             <div class="inputGroup">
               <input id="0" type="text" name="fritekst" placeholder="Navn, adresse"> 
             </div>
-
-            
-            <!-- <div class="inputGroup">
-              <label for="herre">
-              <input id="0" type="checkbox" name="herre">Herre</label>
-            </div> -->
 
             <strong>Kjønn</strong><br>
             <div class="inputGroup">

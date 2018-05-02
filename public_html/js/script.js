@@ -79,6 +79,34 @@ function addList(list){
   }
 }
 
+//Oppretter et søkeobjekt som inneholder alle kritieriene brukeren fyller ut i søkeskjemaet for "Utkikspunkt".
+function smallSearch() {
+  var searchObject = {}; //Oppretter et tomt søkeobjekt
+  
+  //Henter input fra brukeren og legger det til i søkeobjektet
+  for(var i=0; i<2; i++) {
+    var input = document.getElementById(i);
+
+    if(input.checked) {
+      if(input.name == "tower"){
+        searchObject["tower"] = "ja";
+      } else if (input.name == "berg"){
+        searchObject["berg"] = "ja";
+      } else if(input.name = "sentrum"){
+        searchObject["location"] = "sentrum";
+      }
+    }
+  }
+
+  search(data, searchObject);
+}
+
+// Hurtigsøk, jævla hurtigsøk
+function searchAll() {
+  var input = document.getElementById("fullSearch");
+  console.log(input.value);
+}
+
 // Oppretter et søkeobjekt som inneholder alle kritieriene brukeren fyller ut i skjemaet "Avansert søk"
 function advancedSearch() {
 
@@ -132,8 +160,6 @@ function advancedSearch() {
     }
   };
 
-  console.log(searchObject); // <-----------|
-
   search(data, searchObject);
 }
  
@@ -170,10 +196,22 @@ function search(list, searchObject) {
             truthChecker.push(true);
           }
         }
+      } else if (searchParams[y].includes("tower")){
+        var key = /tårn/i;
+        var hasKey = key.test(list[i]["name"]);
+        if(hasKey){
+          truthChecker.push(true);
+        }
+      } else if (searchParams[y].includes("berg")){
+        var key = /berg/i;
+        var hasKey = key.test(list[i]["name"]);
+        if(hasKey){
+          truthChecker.push(true);
+        }
       } else if(list[i][searchParams[y]] == searchObject[searchParams[y]]) {
 				truthChecker.push(true);
       };
-			if(truthChecker.length == searchParams.length) { //if all params are true, person is pushed.
+			if(truthChecker.length == searchParams.length) { //Hvis alle kriteriene til søkeobjekter er oppfylt, legges objektet som matcher søkeobjektet til i resultatlisten. 
 				searchResults.push(list[i]);
 			}
 		}
@@ -228,6 +266,7 @@ function initMap(list){
   var city = {};
   var _zoom;
 
+  // Skjer noe her når man søker på alle kriterier i avansert søk <--- ERROR!
   if(list[0].name != undefined){
     city = stavanger;
     _zoom = 10;
