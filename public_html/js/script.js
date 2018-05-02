@@ -99,11 +99,11 @@ function advancedSearch() {
       } else if(input.name == "openNow"){
         if(input.checked) {
           if(time.getDay == 0){
-            searchObject["tid_sondag"] = toString(time.getHours()).length + "." + time.getMinutes();
+            searchObject["tid_sondag"] = time.getHours() + ":" + time.getMinutes();
           } else if(time.getDay == 6) {
-            searchObject["tid_lordag"] = time.getHours() + "." + time.getMinutes();
+            searchObject["tid_lordag"] = time.getHours() + ":" + time.getMinutes();
           } else {
-            searchObject["tid_hverdag"] = toString(time.getHours()).length + "." + time.getMinutes();
+            searchObject["tid_hverdag"] = time.getHours() + ":" + time.getMinutes();
           };
         } else{};
 
@@ -116,8 +116,14 @@ function advancedSearch() {
     } else if(input.type == "number"){
       if(input.name == "maksPris"){
         searchObject["pris"] = input.value;
-      } else if(input.name == "openTime"){
-        searchObject["tid_aapent"] = input.value;
+      }
+    } else if(input.name == "openTime"){
+      if(time.getDay == 0){
+        searchObject["tid_sondag"] = input.value;
+      } else if(time.getDay == 6) {
+        searchObject["tid_lordag"] = input.value;
+      } else {
+        searchObject["tid_hverdag"] = input.value;
       };
     };
   };
@@ -138,14 +144,17 @@ function search(list, searchObject) {
 
     for(y=0; y < searchParams.length; y++) {
       if(searchParams[y].includes("tid")){
-        console.log("Wohoo");
+        if(isToiletOpen(searchObject[searchParams[y]], list[i][searchParams[y]])) {
+          truthChecker.push(true);
+        }
 
-        // split by "-" list[i][searchParams[y]]
-
+      } else if(searchParams[y].includes("pris")){
+        if(list[i][searchParams[y]] <= searchObject[searchParams[y]]){
+          truthChecker.push(true);
+        }
       } else if(list[i][searchParams[y]] == searchObject[searchParams[y]]) {
 				truthChecker.push(true);
-      }
-      
+      };
 			if(truthChecker.length == searchParams.length) { //if all params are true, person is pushed.
 				searchResults.push(list[i]);
 			}
@@ -155,6 +164,29 @@ function search(list, searchObject) {
 	initMap(searchResults);
   console.log(searchResults);
 }
+
+//Sjekker tiden brukeren fyller inn opp mot åpningstiden for et bestemt toalett, for dagen i dag, og returnerer true eller false ettersom toalettet er åpent eller ikke.
+function isToiletOpen(searchTime, toiletTime) {
+  
+  if(toiletTime === undefined) {
+    return false;
+  } else {
+    var splitSearch = searchTime.split(":");
+    var splitToilet = toiletTime.split(" - ");
+    var toiletOpens = [];
+    var toiletCloses = [];
+
+    for(i=0; i<splitToilet.length; i++){
+      var time = splitToilet[i];
+      toiletOpens.push(time.split("."))
+    }
+    
+    console.log(splitToilet);
+    return true;
+  }
+
+}
+
 //finner avstanden mellom to markører i km
 var findDistance = function (marker1, marker2){
   var lat = ((marker1.latitude) - (marker2.latitude));

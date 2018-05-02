@@ -223,9 +223,9 @@ ol {
 }
 
 /*Stilsetter søkefeltene i avansert søk */
-input[type=number], input[type=text]{
-  width: 90px;
-  padding: 12px 12px;
+input[type=number], input[type=text], input[type=time]{
+  width: 70px;
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-right: 12px;
