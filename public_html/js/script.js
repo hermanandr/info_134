@@ -125,7 +125,11 @@ function advancedSearch() {
           searchObject["tid_hverdag"] = input.value;
         }
       }
-    };
+    } else if (input.name == "fritekst"){
+      if(input.value.length > 0){
+        searchObject["fritekstSøk"] = input.value;
+      }
+    }
   };
 
   console.log(searchObject); // <-----------|
@@ -140,7 +144,7 @@ function search(list, searchObject) {
   var searchParams = Object.keys(searchObject);
   
 	for(i=0; i < list.length; i++) {
-		var truthChecker = [] // will contain boolean values "true" for each param checked.
+    var truthChecker = [] //Tomt array som fylles med en verdi "true" for hvert søkekriterie fra søkeobjektet som matcher en key i toalettobjektet.
 
     for(y=0; y < searchParams.length; y++) {
       if(searchParams[y].includes("tid")){
@@ -153,6 +157,19 @@ function search(list, searchObject) {
         if(list[i][searchParams[y]] <= searchObject[searchParams[y]]){
           truthChecker.push(true);
         }
+      } else if(searchParams[y].includes("fritekstSøk")){
+        //Sjekker om teksten brukeren skrev matcher med navn eller adresse til et toalett. Kun mulig å søke på ett toalett
+        var split = /([^,]+)/ig
+        var splitInput = searchObject[searchParams[y]].match(split);
+
+        for(x = 0; x < splitInput.length; x++) {
+          var adresse = list[i]["adresse"].toUpperCase();
+          var navn = list[i]["plassering"].toUpperCase();
+          var sok = splitInput[x].toUpperCase();
+          if(sok == navn || sok == adresse){
+            truthChecker.push(true);
+          }
+        }
       } else if(list[i][searchParams[y]] == searchObject[searchParams[y]]) {
 				truthChecker.push(true);
       };
@@ -162,7 +179,7 @@ function search(list, searchObject) {
 		}
 	}
   // kartet blir reinitialisert med bare søkeresultatene.
-	initMap(searchResults);
+  initMap(searchResults);
   console.log(searchResults);
 }
 
@@ -211,16 +228,13 @@ function initMap(list){
   var city = {};
   var _zoom;
 
-  /* if(list[0].name != undefined){
+  if(list[0].name != undefined){
     city = stavanger;
     _zoom = 10;
   } else {
     city = bergen;
     _zoom = 13;
-  } */
-
-  city = bergen;
-    _zoom = 13;
+  }
 
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: _zoom,
