@@ -93,8 +93,6 @@ function advancedSearch() {
       if(input.name != "openNow" && input.name != "gratis") {
         if(input.checked) {
           searchObject[input.name] = "1";
-        } else {
-          searchObject[input.name] = "NULL";
         };
       } else if(input.name == "openNow"){
         if(input.checked) {
@@ -113,18 +111,20 @@ function advancedSearch() {
         };
       };
 
-    } else if(input.type == "number"){
-      if(input.name == "maksPris"){
+    } else if(input.name == "maksPris"){
+      if(input.value.length > 0){
         searchObject["pris"] = input.value;
       }
     } else if(input.name == "openTime"){
-      if(time.getDay == 0){
-        searchObject["tid_sondag"] = input.value;
-      } else if(time.getDay == 6) {
-        searchObject["tid_lordag"] = input.value;
-      } else {
-        searchObject["tid_hverdag"] = input.value;
-      };
+      if(input.value.length > 0){
+        if(time.getDay == 0){
+          searchObject["tid_sondag"] = input.value;
+        } else if(time.getDay == 6) {
+          searchObject["tid_lordag"] = input.value;
+        } else {
+          searchObject["tid_hverdag"] = input.value;
+        }
+      }
     };
   };
 
@@ -144,11 +144,12 @@ function search(list, searchObject) {
 
     for(y=0; y < searchParams.length; y++) {
       if(searchParams[y].includes("tid")){
+        //Sjekker om toalettet er åpent
         if(isToiletOpen(searchObject[searchParams[y]], list[i][searchParams[y]])) {
           truthChecker.push(true);
         }
-
       } else if(searchParams[y].includes("pris")){
+        //Sjekker om prisen er lavere eller lik enn prisen brukeren har søkt om
         if(list[i][searchParams[y]] <= searchObject[searchParams[y]]){
           truthChecker.push(true);
         }
@@ -167,24 +168,31 @@ function search(list, searchObject) {
 
 //Sjekker tiden brukeren fyller inn opp mot åpningstiden for et bestemt toalett, for dagen i dag, og returnerer true eller false ettersom toalettet er åpent eller ikke.
 function isToiletOpen(searchTime, toiletTime) {
-  
-  if(toiletTime === undefined) {
+
+  //return true;
+
+  if(toiletTime == "NULL") {
     return false;
+  } else if (toiletTime == "ALL") {
+    return true;
   } else {
+
+    //Splitter opp klokkeslettene til timer og minutter
     var splitSearch = searchTime.split(":");
     var splitToilet = toiletTime.split(" - ");
-    var toiletOpens = [];
-    var toiletCloses = [];
+    var toiletOpens = splitToilet[0].split(".");
+    var toiletCloses = splitToilet[1].split(".");
 
-    for(i=0; i<splitToilet.length; i++){
-      var time = splitToilet[i];
-      toiletOpens.push(time.split("."))
-    }
-    
-    console.log(splitToilet);
-    return true;
+    //Konverterer timer og minutter, til minutter
+    var searchMin = splitSearch[0] * 60 + Number(splitSearch[1]);
+    var opensMin = toiletOpens[0] * 60 + Number(toiletOpens[1]);
+    var closesMin = toiletCloses[0] * 60 + Number(toiletCloses[1]);
+
+    //Sjekker om tiden brukeren søker, er innenfor åpningstidene til toalettet
+    if(searchMin >= opensMin && searchMin <= closesMin){
+      return true;
+    };
   }
-
 }
 
 //finner avstanden mellom to markører i km
@@ -203,13 +211,16 @@ function initMap(list){
   var city = {};
   var _zoom;
 
-  if(list[0].name != undefined){
+  /* if(list[0].name != undefined){
     city = stavanger;
     _zoom = 10;
-  }else{
+  } else {
     city = bergen;
     _zoom = 13;
-  }
+  } */
+
+  city = bergen;
+    _zoom = 13;
 
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: _zoom,
