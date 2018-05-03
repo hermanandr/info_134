@@ -119,7 +119,61 @@ function smallSearch() {
 // Hurtigsøk, foreløbig ikke implementert.
 function searchAll() {
   var input = document.getElementById("fullSearch");
+  var searchObject = {}; //Oppretter et tomt søkeobjekt
+  var time = new Date(); //Finner dato og tid for nå
+
+
   console.log(input.value);
+
+  //Splitter teksten brukeren skrev inn, ved hvert ",".
+  var split = /([^,]+)/ig
+  var splitInput = input.value.match(split);
+
+  var pris = /pris:/ig;
+  var herre = /herre/ig;
+  var dame = /dame/ig;
+  var rullestol = /rullestol/ig;
+  var stellerom = /stellerom/ig;
+  var openNow = /Åpent nå/ig;
+
+  for(i=0; i < splitInput.length; i++) {
+    if(splitInput[i].match(pris)){
+      var cost = /(\d+)/;
+      var found = splitInput[i].match(cost);
+      searchObject["pris"] = found[0];
+    } else if(splitInput[i].match(dame)){
+      searchObject["dame"] = "1";
+    } else if(splitInput[i].match(herre)){
+      searchObject["herre"] = "1";
+    } else if(splitInput[i].match(rullestol)){
+      searchObject["rullestol"] = "1";
+    } else if(splitInput[i].match(stellerom)){
+      searchObject["stellerom"] = "1";
+    } else if(splitInput[i].match(stellerom)){
+      if(time.getDay == 0){
+        searchObject["tid_sondag"] = time.getHours() + ":" + time.getMinutes();
+      } else if(time.getDay == 6) {
+        searchObject["tid_lordag"] = time.getHours() + ":" + time.getMinutes();
+      } else {
+        searchObject["tid_hverdag"] = time.getHours() + ":" + time.getMinutes();
+      };
+    } else {}
+    
+  }
+
+  console.log(searchObject);
+
+  search(data, searchObject);
+
+
+  /* for(x = 0; x < splitInput.length; x++) {
+    var adresse = list[i]["adresse"].toUpperCase();
+    var navn = list[i]["plassering"].toUpperCase();
+    var sok = splitInput[x].toUpperCase();
+    if(sok == navn || sok == adresse){
+      truthChecker.push(true);
+    }
+  } */
 }
 
 // Oppretter et søkeobjekt som inneholder alle kritieriene brukeren fyller ut i skjemaet "Avansert søk"
