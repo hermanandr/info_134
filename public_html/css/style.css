@@ -24,7 +24,7 @@ nav {
   float: right;
 }
 
-/* -- Hamburgermeny start -- (Herman) */
+/* -- Hamburgermeny start -- */
 /* Menyknapp */
 #Knapp {
   display: block;
@@ -91,7 +91,7 @@ nav {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-/* Meny-felt (Herman)*/
+/* Meny-felt */
 #Meny {
   position: absolute;
   width: 70vw;
@@ -123,12 +123,12 @@ nav {
 /* -- Hamburgermeny slutt -- */
 
 
-/* Liste for meny (Herman)*/
+/* Liste for meny */
 ul {
   list-style: none;
   margin: 0px;
 }
-/* Listepunkter i meny (Herman)*/
+/* Listepunkter i meny */
 li a {
   display: block;
   margin: 4px;
@@ -144,7 +144,7 @@ li a:hover {
   color: #cacaca;
 }
 
-/* Header på undersidene (nederste del av forsidebildet) (Liva) */
+/* Header på undersidene (nederste del av forsidebildet) */
 #topBanner1 {
   background: url(../media/forside.jpg);
   background-size: 100%;
@@ -169,7 +169,7 @@ img {
   background-color: grey;
 }
 
-/*Boks for teksten om fjellene på forsiden (Liva)*/
+/*Boks for teksten om fjellene på forsiden */
 .fullWidth {
   width: 100%;
   float: center;
@@ -181,14 +181,14 @@ img {
     position: absolute;
 }
 
-/* Midtstiller child-elementene av denne klassen med flex (Herman)*/
+/* Midtstiller child-elementene av denne klassen med flex */
 .flex {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Bakgrunnsbilde på 404-side (Herman og Liva)*/
+/* Bakgrunnsbilde på 404-side */
 #coverPhoto {
   background-image: url('../media/404.jpg');
   height: 100vh;
@@ -285,7 +285,7 @@ p2 {
   font-size: 22px;
 }
 
-/* Tittel 1 (Liva)*/
+/* Tittel 1 */
 h1 {
   font-family: 'Crete Round', serif;
   font-size: 32px;
@@ -293,14 +293,14 @@ h1 {
   justify-content: center;
 }
 
-/* Tittel 2  (Liva)*/
+/* Tittel 2 */
 h2 {
   font-family: 'Crete Round', serif;
   font-size: 25px;
   margin: 10px;
 }
 
-/* Tittel 3  (Liva)*/
+/* Tittel 3 */
 h3 {
   font-family: 'Crete Round', serif;
   font-size: 20px;
@@ -319,6 +319,7 @@ button {
   cursor: pointer;
 }
 
+/* Stor tittel på undersidene med kart*/
 b {
   font-size: 40px;
   font-family: 'Lato';
@@ -331,7 +332,7 @@ small {
 /* Styling for små mobilenheter */
 @media screen and (min-width : 320px) {
 
-/* Beholder for innhold (Herman og Liva) */
+/* Beholder for innhold */
 .container {
   height: auto;
   padding: 80px 10px 10px 10px;
@@ -341,12 +342,12 @@ small {
   justify-content: space-between;
 }
 
-/* Skjul stor meny på små skjermer (Herman) */
+/* Skjul stor meny på små skjermer */
 #StorMeny {
   display: none;
 }
 
-/* "Bergens 7 øverst i venstre hjørne (Liva)  */
+/* "Bergens 7 øverst i venstre hjørne  */
 #logo {
     width: 40%;
     float: left;
@@ -358,14 +359,14 @@ small {
   color: #fff;
 }
 
-/*Bergens 7 - skrifttype (Liva)*/
+/*Bergens 7 - skrifttype */
 #logo h2 {
     font-size: 25px;
     margin: 10px;
     color: #fff;
   }
 
-/*Importering og plassering av forsidebildet (Herman og Liva)*/
+/*Importering og plassering av forsidebildet */
 #forsidebilde {
   background-image: url('../media/forsidecopy.jpg');
   background-size: auto 800px;
@@ -392,7 +393,7 @@ small {
   font-size: 48px;
 }
 
-/* Kort for visning av turmål (Herman og Vegard) */
+/* Kort for visning av turmål */
 .lineBox {
   min-height: 200px;
   width: 100%;
@@ -404,12 +405,12 @@ small {
   margin-bottom: 30px;
 }
 
-/*Padding mellom fjell-boksene (Herman og Vegard)*/
+/*Padding mellom fjell-boksene */
 .lineBox p, .lineBox h3 {
   padding: 0 15px 0 15px;
 }
 
-/*Skygge når musepeker er over fjellboksene(Herman og Vegard)*/
+/*Skygge når musepeker er over fjellboksene */
 .lineBox:hover {
   box-shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.3);
 }
@@ -419,7 +420,7 @@ small {
   margin: auto;
 }
 
-/* I om-oss.html (Vegard) */
+/* I om-oss.html */
 #om{
   text-align: left;
   margin: 10px;
@@ -430,7 +431,7 @@ small {
 }
 
 #objList a:hover{
-  
+
 }
 
 /* Styling for stående nettbrett */
@@ -464,7 +465,7 @@ small {
   font-size: 52px;
 }
 
-/* Teksten på "om oss"-siden (Vegard) */
+/* Teksten på "om oss"-siden */
 #om{
   text-align: center;
   margin-top: 10%;
@@ -484,7 +485,7 @@ small {
     color: #fff;
   }
 
-/* "Bergens 7 øverst i venstre hjørne i hvit (Liva)  */
+/* "Bergens 7 øverst i venstre hjørne i hvit */
 #logo {
     width: 30%;
 }
@@ -522,13 +523,13 @@ small {
   width: 23%;
 }
 
-/*Bergens 7 - skrifttype (Liva)*/
+/*Bergens 7 - skrifttype */
 #logo h2 {
     font-size: 30px;
     margin: 10px;
 }
 
-/* Deler opp teksten på forsiden i to kolonner (Liva) */
+/* Deler opp teksten på forsiden i to kolonner */
   .halfWidth {
     display: flex;
     flex-direction: row;
@@ -543,11 +544,13 @@ small {
     margin: 10px;
   }
 
+/* Kolonne som tar én tredjedel av siden. Brukes for layout på søkefunksjonene (toalett og utsiktspunkt)*/
 .col_enTre {
   width: 32%;
   float: left;
 }
 
+/* Kollone som tar to tredjedeler av siden. Brukes for layout på søkefunksjonene (toalett og utsiktspunkt) */
 .col_toTre {
   width: 64%;
   float: left;
