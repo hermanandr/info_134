@@ -100,7 +100,6 @@ function smallSearch() {
       }
     }
   }
-
   search(data, searchObject);
 }
 
