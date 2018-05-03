@@ -33,9 +33,11 @@ function addInfo(list, marker, i){
         text = "<div id='info'><h3>" + list[i].navn + "</h3><a onclick='chooseFavourite(data, data[" + i + "])'> <u><h4>Velg som favoritt</h4></u></a></div>"
       }else if(erNavn){
         text = "<div id='info'><h3>" + list[i].navn + "</h3>"
-      }else{
+      }else if(list[i].plassering != undefined){
         text = "<div id='info'><h3>" + list[i].plassering + "</h3>"
         + "<h4>" + list[i].adresse + "</h4>";
+      }else{
+        text = "<div id='info'><h3>" + list[i].name + "</h3>";
       }
     }
 
@@ -156,7 +158,7 @@ function searchAll() {
         searchObject["tid_hverdag"] = time.getHours() + ":" + time.getMinutes();
       };
     } else {}
-    
+
   }
 
   console.log(searchObject);
@@ -364,7 +366,7 @@ function initMap(list){
   var city = {};
   var _zoom;
 
-  // Skjer noe her når man søker på alle kriterier i avansert søk 
+  // Skjer noe her når man søker på alle kriterier i avansert søk
   if(list[0].name != undefined){
     city = stavanger;
     _zoom = 10;
