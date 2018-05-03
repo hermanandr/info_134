@@ -13,29 +13,31 @@ var fjell = [
   {navn: 'damsgårdsfjellet', latitude:60.375, longitude:5.291},
   {navn: 'lyderhorn',        latitude:60.374, longitude:5.241}
 ];
-// data oppdateres med relevant JSON-data, otherArray brukes der det trengs å laste to datasett samtidig.
+
 var data = [];
 var otherArray = [];
-// boolean som forteller hvorvidt element i et array inneholder en attributt som heter 'navn'.
 var erNavn;
 
 // legger til info om markøren til infovinduet.
 function addInfo(list, marker, i){
-// sjekker om navn-atributten finnes for å identifisere hvilket datasett som  representeres.
+  // om en liste har en attributt som heter 'navn', vil 'erNavn' returnere true.
     for(var y in list){
       if(list[i].navn != undefined){
       erNavn = true;
     } else {
       erNavn = false;
     }
+    // 'erNavn' brukes til å bestemme format til infovinduet markøren vil vise.
     var text;
       if(erNavn && document.getElementById('reload')) {
         text = "<div id='info'><h3>" + list[i].navn + "</h3><a onclick='chooseFavourite(data, data[" + i + "])'> <u><h4>Velg som favoritt</h4></u></a></div>"
       }else if(erNavn){
         text = "<div id='info'><h3>" + list[i].navn + "</h3>"
-      }else{
+      }else if(list[i].plassering != undefined){
         text = "<div id='info'><h3>" + list[i].plassering + "</h3>"
         + "<h4>" + list[i].adresse + "</h4>";
+      }else{
+        text = "<div id='info'><h3>" + list[i].name + "</h3>";
       }
     }
 
@@ -64,8 +66,7 @@ function addList(list){
       obj.appendChild(a);
       document.getElementById("objList").appendChild(obj);
     }
-  }
-  if(erNavn) {
+  } else if(erNavn) {
     for(var x = 0; x < list.length; x++){
       var liste = document.getElementById('objList');
       var navn = list[x].navn;
@@ -115,7 +116,7 @@ function smallSearch() {
   search(data, searchObject);
 }
 
-// Hurtigsøk, foreløbig ikke implementert.
+// Hurtigsøk, jævla hurtigsøk
 function searchAll() {
   var input = document.getElementById("fullSearch");
   var searchObject = {}; //Oppretter et tomt søkeobjekt
@@ -157,7 +158,7 @@ function searchAll() {
         searchObject["tid_hverdag"] = time.getHours() + ":" + time.getMinutes();
       };
     } else {}
-    
+
   }
 
   console.log(searchObject);
@@ -322,7 +323,7 @@ function isToiletOpen(searchTime, toiletTime) {
   }
 }
 
-//finner avstanden mellom to markører.
+//finner avstanden mellom to markører
 var findDistance = function (marker1, marker2){
   var lat = ((marker1.latitude) - (marker2.latitude));
   var lng = ((marker1.longitude) - (marker2.longitude));
@@ -330,27 +331,27 @@ var findDistance = function (marker1, marker2){
   return distance;
 }
 
-// itererer over en liste og finner nærmeste naboobjekt.
-function findNeighbour(coord, list){
-  var closest; // element med kortest avstand til coord.
-  var shortest; // korteste målte avstand til nå.
+//Finner nærmeste toalett
+function findNeighbour(lekeplass, list){
+  var closest;
+  var shortest;
   for(var i = 0; i < list.length; i++){
-    if(shortest == undefined && list[i] != coord){
-      shortest = findDistance(coord, list[i]);
+    if(shortest == undefined && list[i] != lekeplass){
+      shortest = findDistance(lekeplass, list[i]);
       console.log(shortest);
       closest = list[i];
-    }else if(list[i] != coord && findDistance(coord, list[i]) < shortest){
-      shortest = findDistance(coord, list[i]);
+    }else if(list[i] != lekeplass && findDistance(lekeplass, list[i]) < shortest){
+      shortest = findDistance(lekeplass, list[i]);
       closest = list[i];
     }
   }
   return closest;
 }
 
-// finner elementet fra en liste med kortest avstand fra coord, og laster kartet på nytt med coord + nærmeste element.
-function chooseFavourite(list, coord){
+//Valg av favoritt lekeplass
+function chooseFavourite(list, lekeplass){
   var chosen = [];
-  favourite = coord;
+  favourite = lekeplass;
   var neighbour = findNeighbour(favourite, otherArray);
   console.log(neighbour);
   chosen.push(favourite, neighbour);
@@ -365,7 +366,7 @@ function initMap(list){
   var city = {};
   var _zoom;
 
-  // Skjer noe her når man søker på alle kriterier i avansert søk <--- ERROR!
+  // Skjer noe her når man søker på alle kriterier i avansert søk
   if(list[0].name != undefined){
     city = stavanger;
     _zoom = 10;
@@ -408,7 +409,7 @@ function request(url, callback){
       console.log("Type", xhr.getResponseHeader("Content-Type"));
       entries = JSON.parse(xhr.responseText).entries;
       console.log(entries);
-      callback(entries); // Oppdaterer 'data' & kartet med gitt JSON-data, eller lagrer JSON-data i 'otherArray'. (callback = updateArray | callback = loadOtherArray)
+      callback(entries);
     }
     else{
       return null;
@@ -416,14 +417,12 @@ function request(url, callback){
   }
     xhr.send();
 }
-
 // Oppdaterer den globale variabelen 'data' med gitt array.
 function updateArray(array){
   data = array;
   initMap(data);
 }
 
-// Oppdaterer den globale variabelen 'otherArray' med gitt array
 function loadOtherArray(list){
   otherArray = list;
 }
