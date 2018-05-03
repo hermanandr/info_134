@@ -12,7 +12,6 @@ var fjell = [
   {navn: 'damsgårdsfjellet', latitude:60.375, longitude:5.291},
   {navn: 'lyderhorn',        latitude:60.374, longitude:5.241}
 ];
-console.log(fjell);
 
 var data = [];
 var otherArray = [];
