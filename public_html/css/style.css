@@ -103,7 +103,7 @@ nav {
   list-style-type: none;
   padding: 125px 0 125px 50px;
   background: rgba(0, 0, 0, 0.85);
-/* Slide inn effekt */
+  /* Slide inn effekt */
   transform-origin: 0% 0%;
   transform: translate(+100vw, 0);
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
@@ -247,6 +247,7 @@ input[type=text] {
   margin: 4px 30px 0 0;
 }
 
+/* Knapper på søk. Toaletter og utsiktspunkt */
 .button{
   border: none;
   border-radius: 20px;
@@ -256,6 +257,7 @@ input[type=text] {
   box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.2);
 }
 
+/* Grå farge på knapp når musepeker er over*/
 .button:hover {
   background-color: rgb(116, 82, 60)
 }
@@ -268,7 +270,7 @@ a {
   color: #000;
 }
 
-/* Link på 404-sidene */
+/* Link på 404-sidene (gå tilbake til forsiden) */
 #forsidelink {
   text-decoration: none;
   color: #ADD8E6;
@@ -280,6 +282,7 @@ p {
   font-size: 16px;
 }
 
+/* Undertekst over forsidebildet */
 p2 {
   font-family: 'Lato', sans-serif;
   font-size: 22px;
@@ -308,10 +311,6 @@ h3 {
 
 /* Søkeknapp for toalettene */
 button {
-  /* float: left;
-
-  margin-top: 8px;
-  margin-right: 16px; */
   padding: 6px 10px;
   background: #000;
   font-size: 17px;
@@ -442,11 +441,13 @@ small {
   margin: -100px 0 0 -40vw;
 }
 
+/*Beholder for Innhold*/
 .container {
   width: 95%;
   margin: auto;
 }
 
+/* Fordeling av fjellboksene. To i bredden. I index.html */
 .lineBox {
   width: 48%;
 }
@@ -518,7 +519,7 @@ small {
   margin: auto;
 }
 
-/* Fordeling av fjell-boksene. Gir plass til fire bokser i bredden */
+/* Fordeling av fjell-boksene. Gir plass til fire bokser i bredden. I index.html */
 .lineBox {
   width: 23%;
 }

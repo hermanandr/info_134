@@ -13,21 +13,21 @@ var fjell = [
   {navn: 'damsgårdsfjellet', latitude:60.375, longitude:5.291},
   {navn: 'lyderhorn',        latitude:60.374, longitude:5.241}
 ];
-// data oppdateres med relevant JSON-data, otherArray brukes der det trengs å laste to datasett samtidig.
+
 var data = [];
 var otherArray = [];
-// boolean som forteller hvorvidt element i et array inneholder en attributt som heter 'navn'.
 var erNavn;
 
 // legger til info om markøren til infovinduet.
 function addInfo(list, marker, i){
-// sjekker om navn-atributten finnes for å identifisere hvilket datasett som  representeres.
+  // om en liste har en attributt som heter 'navn', vil 'erNavn' returnere true.
     for(var y in list){
       if(list[i].navn != undefined){
       erNavn = true;
     } else {
       erNavn = false;
     }
+    // 'erNavn' brukes til å bestemme format til infovinduet markøren vil vise.
     var text;
       if(erNavn && document.getElementById('reload')) {
         text = "<div id='info'><h3>" + list[i].navn + "</h3><a onclick='chooseFavourite(data, data[" + i + "])'> <u><h4>Velg som favoritt</h4></u></a></div>"
@@ -111,14 +111,67 @@ function smallSearch() {
       }
     }
   }
-
   search(data, searchObject);
 }
 
-// Hurtigsøk, foreløbig ikke implementert.
+// Hurtigsøk, jævla hurtigsøk
 function searchAll() {
   var input = document.getElementById("fullSearch");
+  var searchObject = {}; //Oppretter et tomt søkeobjekt
+  var time = new Date(); //Finner dato og tid for nå
+
+
   console.log(input.value);
+
+  //Splitter teksten brukeren skrev inn, ved hvert ",".
+  var split = /([^,]+)/ig
+  var splitInput = input.value.match(split);
+
+  var pris = /pris:/ig;
+  var herre = /herre/ig;
+  var dame = /dame/ig;
+  var rullestol = /rullestol/ig;
+  var stellerom = /stellerom/ig;
+  var openNow = /Åpent nå/ig;
+
+  for(i=0; i < splitInput.length; i++) {
+    if(splitInput[i].match(pris)){
+      var cost = /(\d+)/;
+      var found = splitInput[i].match(cost);
+      searchObject["pris"] = found[0];
+    } else if(splitInput[i].match(dame)){
+      searchObject["dame"] = "1";
+    } else if(splitInput[i].match(herre)){
+      searchObject["herre"] = "1";
+    } else if(splitInput[i].match(rullestol)){
+      searchObject["rullestol"] = "1";
+    } else if(splitInput[i].match(stellerom)){
+      searchObject["stellerom"] = "1";
+    } else if(splitInput[i].match(stellerom)){
+      if(time.getDay == 0){
+        searchObject["tid_sondag"] = time.getHours() + ":" + time.getMinutes();
+      } else if(time.getDay == 6) {
+        searchObject["tid_lordag"] = time.getHours() + ":" + time.getMinutes();
+      } else {
+        searchObject["tid_hverdag"] = time.getHours() + ":" + time.getMinutes();
+      };
+    } else {}
+    
+  }
+
+  console.log(searchObject);
+
+  search(data, searchObject);
+
+
+  /* for(x = 0; x < splitInput.length; x++) {
+    var adresse = list[i]["adresse"].toUpperCase();
+    var navn = list[i]["plassering"].toUpperCase();
+    var sok = splitInput[x].toUpperCase();
+    if(sok == navn || sok == adresse){
+      truthChecker.push(true);
+    }
+  } */
 }
 
 // Oppretter et søkeobjekt som inneholder alle kritieriene brukeren fyller ut i skjemaet "Avansert søk"
@@ -268,7 +321,7 @@ function isToiletOpen(searchTime, toiletTime) {
   }
 }
 
-//finner avstanden mellom to markører.
+//finner avstanden mellom to markører
 var findDistance = function (marker1, marker2){
   var lat = ((marker1.latitude) - (marker2.latitude));
   var lng = ((marker1.longitude) - (marker2.longitude));
@@ -276,27 +329,27 @@ var findDistance = function (marker1, marker2){
   return distance;
 }
 
-// itererer over en liste og finner nærmeste naboobjekt.
-function findNeighbour(coord, list){
-  var closest; // element med kortest avstand til coord.
-  var shortest; // korteste målte avstand til nå.
+//Finner nærmeste toalett
+function findNeighbour(lekeplass, list){
+  var closest;
+  var shortest;
   for(var i = 0; i < list.length; i++){
-    if(shortest == undefined && list[i] != coord){
-      shortest = findDistance(coord, list[i]);
+    if(shortest == undefined && list[i] != lekeplass){
+      shortest = findDistance(lekeplass, list[i]);
       console.log(shortest);
       closest = list[i];
-    }else if(list[i] != coord && findDistance(coord, list[i]) < shortest){
-      shortest = findDistance(coord, list[i]);
+    }else if(list[i] != lekeplass && findDistance(lekeplass, list[i]) < shortest){
+      shortest = findDistance(lekeplass, list[i]);
       closest = list[i];
     }
   }
   return closest;
 }
 
-// finner elementet fra en liste med kortest avstand fra coord, og laster kartet på nytt med coord + nærmeste element.
-function chooseFavourite(list, coord){
+//Valg av favoritt lekeplass
+function chooseFavourite(list, lekeplass){
   var chosen = [];
-  favourite = coord;
+  favourite = lekeplass;
   var neighbour = findNeighbour(favourite, otherArray);
   console.log(neighbour);
   chosen.push(favourite, neighbour);
@@ -311,7 +364,7 @@ function initMap(list){
   var city = {};
   var _zoom;
 
-  // Skjer noe her når man søker på alle kriterier i avansert søk <--- ERROR!
+  // Skjer noe her når man søker på alle kriterier i avansert søk 
   if(list[0].name != undefined){
     city = stavanger;
     _zoom = 10;
@@ -354,7 +407,7 @@ function request(url, callback){
       console.log("Type", xhr.getResponseHeader("Content-Type"));
       entries = JSON.parse(xhr.responseText).entries;
       console.log(entries);
-      callback(entries); // Oppdaterer 'data' & kartet med gitt JSON-data, eller lagrer JSON-data i 'otherArray'. (callback = updateArray | callback = loadOtherArray)
+      callback(entries);
     }
     else{
       return null;
@@ -362,14 +415,12 @@ function request(url, callback){
   }
     xhr.send();
 }
-
 // Oppdaterer den globale variabelen 'data' med gitt array.
 function updateArray(array){
   data = array;
   initMap(data);
 }
 
-// Oppdaterer den globale variabelen 'otherArray' med gitt array
 function loadOtherArray(list){
   otherArray = list;
 }
