@@ -2,7 +2,8 @@
 var toaletter = "https://hotell.difi.no/api/json/bergen/dokart";
 var lekeplasser = "https://hotell.difi.no/api/json/bergen/lekeplasser?";
 var utsiktspunkt = "https://hotell.difi.no/api/json/stavanger/utsiktspunkt?";
-// egen liste med fjell til landingssiden.
+
+//koordinater til de syv fjell som vises på kartet på hjem-siden
 var fjell = [
   {navn: 'ulriken',          latitude:60.378, longitude:5.387},
   {navn: 'fløyfjellet',      latitude:60.399, longitude:5.345},
