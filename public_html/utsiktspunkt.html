@@ -60,13 +60,14 @@
   <b>Utsiktspunkt i Stavanger</b>
 </div>
 
-<!-- Ikke-trivielt søk med mulighet for å finne det mest sentrumsnære tårnet eller fjellet  -->
+<!-- Søk med mulighet for å velge mellom to typer utsiktspunkt og én beliggenhet-->
 <div class="col_enTre">
   <div class="fullWidth pt">
     <div class="white p1" id="formAdvanced">
       <h3>Søk</h3>
       <p>Fyll ut ett eller flere felt</p>
         <div class="inputGroup">
+          <form action="" method="get">
           <label>
           <input id="0" type="checkbox" name="tower">Utsiktspunkt med tårn</label>
           <label>
@@ -88,9 +89,9 @@
   </div>
 </div>
 
-<div class="col_toTre pt">
-  <!-- Filtersøk med mulighet for å velge mellom to typer utsiktspunkt og én beliggenhet -->
-    <div class="fullWidth pt">
+<!-- <div class="col_toTre pt">
+    <!-- Søk med mulighet for å velge mellom to typer utsiktspunkt og én beliggenhet -->
+    <!-- <div class="fullWidth pt">
       <div class="white p1">
         <h3>Filtersøk <br>
         <small>(Finn ut hvilket berg eller tårn som har best utsikt over sentrum)</small> </h3>
@@ -105,21 +106,9 @@
             <input type="checkbox" name="Tårn eller berg" value="Berg"> Berg
           </div>
         </div>
-      </div>
+      </div> -->
 
-  <!-- Ikke-triviell filterfunksjon som finner det mest sentrumsnære tårnet eller berget -->
-
-    <!-- <div class="col_enTre pt">
-      <div class="white p1">
-        <p>Her kan man søke</p>
-        <input type="text" placeholder="Søk her..">
-    </div>
-  </div> -->
-
-
-
-
-
+  <!-- Liste med navn på søkeresultatene -->
   <div class="col_toTre pt">
     <div class="white p1">
       <h3>Søkeresultater</h3>
@@ -128,9 +117,7 @@
 </div>
 </div>
 
-
-
-58.970008, 5.733369
+<!-- 58.970008, 5.733369 -->
 
 <script>loadMap(utsiktspunkt);</script>
 </body>
