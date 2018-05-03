@@ -51,7 +51,7 @@ function addInfo(list, marker, i){
 
 // legger til en liste over alle de forskjellige markørene. 'erNavn' bestemmer hvilke attributter objektene navngis fra.
 function addList(list){
-  if(list.erNavn) {
+  if(erNavn) {
     for(var x = 0; x < list.length; x++){
       var liste = document.getElementById('objList');
       var navn = list[x].navn;
@@ -356,6 +356,7 @@ function updateArray(array){
 
 function loadOtherArray(list){
   otherArray = list;
+}
 
 // 'loadMap' tar imot en URL, kjører 'request()' med den gitte URL'en, og reinitialiserer kartet med den oppdaterte lista.
 function loadMap(url) {
