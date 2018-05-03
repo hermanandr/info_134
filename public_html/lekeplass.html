@@ -22,19 +22,23 @@
             <span></span>
             <span></span>
             <span></span>
+            <!-- Innhold i hamburgermenyen -->
             <ul id="Meny">
                 <li><a href="index.html">Hjem</a></li>
                 <li><a href="toalett.html">Toaletter</a></li>
                 <li><a href="lekeplass.html">Lekeplass</a></li>
+                <li><a href="favoritt.html">Favorittlekeplass</a></li>
                 <li><a href="utsiktspunkt.html">Utsiktspunkt</a></li>
                 <li><a href="Om-oss.html">Om oss</a></li>
               </ul>
             </div>
           </nav>
+          <!-- Innhold i header-menyen -->
           <nav id="StorMeny">
             <ul>
               <li><a href="Om-oss.html">Om oss</a></li>
               <li><a href="utsiktspunkt.html">Utsiktspunkt</a></li>
+              <li><a href="favoritt.html">Favorittlekeplass</a></li>
               <li><a href="lekeplass.html">Lekeplass</a></li>
               <li><a href="toalett.html"> Toaletter </a></li>
               <li><a href="index.html"> Hjem </a></li>
@@ -50,16 +54,23 @@
       <div id="map"></div>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5QyVZg6FmI3ayYvcMs1tOfFBQWQoRio&callback=initMap"
       async defer></script>
-    </div>
+    
 
   <!-- Tittel under kartet -->
-    <div class = "p1">
+    <div class="fullWidth pt">
       <b>Lekeplasser i Bergen</b>
       <a onclick="request(lekeplasser)" id="reload"><u><h4>Trykk for å laste kartet på nytt</h4></u></a>
       <ol id="objList"></ol>
     </div>
 
-
+    <div class="fullWidth pt">
+      <div class="white p1">
+        <h3>Søkeresultater</h3>
+        <h4>(trykk på en lekeplass for å legge til som favoritt.)</h4>
+        <ol id="objList"></ol>
+      </div>
+    </div>
+  </div>
 
 <script>loadMap(lekeplasser);</script>
 </body>

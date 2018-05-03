@@ -22,41 +22,73 @@
             <span></span>
             <span></span>
             <span></span>
+            <!-- Innhold i hamburgermenyen -->
             <ul id="Meny">
                 <li><a href="index.html">Hjem</a></li>
-                <li><a href="map.html">Toaletter</a></li>
+                <li><a href="toalett.html">Toaletter</a></li>
                 <li><a href="lekeplass.html">Lekeplass</a></li>
+                <li><a href="favoritt.html">Favorittlekeplass</a></li>
                 <li><a href="utsiktspunkt.html">Utsiktspunkt</a></li>
                 <li><a href="Om-oss.html">Om oss</a></li>
               </ul>
             </div>
           </nav>
+          <!-- Innhold i header-menyen -->
           <nav id="StorMeny">
             <ul>
               <li><a href="Om-oss.html">Om oss</a></li>
               <li><a href="utsiktspunkt.html">Utsiktspunkt</a></li>
               <li><a href="lekeplass.html">Lekeplass</a></li>
-              <li><a href="map.html"> Toaletter </a></li>
+              <li><a href="favoritt.html">Favorittlekeplass</a></li>
+              <li><a href="toalett.html"> Toaletter </a></li>
               <li><a href="index.html"> Hjem </a></li>
             </ul>
         </nav>
         </header>
 <!-- Hovedinnhold -->
-  <!-- Forsidebilde -->
-  <div id=topBanner1> </div>
+<!-- Forsidebilde -->
+<div id=topBanner1> </div>
 
-  <!-- utsiktspunkt_kart -->
-    <div class="container">
-      <div id="map"></div>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5QyVZg6FmI3ayYvcMs1tOfFBQWQoRio&callback=initMap"
-      async defer></script>
+<!-- utsiktspunkt_kart -->
+<div class="container">
+  <div id="map"></div>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5QyVZg6FmI3ayYvcMs1tOfFBQWQoRio&callback=initMap"
+  async defer></script>
+
+<!-- Tittel under kartet -->
+<div class="fullWidth pt">
+  <b>Utsiktspunkt i Stavanger</b>
+</div>
+
+<!-- Ikke-trivielt søk med mulighet for å finne det mest sentrumsnære tårnet eller fjellet  -->
+<div class="col_enTre">
+  <div class="fullWidth pt">
+    <div class="white p1" id="formAdvanced">
+      <h3>Søk</h3>
+      <p>Fyll ut ett eller flere felt</p>
+        <div class="inputGroup">
+          <label>
+          <input id="0" type="checkbox" name="tower">Utsiktspunkt med tårn</label>
+          <label>
+          <input id="1" type="checkbox" name="berg">Utsiktspunkt på fjell</label>
+        </div>
+
+        <div class="inputGroup">
+          <label>
+          <input id="2" type="checkbox" name="sentrum">Utsiktspunkt nærmest sentrum</label>
+        </div>
+
+        <!-- Search-button -->
+        <input class="button" type="button" onclick="smallSearch()" value="Søk">
+
+        <!-- "clear searh" button -->
+        <input class="button" type="button" onclick="request(utsiktspunkt)" value="Nullstill">
+
     </div>
+  </div>
+</div>
 
-  <!-- Tittel under kartet -->
-    <div class = "p1">
-      <b>Utsiktspunkt i Stavanger</b>
-    </div>
-
+<div class="col_toTre pt">
   <!-- Filtersøk med mulighet for å velge mellom to typer utsiktspunkt og én beliggenhet -->
     <div class="fullWidth pt">
       <div class="white p1">
@@ -90,9 +122,10 @@
 
   <div class="col_toTre pt">
     <div class="white p1">
-    <h3>Søkeresultater</h3>
-    <ol id="objList"></ol>
-  </div>
+      <h3>Søkeresultater</h3>
+      <ol id="objList"></ol>
+    </div>
+</div>
 </div>
 
 
