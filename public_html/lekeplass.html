@@ -55,12 +55,15 @@
   <!-- Tittel under kartet -->
     <div class = "p1">
       <b>Lekeplasser i Bergen</b>
-      <a onclick="request(lekeplasser)" id="reload"><u><h4>Trykk for å laste kartet på nytt</h4></u></a>
+      <a onclick="loadMap(lekeplasser)" id="reload"><u><h4>Trykk for å laste kartet på nytt</h4></u></a>
       <ol id="objList"></ol>
     </div>
 
 
 
-<script>loadMap(lekeplasser);</script>
+  <script>
+    loadMap(lekeplasser);
+    request(toaletter, loadOtherArray);
+  </script>
 </body>
 </html>

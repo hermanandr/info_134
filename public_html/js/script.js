@@ -14,6 +14,7 @@ var fjell = [
 ];
 
 var data = [];
+var otherArray = [];
 var erNavn;
 var favourite = {};
 var closest = {};
@@ -21,19 +22,21 @@ var closest = {};
 // legger til info om markøren til infovinduet.
 function addInfo(list, marker, i){
   // om en liste har en attributt som heter 'navn', vil 'erNavn' returnere true.
-  if(list[0].navn != undefined){
-    erNavn = true;
-  } else {
-    erNavn = false;
-  }
-  // 'erNavn' brukes til å bestemme format til infovinduet markøren vil vise.
-  var text;
-  if(erNavn) {
-    text = "<div id='info'><h3>" + list[i].navn + "</h3>"
-  }else{
-    text = "<div id='info'><h3>" + list[i].plassering + "</h3>"
-    + "<h4>" + list[i].adresse + "</h4> ";
-  }
+    for(var y in list){
+      if(list[i].navn != undefined){
+      erNavn = true;
+    } else {
+      erNavn = false;
+    }
+    // 'erNavn' brukes til å bestemme format til infovinduet markøren vil vise.
+    var text;
+      if(erNavn) {
+        text = "<div id='info'><h3>" + list[i].navn + "</h3><a onclick='chooseFavourite(data, data[" + i + "])'> <u><h4>Velg som favoritt</h4></u></a>"
+      }else{
+        text = "<div id='info'><h3>" + list[i].plassering + "</h3>"
+        + "<h4>" + list[i].adresse + "</h4>";
+      }
+    }
 
   marker.addListener('click', function() { if(marker.open != true){
       infowindow.open(map, marker); marker.open = true;
@@ -56,7 +59,7 @@ function addList(list){
       var obj = document.createElement("li");
       var a = document.createElement("a");
       a.textContent = navn;
-      a.setAttribute('onclick', 'chooseFavourite(data, data[' + x + '])' )
+      a.setAttribute('onclick', 'chooseFavourite(data, data[' + x + '])' );
       obj.appendChild(a);
       document.getElementById("objList").appendChild(obj);
     }
@@ -125,7 +128,7 @@ function findNeighbour(lekeplass, list){
 function chooseFavourite(list, lekeplass){
   var chosen = [];
   favourite = lekeplass;
-  var neighbour = findNeighbour(favourite, list);
+  var neighbour = findNeighbour(favourite, otherArray);
   console.log(neighbour);
   chosen.push(favourite, neighbour);
   console.log(chosen);
@@ -154,8 +157,7 @@ function initMap(list){
 
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: _zoom,
-    center : city,
-    map: map
+    center : city
   });
 
   for(var i = 0; i < list.length; i++){
@@ -174,7 +176,7 @@ function initMap(list){
 }
 
 // Oppretter og sender en XML-request etter en URL, og returnerer dataen mottatt.
-function request(url){
+function request(url, callback){
   var xhr = new XMLHttpRequest();
   var entries =[];
   xhr.open("GET", url);
@@ -183,21 +185,25 @@ function request(url){
       console.log("Type", xhr.getResponseHeader("Content-Type"));
       entries = JSON.parse(xhr.responseText).entries;
       console.log(entries);
-      data = entries;
-      initMap(entries);
+      callback(entries);
     }
     else{
       return null;
     }
   }
     xhr.send();
-    return entries;
 }
 // Oppdaterer den globale variabelen 'data' med gitt array.
 function updateArray(array){
   data = array;
+  initMap(data);
 }
+
+function loadOtherArray(list){
+  otherArray = list;
+}
+
 // 'loadMap' tar imot en URL, kjører 'request()' med den gitte URL'en, og reinitialiserer kartet med den oppdaterte lista.
 function loadMap(url) {
-  request(url);
+  request(url, updateArray);
 }
