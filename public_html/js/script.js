@@ -64,8 +64,7 @@ function addList(list){
       obj.appendChild(a);
       document.getElementById("objList").appendChild(obj);
     }
-  }
-  if(erNavn) {
+  } else if(erNavn) {
     for(var x = 0; x < list.length; x++){
       var liste = document.getElementById('objList');
       var navn = list[x].navn;
