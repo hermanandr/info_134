@@ -79,7 +79,7 @@ function addList(list){
   }
 }
 
-//Oppretter et søkeobjekt som inneholder alle kritieriene brukeren fyller ut i søkeskjemaet for "Utkikspunkt".
+//Oppretter et søkeobjekt som inneholder alle kritieriene brukeren fyller ut i søkeskjemaet for "Utsiktspunkt".
 function smallSearch() {
   var searchObject = {}; //Oppretter et tomt søkeobjekt
 
