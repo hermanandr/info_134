@@ -82,7 +82,7 @@ function addList(list){
 //Oppretter et søkeobjekt som inneholder alle kritieriene brukeren fyller ut i søkeskjemaet for "Utkikspunkt".
 function smallSearch() {
   var searchObject = {}; //Oppretter et tomt søkeobjekt
-  
+
   //Henter input fra brukeren og legger det til i søkeobjektet
   for(var i=0; i<2; i++) {
     var input = document.getElementById(i);
@@ -93,7 +93,7 @@ function smallSearch() {
       } else if (input.name == "berg"){
         searchObject["berg"] = "ja";
       } else if(input.name = "sentrum"){
-        searchObject["lovation"] = "sentrum";
+        searchObject["location"] = "sentrum";
       }
     }
   }
@@ -162,13 +162,13 @@ function advancedSearch() {
 
   search(data, searchObject);
 }
- 
+
 // Hentet og manipulert fra utdelte 'search.js'.
 // Itererer over en gitt liste og ser etter et objekt som matcher søkeobjektet.
 function search(list, searchObject) {
 	var searchResults  = [];
   var searchParams = Object.keys(searchObject);
-  
+
 	for(i=0; i < list.length; i++) {
     var truthChecker = [] //Tomt array som fylles med en verdi "true" for hvert søkekriterie fra søkeobjektet som matcher en key i toalettobjektet.
 
@@ -209,13 +209,13 @@ function search(list, searchObject) {
           truthChecker.push(true);
         }
       } else if (searchParams[y].includes("berg")){
-        
+
         searchObject["latitude"] = "58.970008";
         searchObject["longitude"] = "5.733369";
       } else if(list[i][searchParams[y]] == searchObject[searchParams[y]]) {
 				truthChecker.push(true);
       };
-			if(truthChecker.length == searchParams.length) { //Hvis alle kriteriene til søkeobjekter er oppfylt, legges objektet som matcher søkeobjektet til i resultatlisten. 
+			if(truthChecker.length == searchParams.length) { //Hvis alle kriteriene til søkeobjekter er oppfylt, legges objektet som matcher søkeobjektet til i resultatlisten.
 				searchResults.push(list[i]);
 			}
 		}
@@ -334,4 +334,3 @@ function chooseFavourite(list){
 function loadMap(url) {
   request(url);
 }
-
