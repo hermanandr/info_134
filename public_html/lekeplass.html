@@ -54,23 +54,18 @@
       <div id="map"></div>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5QyVZg6FmI3ayYvcMs1tOfFBQWQoRio&callback=initMap"
       async defer></script>
-    
+
 
   <!-- Tittel under kartet -->
     <div class="fullWidth pt">
-      <b>Lekeplasser i Bergen</b>
-      <a onclick="request(lekeplasser)" id="reload"><u><h4>Trykk for å laste kartet på nytt</h4></u></a>
-      <ol id="objList"></ol>
-    </div>
-
-    <div class="fullWidth pt">
-      <div class="white p1">
-        <h3>Søkeresultater</h3>
+      <div class='white p1'>
+        <h2><b>Lekeplasser i Bergen</b></h2></br>
         <h4>(trykk på en lekeplass for å legge til som favoritt.)</h4>
+        <a onclick="request(lekeplasser)" id="reload"><u><h4>Trykk for å laste kartet på nytt</h4></u></a>
         <ol id="objList"></ol>
       </div>
     </div>
-  </div>
+</div>
 
 <script>loadMap(lekeplasser);</script>
 </body>
