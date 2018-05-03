@@ -2,7 +2,7 @@
 var toaletter = "https://hotell.difi.no/api/json/bergen/dokart";
 var lekeplasser = "https://hotell.difi.no/api/json/bergen/lekeplasser?";
 var utsiktspunkt = "https://hotell.difi.no/api/json/stavanger/utsiktspunkt?";
-
+// egen liste med fjell til landingssiden.
 var fjell = [
   {navn: 'ulriken',          latitude:60.378, longitude:5.387},
   {navn: 'fløyfjellet',      latitude:60.399, longitude:5.345},
@@ -12,21 +12,21 @@ var fjell = [
   {navn: 'damsgårdsfjellet', latitude:60.375, longitude:5.291},
   {navn: 'lyderhorn',        latitude:60.374, longitude:5.241}
 ];
-
+// data oppdateres med relevant JSON-data, otherArray brukes der det trengs å laste to datasett samtidig.
 var data = [];
 var otherArray = [];
+// boolean som forteller hvorvidt element i et array inneholder en attributt som heter 'navn'.
 var erNavn;
 
 // legger til info om markøren til infovinduet.
 function addInfo(list, marker, i){
-  // om en liste har en attributt som heter 'navn', vil 'erNavn' returnere true.
+// sjekker om navn-atributten finnes for å identifisere hvilket datasett som  representeres.
     for(var y in list){
       if(list[i].navn != undefined){
       erNavn = true;
     } else {
       erNavn = false;
     }
-    // 'erNavn' brukes til å bestemme format til infovinduet markøren vil vise.
     var text;
       if(erNavn) {
         text = "<div id='info'><h3>" + list[i].navn + "</h3><a onclick='chooseFavourite(data, data[" + i + "])'> <u><h4>Velg som favoritt</h4></u></a>"
@@ -103,7 +103,7 @@ function smallSearch() {
   search(data, searchObject);
 }
 
-// Hurtigsøk, jævla hurtigsøk
+// Hurtigsøk, foreløbig ikke implementert.
 function searchAll() {
   var input = document.getElementById("fullSearch");
   console.log(input.value);
@@ -256,7 +256,7 @@ function isToiletOpen(searchTime, toiletTime) {
   }
 }
 
-//finner avstanden mellom to markører i km
+//finner avstanden mellom to markører.
 var findDistance = function (marker1, marker2){
   var lat = ((marker1.latitude) - (marker2.latitude));
   var lng = ((marker1.longitude) - (marker2.longitude));
@@ -264,25 +264,27 @@ var findDistance = function (marker1, marker2){
   return distance;
 }
 
-function findNeighbour(lekeplass, list){
-  var closest;
-  var shortest;
+// itererer over en liste og finner nærmeste naboobjekt.
+function findNeighbour(coord, list){
+  var closest; // element med kortest avstand til coord.
+  var shortest; // korteste målte avstand til nå.
   for(var i = 0; i < list.length; i++){
-    if(shortest == undefined && list[i] != lekeplass){
-      shortest = findDistance(lekeplass, list[i]);
+    if(shortest == undefined && list[i] != coord){
+      shortest = findDistance(coord, list[i]);
       console.log(shortest);
       closest = list[i];
-    }else if(list[i] != lekeplass && findDistance(lekeplass, list[i]) < shortest){
-      shortest = findDistance(lekeplass, list[i]);
+    }else if(list[i] != coord && findDistance(coord, list[i]) < shortest){
+      shortest = findDistance(coord, list[i]);
       closest = list[i];
     }
   }
   return closest;
 }
 
-function chooseFavourite(list, lekeplass){
+// finner elementet fra en liste med kortest avstand fra coord, og laster kartet på nytt med coord + nærmeste element.
+function chooseFavourite(list, coord){
   var chosen = [];
-  favourite = lekeplass;
+  favourite = coord;
   var neighbour = findNeighbour(favourite, otherArray);
   console.log(neighbour);
   chosen.push(favourite, neighbour);
@@ -340,7 +342,7 @@ function request(url, callback){
       console.log("Type", xhr.getResponseHeader("Content-Type"));
       entries = JSON.parse(xhr.responseText).entries;
       console.log(entries);
-      callback(entries);
+      callback(entries); // Oppdaterer 'data' & kartet med gitt JSON-data, eller lagrer JSON-data i 'otherArray'. (callback = updateArray | callback = loadOtherArray)
     }
     else{
       return null;
@@ -348,12 +350,14 @@ function request(url, callback){
   }
     xhr.send();
 }
+
 // Oppdaterer den globale variabelen 'data' med gitt array.
 function updateArray(array){
   data = array;
   initMap(data);
 }
 
+// Oppdaterer den globale variabelen 'otherArray' med gitt array
 function loadOtherArray(list){
   otherArray = list;
 }
