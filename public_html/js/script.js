@@ -279,6 +279,10 @@ function initMap(list){
     _zoom = 13;
   }
 
+  if(list[0].navn == 'ulriken'){
+    _zoom = 12;
+  }
+
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: _zoom,
     center : city,

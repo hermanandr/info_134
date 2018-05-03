@@ -55,7 +55,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5QyVZg6FmI3ayYvcMs1tOfFBQWQoRio&callback=initMap"
   async defer></script>
 
-
 <!-- Tittel under kartet -->
 <div class="fullWidth pt">
   <b>Utsiktspunkt i Stavanger</b>
@@ -90,12 +89,48 @@
 </div>
 
 <div class="col_toTre pt">
+  <!-- Filtersøk med mulighet for å velge mellom to typer utsiktspunkt og én beliggenhet -->
+    <div class="fullWidth pt">
+      <div class="white p1">
+        <h3>Filtersøk <br>
+        <small>(Finn ut hvilket berg eller tårn som har best utsikt over sentrum)</small> </h3>
+        <form action="" method="get">
+          <strong>Beliggenhet</strong><br>
+          <div class="inputGroup">
+            <input type="checkbox" name="Beliggenhet" value="Nærmest sentrum"> Nærmest sentrum
+          </div>
+          <strong>Velg mellom tårn <u>eller</u> berg </strong><br>
+          <div class="inputGroup">
+            <input type="checkbox" name="Tårn eller berg" value="Tårn"> Tårn
+            <input type="checkbox" name="Tårn eller berg" value="Berg"> Berg
+          </div>
+        </div>
+      </div>
+
+  <!-- Ikke-triviell filterfunksjon som finner det mest sentrumsnære tårnet eller berget -->
+
+    <!-- <div class="col_enTre pt">
+      <div class="white p1">
+        <p>Her kan man søke</p>
+        <input type="text" placeholder="Søk her..">
+    </div>
+  </div> -->
+
+
+
+
+
+  <div class="col_toTre pt">
     <div class="white p1">
       <h3>Søkeresultater</h3>
       <ol id="objList"></ol>
     </div>
 </div>
 </div>
+
+
+
+58.970008, 5.733369
 
 <script>loadMap(utsiktspunkt);</script>
 </body>
