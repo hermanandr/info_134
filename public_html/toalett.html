@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <title>Kart</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  </head>
+    <body onload="loadMap()">
+      <header>
+        <!--  -->
+        <a href="index.html"><div id="logo">
+          <h2> Bergens 7 </h2>
+        </div></a>
+        <nav id="HamburgerMeny">
+          <!-- Menyknapp -->
+          <div id="Knapp">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="Meny">
+                <li><a href="index.html">Hjem</a></li>
+                <li><a href="toalett.html">Toaletter</a></li>
+                <li><a href="lekeplass.html">Lekeplass</a></li>
+                <li><a href="favoritt.html">Favorittlekeplass</a></li>
+                <li><a href="utsiktspunkt.html">Utsiktspunkt</a></li>
+                <li><a href="Om-oss.html">Om oss</a></li>
+              </ul>
+            </div>
+          </nav>
+          <nav id="StorMeny">
+            <ul>
+              <li><a href="Om-oss.html">Om oss</a></li>
+              <li><a href="utsiktspunkt.html">Utsiktspunkt</a></li>
+              <li><a href="lekeplass.html">Lekeplass</a></li>
+              <li><a href="favoritt.html">Favorittlekeplass</a></li>
+              <li><a href="toalett.html"> Toaletter </a></li>
+              <li><a href="index.html"> Hjem </a></li>
+            </ul>
+        </nav>
+        </header>
+<!-- Hovedinnhold -->
+  <!-- Forsidebilde -->
+  <div id=topBanner1> </div>
+
+  <!-- toalettkart -->
+    <div class="container">
+      <div id="map"></div>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5QyVZg6FmI3ayYvcMs1tOfFBQWQoRio&callback=initMap">
+        </script>
+
+  <!-- Tittel under kartet -->
+    <div class="fullWidth pt">
+      <b>Offentlige toalett i Bergen</b>
+    </div>
+
+    <div class="col_enTre">
+        <div class="fullWidth pt">
+            <div class="white p1">
+              <h3>Hurtigsøk</h3>
+              <div class="inputGroup">
+                <input id="fullSearch" type="text" name="søk" placeholder="Søk her..">
+                <input class="button" type="button" onclick="searchAll()" value="Søk">
+              </div>
+
+            </div>
+          </div>
+
+      <div class="fullWidth pt">
+        <div class="white p1" id="formAdvanced">
+          <h3>Avansert søk</h3>
+          <p>Fyll ut ett eller flere felt</p>
+            <div class="inputGroup">
+              <input id="0" type="text" name="fritekst" placeholder="Navn, adresse">
+            </div>
+
+            <strong>Kjønn</strong><br>
+            <div class="inputGroup">
+              <label for="herre">
+              <input id="1" type="checkbox" name="herre">Herre</label>
+              <label for="dame">
+              <input id="2" type="checkbox" name="dame">Dame</label>
+            </div>
+
+            <strong>Fasiliteter</strong><br>
+            <div class="inputGroup">
+              <label for="rullestol">
+              <input id="3" type="checkbox" name="rullestol"> Rullestolilpasset</label>
+              <label for="stellerom">
+              <input id="4" type="checkbox" name="stellerom"> Stellerom</label>
+            </div>
+
+            <strong>Åpningstider</strong><br>
+            <div class="inputGroup">
+              <label for="openTime">Åpent i dag kl
+              <input id="5" type="time" name="openTime" placeholder="00.00"></label>
+              <label for="openNow">
+              <input id="6" type="checkbox" name="openNow"> Åpent nå</label>
+            </div>
+
+            <strong>Pris</strong><br>
+            <div class="inputGroup">
+              <input id="7" type="number" name="maksPris" placeholder="Makspris">
+              <br>
+              <label for="gratis">
+              <input id="8" type="checkbox" name="gratis"> Gratis </label>
+            </div>
+
+            <input class="button" type="button" onclick="advancedSearch()" value="Søk">
+
+            <input class="button" type="button" onclick="request(toaletter)" value="Nullstill">
+
+            <!-- Legg til "clear search" button -->
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col_toTre pt">
+        <div class="white p1">
+          <h3>Søkeresultater</h3>
+          <ol id="objList"></ol>
+        </div>
+    </div>
+    <script>loadMap(toaletter);</script>
+  </div>
+  <!-- <div class="searchBar"> -->
+  </div>
+</body>
+</html>
