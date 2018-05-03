@@ -93,7 +93,7 @@ function smallSearch() {
       } else if (input.name == "berg"){
         searchObject["berg"] = "ja";
       } else if(input.name = "sentrum"){
-        searchObject["location"] = "sentrum";
+        searchObject["lovation"] = "sentrum";
       }
     }
   }
@@ -208,6 +208,10 @@ function search(list, searchObject) {
         if(hasKey){
           truthChecker.push(true);
         }
+      } else if (searchParams[y].includes("berg")){
+        
+        searchObject["latitude"] = "58.970008";
+        searchObject["longitude"] = "5.733369";
       } else if(list[i][searchParams[y]] == searchObject[searchParams[y]]) {
 				truthChecker.push(true);
       };
