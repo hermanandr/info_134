@@ -29,8 +29,10 @@ function addInfo(list, marker, i){
       erNavn = false;
     }
     var text;
-      if(erNavn) {
-        text = "<div id='info'><h3>" + list[i].navn + "</h3><a onclick='chooseFavourite(data, data[" + i + "])'> <u><h4>Velg som favoritt</h4></u></a>"
+      if(erNavn && document.getElementById('reload')) {
+        text = "<div id='info'><h3>" + list[i].navn + "</h3><a onclick='chooseFavourite(data, data[" + i + "])'> <u><h4>Velg som favoritt</h4></u></a></div>"
+      }else if(erNavn){
+        text = "<div id='info'><h3>" + list[i].navn + "</h3>"
       }else{
         text = "<div id='info'><h3>" + list[i].plassering + "</h3>"
         + "<h4>" + list[i].adresse + "</h4>";
@@ -51,7 +53,7 @@ function addInfo(list, marker, i){
 
 // legger til en liste over alle de forskjellige markørene. 'erNavn' bestemmer hvilke attributter objektene navngis fra.
 function addList(list){
-  if(erNavn) {
+  if(erNavn && document.getElementById('reload')) {
     for(var x = 0; x < list.length; x++){
       var liste = document.getElementById('objList');
       var navn = list[x].navn;
@@ -60,6 +62,16 @@ function addList(list){
       a.textContent = navn;
       a.setAttribute('onclick', 'chooseFavourite(data, data[' + x + '])' );
       obj.appendChild(a);
+      document.getElementById("objList").appendChild(obj);
+    }
+  }
+  if(erNavn) {
+    for(var x = 0; x < list.length; x++){
+      var liste = document.getElementById('objList');
+      var navn = list[x].navn;
+      var text = document.createTextNode(navn);
+      var obj = document.createElement("li");
+      obj.appendChild(text);
       document.getElementById("objList").appendChild(obj);
     }
   } else if(list[0].plassering != undefined) {
