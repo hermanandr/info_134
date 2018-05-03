@@ -159,7 +159,7 @@ function advancedSearch() {
       }
     }
   };
-
+ 
   search(data, searchObject);
 }
 
