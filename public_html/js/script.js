@@ -264,6 +264,7 @@ var findDistance = function (marker1, marker2){
   var distance = Math.sqrt((lat*lat)+(lng*lng));
   return distance;
 }
+
 function findNeighbour(lekeplass, list){
   var closest;
   var shortest;
