@@ -3,6 +3,7 @@ var toaletter = "https://hotell.difi.no/api/json/bergen/dokart";
 var lekeplasser = "https://hotell.difi.no/api/json/bergen/lekeplasser?";
 var utsiktspunkt = "https://hotell.difi.no/api/json/stavanger/utsiktspunkt?";
 
+//koordinater til de syv fjell som vises på kartet på hjem-siden
 var fjell = [
   {navn: 'ulriken',          latitude:60.378, longitude:5.387},
   {navn: 'fløyfjellet',      latitude:60.399, longitude:5.345},
@@ -265,6 +266,7 @@ var findDistance = function (marker1, marker2){
   return distance;
 }
 
+//Finner nærmeste toalett 
 function findNeighbour(lekeplass, list){
   var closest;
   var shortest;
@@ -281,6 +283,7 @@ function findNeighbour(lekeplass, list){
   return closest;
 }
 
+//Valg av favoritt lekeplass
 function chooseFavourite(list, lekeplass){
   var chosen = [];
   favourite = lekeplass;
