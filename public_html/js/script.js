@@ -116,26 +116,24 @@ function smallSearch() {
   search(data, searchObject);
 }
 
-// Hurtigsøk, jævla hurtigsøk
+// Funksjonen oppretter et søkeobjekt som inneholder alle kritieriene brukeren skirver inn i hurtigsøk.
 function searchAll() {
   var input = document.getElementById("fullSearch");
   var searchObject = {}; //Oppretter et tomt søkeobjekt
   var time = new Date(); //Finner dato og tid for nå
-
-
-  console.log(input.value);
 
   //Splitter teksten brukeren skrev inn, ved hvert ",".
   var split = /([^,]+)/ig
   var splitInput = input.value.match(split);
 
   var pris = /pris:/ig;
-  var herre = /herre/ig;
-  var dame = /dame/ig;
-  var rullestol = /rullestol/ig;
-  var stellerom = /stellerom/ig;
-  var openNow = /Åpent nå/ig;
+  var herre = /^herre$/ig;
+  var dame = /^dame$/ig;
+  var rullestol = /^rullestol$/ig;
+  var stellerom = /^stellerom$/ig;
+  var openNow = /^Åpen nå$/ig;
 
+  //Sjekker vert søkekriterie opp mot hver key i hvert element i datasettet
   for(i=0; i < splitInput.length; i++) {
     if(splitInput[i].match(pris)){
       var cost = /(\d+)/;
@@ -149,7 +147,7 @@ function searchAll() {
       searchObject["rullestol"] = "1";
     } else if(splitInput[i].match(stellerom)){
       searchObject["stellerom"] = "1";
-    } else if(splitInput[i].match(stellerom)){
+    } else if(splitInput[i].match(openNow)){
       if(time.getDay == 0){
         searchObject["tid_sondag"] = time.getHours() + ":" + time.getMinutes();
       } else if(time.getDay == 6) {
@@ -158,22 +156,12 @@ function searchAll() {
         searchObject["tid_hverdag"] = time.getHours() + ":" + time.getMinutes();
       };
     } else {}
-
   }
 
   console.log(searchObject);
 
   search(data, searchObject);
 
-
-  /* for(x = 0; x < splitInput.length; x++) {
-    var adresse = list[i]["adresse"].toUpperCase();
-    var navn = list[i]["plassering"].toUpperCase();
-    var sok = splitInput[x].toUpperCase();
-    if(sok == navn || sok == adresse){
-      truthChecker.push(true);
-    }
-  } */
 }
 
 // Oppretter et søkeobjekt som inneholder alle kritieriene brukeren fyller ut i skjemaet "Avansert søk"
