@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <title>Kart</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  </head>
+    <body onload="loadMap()">
+      <header>
+        <!--  -->
+        <a href="index.html"><div id="logo">
+          <h2> Bergens 7 </h2>
+        </div></a>
+        <nav id="HamburgerMeny">
+          <!-- Menyknapp -->
+          <div id="Knapp">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="Meny">
+                <li><a href="index.html">Hjem</a></li>
+                <li><a href="map.html">Toaletter</a></li>
+                <li><a href="lekeplass.html">Lekeplass</a></li>
+                <li><a href="utsiktspunkt.html">Utsiktspunkt</a></li>
+                <li><a href="Om-oss.html">Om oss</a></li>
+              </ul>
+            </div>
+          </nav>
+          <nav id="StorMeny">
+            <ul>
+              <li><a href="Om-oss.html">Om oss</a></li>
+              <li><a href="utsiktspunkt.html">Utsiktspunkt</a></li>
+              <li><a href="lekeplass.html">Lekeplass</a></li>
+              <li><a href="map.html"> Toaletter </a></li>
+              <li><a href="index.html"> Hjem </a></li>
+            </ul>
+        </nav>
+        </header>
+<!-- Hovedinnhold -->
+  <!-- Forsidebilde -->
+  <div id=topBanner1> </div>
+
+  <!-- toalettkart -->
+    <div class="container">
+      <div id="map"></div>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5QyVZg6FmI3ayYvcMs1tOfFBQWQoRio&callback=initMap">
+        </script>
+
+  <!-- Tittel under kartet -->
+    <div class = "p1">
+      <b>Offentlige toalett i Bergen</b>
+    </div>
+
+    <div class="col_enTre">
+      <div class="fullWidth pt">
+        <div class="white p1">
+          <p>Hurtigsøk</p>
+          <input type="text" placeholder="Søk her..">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+      <div class="fullWidth pt">
+        <div class="white p1">
+          <h3>Avansert søk</h3>
+          <form action="" method="get">
+            <strong>Kjønn</strong><br>
+            <div class="inputGroup">
+              <input type="checkbox" name="Kjønn" value="herre"> Herre
+              <input type="checkbox" name="Kjønn" value="dame"> Dame
+            </div>
+            <strong>Fasiliteter</strong><br>
+            <div class="inputGroup">
+              <input type="checkbox" name="Fasiliteter" value="rullestol"> Rullestolilpasset
+              <input type="checkbox" name="Fasiliteter" value="stellerom"> Stellerom
+            </div>
+            <strong>Åpningstider</strong><br>
+            <div class="inputGroup">
+              <input type="number" name="Åpent" value="timeStart" placeholder="Åpner kl">
+              <input type="number" name="Åpent" value="timeEnd" placeholder="Stenger kl">
+              <input type="checkbox" name="Åpent" value="openNow"> Åpent nå
+            </div>
+            <strong>Pris</strong><br>
+            <div class="inputGroup">
+              <input type="number" name="Pris" value="maksPris"> Makspris
+              <br>
+              <input type="checkbox" name="Pris" value="gratis"> Gratis
+            </div>
+            <input type="submit" value="Søk">
+          </form>
+
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+    <div class="col_enTre pt">
+      <div class="white p1">
+        <p>Her kan man søke</p>
+        <input type="text" placeholder="Søk her..">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+    <div class="col_toTre pt">
+        <div class="white p1">
+          <h3>Søkeresultater</h3>
+          <ol id="objList"></ol>
+        </div>
+    </div>
+    <script>loadMap(toaletter);</script>
+  </div>
+  <!-- <div class="searchBar"> -->
+  </div>
+</body>
+</html>
